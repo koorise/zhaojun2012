@@ -2518,484 +2518,6 @@ namespace WangxiaoCN
 
     } 
     
-   
-    /// <summary>
-    /// A class which represents the WXSysExamCategory table in the WangxiaoCN Database.
-    /// </summary>
-    public partial class WXSysExamCategory: IActiveRecord
-    {
-    
-        #region Built-in testing
-        static TestRepository<WXSysExamCategory> _testRepo;
-        
-
-        
-        static void SetTestRepo(){
-            _testRepo = _testRepo ?? new TestRepository<WXSysExamCategory>(new WangxiaoCN.WangxiaoCNDB());
-        }
-        public static void ResetTestRepo(){
-            _testRepo = null;
-            SetTestRepo();
-        }
-        public static void Setup(List<WXSysExamCategory> testlist){
-            SetTestRepo();
-            foreach (var item in testlist)
-            {
-                _testRepo._items.Add(item);
-            }
-        }
-        public static void Setup(WXSysExamCategory item) {
-            SetTestRepo();
-            _testRepo._items.Add(item);
-        }
-        public static void Setup(int testItems) {
-            SetTestRepo();
-            for(int i=0;i<testItems;i++){
-                WXSysExamCategory item=new WXSysExamCategory();
-                _testRepo._items.Add(item);
-            }
-        }
-        
-        public bool TestMode = false;
-
-
-        #endregion
-
-        IRepository<WXSysExamCategory> _repo;
-        ITable tbl;
-        bool _isNew;
-        public bool IsNew(){
-            return _isNew;
-        }
-        
-        public void SetIsLoaded(bool isLoaded){
-            _isLoaded=isLoaded;
-            if(isLoaded)
-                OnLoaded();
-        }
-        
-        public void SetIsNew(bool isNew){
-            _isNew=isNew;
-        }
-        bool _isLoaded;
-        public bool IsLoaded(){
-            return _isLoaded;
-        }
-                
-        List<IColumn> _dirtyColumns;
-        public bool IsDirty(){
-            return _dirtyColumns.Count>0;
-        }
-        
-        public List<IColumn> GetDirtyColumns (){
-            return _dirtyColumns;
-        }
-
-        WangxiaoCN.WangxiaoCNDB _db;
-        public WXSysExamCategory(string connectionString, string providerName) {
-
-            _db=new WangxiaoCN.WangxiaoCNDB(connectionString, providerName);
-            Init();            
-         }
-        void Init(){
-            TestMode=this._db.DataProvider.ConnectionString.Equals("test", StringComparison.InvariantCultureIgnoreCase);
-            _dirtyColumns=new List<IColumn>();
-            if(TestMode){
-                WXSysExamCategory.SetTestRepo();
-                _repo=_testRepo;
-            }else{
-                _repo = new SubSonicRepository<WXSysExamCategory>(_db);
-            }
-            tbl=_repo.GetTable();
-            SetIsNew(true);
-            OnCreated();       
-
-        }
-        
-        public WXSysExamCategory(){
-             _db=new WangxiaoCN.WangxiaoCNDB();
-            Init();            
-        }
-        
-       
-        partial void OnCreated();
-            
-        partial void OnLoaded();
-        
-        partial void OnSaved();
-        
-        partial void OnChanged();
-        
-        public IList<IColumn> Columns{
-            get{
-                return tbl.Columns;
-            }
-        }
-
-        public WXSysExamCategory(Expression<Func<WXSysExamCategory, bool>> expression):this() {
-
-            SetIsLoaded(_repo.Load(this,expression));
-        }
-        
-       
-        
-        internal static IRepository<WXSysExamCategory> GetRepo(string connectionString, string providerName){
-            WangxiaoCN.WangxiaoCNDB db;
-            if(String.IsNullOrEmpty(connectionString)){
-                db=new WangxiaoCN.WangxiaoCNDB();
-            }else{
-                db=new WangxiaoCN.WangxiaoCNDB(connectionString, providerName);
-            }
-            IRepository<WXSysExamCategory> _repo;
-            
-            if(db.TestMode){
-                WXSysExamCategory.SetTestRepo();
-                _repo=_testRepo;
-            }else{
-                _repo = new SubSonicRepository<WXSysExamCategory>(db);
-            }
-            return _repo;        
-        }       
-        
-        internal static IRepository<WXSysExamCategory> GetRepo(){
-            return GetRepo("","");
-        }
-        
-        public static WXSysExamCategory SingleOrDefault(Expression<Func<WXSysExamCategory, bool>> expression) {
-
-            var repo = GetRepo();
-            var results=repo.Find(expression);
-            WXSysExamCategory single=null;
-            if(results.Count() > 0){
-                single=results.ToList()[0];
-                single.OnLoaded();
-                single.SetIsLoaded(true);
-                single.SetIsNew(false);
-            }
-
-            return single;
-        }      
-        
-        public static WXSysExamCategory SingleOrDefault(Expression<Func<WXSysExamCategory, bool>> expression,string connectionString, string providerName) {
-            var repo = GetRepo(connectionString,providerName);
-            var results=repo.Find(expression);
-            WXSysExamCategory single=null;
-            if(results.Count() > 0){
-                single=results.ToList()[0];
-            }
-
-            return single;
-
-
-        }
-        
-        
-        public static bool Exists(Expression<Func<WXSysExamCategory, bool>> expression,string connectionString, string providerName) {
-           
-            return All(connectionString,providerName).Any(expression);
-        }        
-        public static bool Exists(Expression<Func<WXSysExamCategory, bool>> expression) {
-           
-            return All().Any(expression);
-        }        
-
-        public static IList<WXSysExamCategory> Find(Expression<Func<WXSysExamCategory, bool>> expression) {
-            
-            var repo = GetRepo();
-            return repo.Find(expression).ToList();
-        }
-        
-        public static IList<WXSysExamCategory> Find(Expression<Func<WXSysExamCategory, bool>> expression,string connectionString, string providerName) {
-
-            var repo = GetRepo(connectionString,providerName);
-            return repo.Find(expression).ToList();
-
-        }
-        public static IQueryable<WXSysExamCategory> All(string connectionString, string providerName) {
-            return GetRepo(connectionString,providerName).GetAll();
-        }
-        public static IQueryable<WXSysExamCategory> All() {
-            return GetRepo().GetAll();
-        }
-        
-        public static PagedList<WXSysExamCategory> GetPaged(string sortBy, int pageIndex, int pageSize,string connectionString, string providerName) {
-            return GetRepo(connectionString,providerName).GetPaged(sortBy, pageIndex, pageSize);
-        }
-      
-        public static PagedList<WXSysExamCategory> GetPaged(string sortBy, int pageIndex, int pageSize) {
-            return GetRepo().GetPaged(sortBy, pageIndex, pageSize);
-        }
-
-        public static PagedList<WXSysExamCategory> GetPaged(int pageIndex, int pageSize,string connectionString, string providerName) {
-            return GetRepo(connectionString,providerName).GetPaged(pageIndex, pageSize);
-            
-        }
-
-
-        public static PagedList<WXSysExamCategory> GetPaged(int pageIndex, int pageSize) {
-            return GetRepo().GetPaged(pageIndex, pageSize);
-            
-        }
-
-        public string KeyName()
-        {
-            return "ID";
-        }
-
-        public object KeyValue()
-        {
-            return this.ID;
-        }
-        
-        public void SetKeyValue(object value) {
-            if (value != null && value!=DBNull.Value) {
-                var settable = value.ChangeTypeTo<int>();
-                this.GetType().GetProperty(this.KeyName()).SetValue(this, settable, null);
-            }
-        }
-        
-        public override string ToString(){
-                            return this.className.ToString();
-                    }
-
-        public override bool Equals(object obj){
-            if(obj.GetType()==typeof(WXSysExamCategory)){
-                WXSysExamCategory compare=(WXSysExamCategory)obj;
-                return compare.KeyValue()==this.KeyValue();
-            }else{
-                return base.Equals(obj);
-            }
-        }
-
-        
-        public override int GetHashCode() {
-            return this.ID;
-        }
-        
-        public string DescriptorValue()
-        {
-                            return this.className.ToString();
-                    }
-
-        public string DescriptorColumn() {
-            return "className";
-        }
-        public static string GetKeyColumn()
-        {
-            return "ID";
-        }        
-        public static string GetDescriptorColumn()
-        {
-            return "className";
-        }
-        
-        #region ' Foreign Keys '
-        #endregion
-        
-
-        int _ID;
-        public int ID
-        {
-            get { return _ID; }
-            set
-            {
-                if(_ID!=value){
-                    _ID=value;
-                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="ID");
-                    if(col!=null){
-                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
-                            _dirtyColumns.Add(col);
-                        }
-                    }
-                    OnChanged();
-                }
-            }
-        }
-
-        string _className;
-        public string className
-        {
-            get { return _className; }
-            set
-            {
-                if(_className!=value){
-                    _className=value;
-                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="className");
-                    if(col!=null){
-                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
-                            _dirtyColumns.Add(col);
-                        }
-                    }
-                    OnChanged();
-                }
-            }
-        }
-
-        string _path;
-        public string path
-        {
-            get { return _path; }
-            set
-            {
-                if(_path!=value){
-                    _path=value;
-                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="path");
-                    if(col!=null){
-                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
-                            _dirtyColumns.Add(col);
-                        }
-                    }
-                    OnChanged();
-                }
-            }
-        }
-
-        int? _bigid;
-        public int? bigid
-        {
-            get { return _bigid; }
-            set
-            {
-                if(_bigid!=value){
-                    _bigid=value;
-                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="bigid");
-                    if(col!=null){
-                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
-                            _dirtyColumns.Add(col);
-                        }
-                    }
-                    OnChanged();
-                }
-            }
-        }
-
-
-
-        public DbCommand GetUpdateCommand() {
-            if(TestMode)
-                return _db.DataProvider.CreateCommand();
-            else
-                return this.ToUpdateQuery(_db.Provider).GetCommand().ToDbCommand();
-            
-        }
-        public DbCommand GetInsertCommand() {
- 
-            if(TestMode)
-                return _db.DataProvider.CreateCommand();
-            else
-                return this.ToInsertQuery(_db.Provider).GetCommand().ToDbCommand();
-        }
-        
-        public DbCommand GetDeleteCommand() {
-            if(TestMode)
-                return _db.DataProvider.CreateCommand();
-            else
-                return this.ToDeleteQuery(_db.Provider).GetCommand().ToDbCommand();
-        }
-       
-        
-        public void Update(){
-            Update(_db.DataProvider);
-        }
-        
-        public void Update(IDataProvider provider){
-        
-            
-            if(this._dirtyColumns.Count>0){
-                _repo.Update(this,provider);
-                _dirtyColumns.Clear();    
-            }
-            OnSaved();
-       }
- 
-        public void Add(){
-            Add(_db.DataProvider);
-        }
-        
-        
-       
-        public void Add(IDataProvider provider){
-
-            
-            var key=KeyValue();
-            if(key==null){
-                var newKey=_repo.Add(this,provider);
-                this.SetKeyValue(newKey);
-            }else{
-                _repo.Add(this,provider);
-            }
-            SetIsNew(false);
-            OnSaved();
-        }
-        
-                
-        
-        public void Save() {
-            Save(_db.DataProvider);
-        }      
-        public void Save(IDataProvider provider) {
-            
-           
-            if (_isNew) {
-                Add(provider);
-                
-            } else {
-                Update(provider);
-            }
-            
-        }
-
-        
-
-        public void Delete(IDataProvider provider) {
-                   
-                 
-            _repo.Delete(KeyValue());
-            
-                    }
-
-
-        public void Delete() {
-            Delete(_db.DataProvider);
-        }
-
-
-        public static void Delete(Expression<Func<WXSysExamCategory, bool>> expression) {
-            var repo = GetRepo();
-            
-       
-            
-            repo.DeleteMany(expression);
-            
-        }
-
-        
-
-        public void Load(IDataReader rdr) {
-            Load(rdr, true);
-        }
-        public void Load(IDataReader rdr, bool closeReader) {
-            if (rdr.Read()) {
-
-                try {
-                    rdr.Load(this);
-                    SetIsNew(false);
-                    SetIsLoaded(true);
-                } catch {
-                    SetIsLoaded(false);
-                    throw;
-                }
-            }else{
-                SetIsLoaded(false);
-            }
-
-            if (closeReader)
-                rdr.Dispose();
-        }
-        
-
-    } 
-    
     
     /// <summary>
     /// A class which represents the WXAdminUsers table in the WangxiaoCN Database.
@@ -4490,6 +4012,503 @@ namespace WangxiaoCN
 
 
         public static void Delete(Expression<Func<WXUser, bool>> expression) {
+            var repo = GetRepo();
+            
+       
+            
+            repo.DeleteMany(expression);
+            
+        }
+
+        
+
+        public void Load(IDataReader rdr) {
+            Load(rdr, true);
+        }
+        public void Load(IDataReader rdr, bool closeReader) {
+            if (rdr.Read()) {
+
+                try {
+                    rdr.Load(this);
+                    SetIsNew(false);
+                    SetIsLoaded(true);
+                } catch {
+                    SetIsLoaded(false);
+                    throw;
+                }
+            }else{
+                SetIsLoaded(false);
+            }
+
+            if (closeReader)
+                rdr.Dispose();
+        }
+        
+
+    } 
+    
+    
+    /// <summary>
+    /// A class which represents the WXSysExamCategory table in the WangxiaoCN Database.
+    /// </summary>
+    public partial class WXSysExamCategory: IActiveRecord
+    {
+    
+        #region Built-in testing
+        static TestRepository<WXSysExamCategory> _testRepo;
+        
+
+        
+        static void SetTestRepo(){
+            _testRepo = _testRepo ?? new TestRepository<WXSysExamCategory>(new WangxiaoCN.WangxiaoCNDB());
+        }
+        public static void ResetTestRepo(){
+            _testRepo = null;
+            SetTestRepo();
+        }
+        public static void Setup(List<WXSysExamCategory> testlist){
+            SetTestRepo();
+            foreach (var item in testlist)
+            {
+                _testRepo._items.Add(item);
+            }
+        }
+        public static void Setup(WXSysExamCategory item) {
+            SetTestRepo();
+            _testRepo._items.Add(item);
+        }
+        public static void Setup(int testItems) {
+            SetTestRepo();
+            for(int i=0;i<testItems;i++){
+                WXSysExamCategory item=new WXSysExamCategory();
+                _testRepo._items.Add(item);
+            }
+        }
+        
+        public bool TestMode = false;
+
+
+        #endregion
+
+        IRepository<WXSysExamCategory> _repo;
+        ITable tbl;
+        bool _isNew;
+        public bool IsNew(){
+            return _isNew;
+        }
+        
+        public void SetIsLoaded(bool isLoaded){
+            _isLoaded=isLoaded;
+            if(isLoaded)
+                OnLoaded();
+        }
+        
+        public void SetIsNew(bool isNew){
+            _isNew=isNew;
+        }
+        bool _isLoaded;
+        public bool IsLoaded(){
+            return _isLoaded;
+        }
+                
+        List<IColumn> _dirtyColumns;
+        public bool IsDirty(){
+            return _dirtyColumns.Count>0;
+        }
+        
+        public List<IColumn> GetDirtyColumns (){
+            return _dirtyColumns;
+        }
+
+        WangxiaoCN.WangxiaoCNDB _db;
+        public WXSysExamCategory(string connectionString, string providerName) {
+
+            _db=new WangxiaoCN.WangxiaoCNDB(connectionString, providerName);
+            Init();            
+         }
+        void Init(){
+            TestMode=this._db.DataProvider.ConnectionString.Equals("test", StringComparison.InvariantCultureIgnoreCase);
+            _dirtyColumns=new List<IColumn>();
+            if(TestMode){
+                WXSysExamCategory.SetTestRepo();
+                _repo=_testRepo;
+            }else{
+                _repo = new SubSonicRepository<WXSysExamCategory>(_db);
+            }
+            tbl=_repo.GetTable();
+            SetIsNew(true);
+            OnCreated();       
+
+        }
+        
+        public WXSysExamCategory(){
+             _db=new WangxiaoCN.WangxiaoCNDB();
+            Init();            
+        }
+        
+       
+        partial void OnCreated();
+            
+        partial void OnLoaded();
+        
+        partial void OnSaved();
+        
+        partial void OnChanged();
+        
+        public IList<IColumn> Columns{
+            get{
+                return tbl.Columns;
+            }
+        }
+
+        public WXSysExamCategory(Expression<Func<WXSysExamCategory, bool>> expression):this() {
+
+            SetIsLoaded(_repo.Load(this,expression));
+        }
+        
+       
+        
+        internal static IRepository<WXSysExamCategory> GetRepo(string connectionString, string providerName){
+            WangxiaoCN.WangxiaoCNDB db;
+            if(String.IsNullOrEmpty(connectionString)){
+                db=new WangxiaoCN.WangxiaoCNDB();
+            }else{
+                db=new WangxiaoCN.WangxiaoCNDB(connectionString, providerName);
+            }
+            IRepository<WXSysExamCategory> _repo;
+            
+            if(db.TestMode){
+                WXSysExamCategory.SetTestRepo();
+                _repo=_testRepo;
+            }else{
+                _repo = new SubSonicRepository<WXSysExamCategory>(db);
+            }
+            return _repo;        
+        }       
+        
+        internal static IRepository<WXSysExamCategory> GetRepo(){
+            return GetRepo("","");
+        }
+        
+        public static WXSysExamCategory SingleOrDefault(Expression<Func<WXSysExamCategory, bool>> expression) {
+
+            var repo = GetRepo();
+            var results=repo.Find(expression);
+            WXSysExamCategory single=null;
+            if(results.Count() > 0){
+                single=results.ToList()[0];
+                single.OnLoaded();
+                single.SetIsLoaded(true);
+                single.SetIsNew(false);
+            }
+
+            return single;
+        }      
+        
+        public static WXSysExamCategory SingleOrDefault(Expression<Func<WXSysExamCategory, bool>> expression,string connectionString, string providerName) {
+            var repo = GetRepo(connectionString,providerName);
+            var results=repo.Find(expression);
+            WXSysExamCategory single=null;
+            if(results.Count() > 0){
+                single=results.ToList()[0];
+            }
+
+            return single;
+
+
+        }
+        
+        
+        public static bool Exists(Expression<Func<WXSysExamCategory, bool>> expression,string connectionString, string providerName) {
+           
+            return All(connectionString,providerName).Any(expression);
+        }        
+        public static bool Exists(Expression<Func<WXSysExamCategory, bool>> expression) {
+           
+            return All().Any(expression);
+        }        
+
+        public static IList<WXSysExamCategory> Find(Expression<Func<WXSysExamCategory, bool>> expression) {
+            
+            var repo = GetRepo();
+            return repo.Find(expression).ToList();
+        }
+        
+        public static IList<WXSysExamCategory> Find(Expression<Func<WXSysExamCategory, bool>> expression,string connectionString, string providerName) {
+
+            var repo = GetRepo(connectionString,providerName);
+            return repo.Find(expression).ToList();
+
+        }
+        public static IQueryable<WXSysExamCategory> All(string connectionString, string providerName) {
+            return GetRepo(connectionString,providerName).GetAll();
+        }
+        public static IQueryable<WXSysExamCategory> All() {
+            return GetRepo().GetAll();
+        }
+        
+        public static PagedList<WXSysExamCategory> GetPaged(string sortBy, int pageIndex, int pageSize,string connectionString, string providerName) {
+            return GetRepo(connectionString,providerName).GetPaged(sortBy, pageIndex, pageSize);
+        }
+      
+        public static PagedList<WXSysExamCategory> GetPaged(string sortBy, int pageIndex, int pageSize) {
+            return GetRepo().GetPaged(sortBy, pageIndex, pageSize);
+        }
+
+        public static PagedList<WXSysExamCategory> GetPaged(int pageIndex, int pageSize,string connectionString, string providerName) {
+            return GetRepo(connectionString,providerName).GetPaged(pageIndex, pageSize);
+            
+        }
+
+
+        public static PagedList<WXSysExamCategory> GetPaged(int pageIndex, int pageSize) {
+            return GetRepo().GetPaged(pageIndex, pageSize);
+            
+        }
+
+        public string KeyName()
+        {
+            return "ID";
+        }
+
+        public object KeyValue()
+        {
+            return this.ID;
+        }
+        
+        public void SetKeyValue(object value) {
+            if (value != null && value!=DBNull.Value) {
+                var settable = value.ChangeTypeTo<int>();
+                this.GetType().GetProperty(this.KeyName()).SetValue(this, settable, null);
+            }
+        }
+        
+        public override string ToString(){
+                            return this.className.ToString();
+                    }
+
+        public override bool Equals(object obj){
+            if(obj.GetType()==typeof(WXSysExamCategory)){
+                WXSysExamCategory compare=(WXSysExamCategory)obj;
+                return compare.KeyValue()==this.KeyValue();
+            }else{
+                return base.Equals(obj);
+            }
+        }
+
+        
+        public override int GetHashCode() {
+            return this.ID;
+        }
+        
+        public string DescriptorValue()
+        {
+                            return this.className.ToString();
+                    }
+
+        public string DescriptorColumn() {
+            return "className";
+        }
+        public static string GetKeyColumn()
+        {
+            return "ID";
+        }        
+        public static string GetDescriptorColumn()
+        {
+            return "className";
+        }
+        
+        #region ' Foreign Keys '
+        #endregion
+        
+
+        int _ID;
+        public int ID
+        {
+            get { return _ID; }
+            set
+            {
+                if(_ID!=value){
+                    _ID=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="ID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        Guid _GID;
+        public Guid GID
+        {
+            get { return _GID; }
+            set
+            {
+                if(_GID!=value){
+                    _GID=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="GID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        Guid _PID;
+        public Guid PID
+        {
+            get { return _PID; }
+            set
+            {
+                if(_PID!=value){
+                    _PID=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="PID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        string _className;
+        public string className
+        {
+            get { return _className; }
+            set
+            {
+                if(_className!=value){
+                    _className=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="className");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        string _path;
+        public string path
+        {
+            get { return _path; }
+            set
+            {
+                if(_path!=value){
+                    _path=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="path");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+
+
+        public DbCommand GetUpdateCommand() {
+            if(TestMode)
+                return _db.DataProvider.CreateCommand();
+            else
+                return this.ToUpdateQuery(_db.Provider).GetCommand().ToDbCommand();
+            
+        }
+        public DbCommand GetInsertCommand() {
+ 
+            if(TestMode)
+                return _db.DataProvider.CreateCommand();
+            else
+                return this.ToInsertQuery(_db.Provider).GetCommand().ToDbCommand();
+        }
+        
+        public DbCommand GetDeleteCommand() {
+            if(TestMode)
+                return _db.DataProvider.CreateCommand();
+            else
+                return this.ToDeleteQuery(_db.Provider).GetCommand().ToDbCommand();
+        }
+       
+        
+        public void Update(){
+            Update(_db.DataProvider);
+        }
+        
+        public void Update(IDataProvider provider){
+        
+            
+            if(this._dirtyColumns.Count>0){
+                _repo.Update(this,provider);
+                _dirtyColumns.Clear();    
+            }
+            OnSaved();
+       }
+ 
+        public void Add(){
+            Add(_db.DataProvider);
+        }
+        
+        
+       
+        public void Add(IDataProvider provider){
+
+            
+            var key=KeyValue();
+            if(key==null){
+                var newKey=_repo.Add(this,provider);
+                this.SetKeyValue(newKey);
+            }else{
+                _repo.Add(this,provider);
+            }
+            SetIsNew(false);
+            OnSaved();
+        }
+        
+                
+        
+        public void Save() {
+            Save(_db.DataProvider);
+        }      
+        public void Save(IDataProvider provider) {
+            
+           
+            if (_isNew) {
+                Add(provider);
+                
+            } else {
+                Update(provider);
+            }
+            
+        }
+
+        
+
+        public void Delete(IDataProvider provider) {
+                   
+                 
+            _repo.Delete(KeyValue());
+            
+                    }
+
+
+        public void Delete() {
+            Delete(_db.DataProvider);
+        }
+
+
+        public static void Delete(Expression<Func<WXSysExamCategory, bool>> expression) {
             var repo = GetRepo();
             
        
