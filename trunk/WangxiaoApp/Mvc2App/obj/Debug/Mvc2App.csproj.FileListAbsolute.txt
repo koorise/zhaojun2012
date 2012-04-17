@@ -1,0 +1,6 @@
+D:\2012\WangxiaoApp\Mvc2App\bin\Mvc2App.dll
+D:\2012\WangxiaoApp\Mvc2App\bin\Mvc2App.pdb
+D:\2012\WangxiaoApp\Mvc2App\bin\SubSonic.Core.dll
+D:\2012\WangxiaoApp\Mvc2App\obj\Debug\ResolveAssemblyReference.cache
+D:\2012\WangxiaoApp\Mvc2App\obj\Debug\Mvc2App.dll
+D:\2012\WangxiaoApp\Mvc2App\obj\Debug\Mvc2App.pdb
