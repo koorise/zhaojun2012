@@ -30,6 +30,8 @@
     <ext:FormPanel ID="FormPanel1" runat="server" ButtonAlign="Right" Region="Center"   Padding="5"
         Title="分类字典管理" >
         <Items> 
+            <ext:TextField ID="txtParentID"  FieldLabel="目录ID" AnchorHorizontal="100%"  Disabled="true"  runat="server">
+            </ext:TextField>
             <ext:TextField ID="txtParent"  FieldLabel="选择目录" AnchorHorizontal="100%"  Disabled="true"  runat="server">
             </ext:TextField>
             <ext:TextField ID="txtSelf" FieldLabel="名称" AnchorHorizontal="100%" runat="server">

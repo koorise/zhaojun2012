@@ -677,264 +677,6 @@ namespace WangxiaoCN {
         }
         
         /// <summary>
-        /// Table: WXSysExamCategories
-        /// Primary Key: ID
-        /// </summary>
-
-        public class WXSysExamCategoriesTable: DatabaseTable {
-            
-            public WXSysExamCategoriesTable(IDataProvider provider):base("WXSysExamCategories",provider){
-                ClassName = "WXSysExamCategory";
-                SchemaName = "dbo";
-                
-
-                Columns.Add(new DatabaseColumn("ID", this)
-                {
-	                IsPrimaryKey = true,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = true,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("GID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("bigID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("className", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 255
-                });
-
-                Columns.Add(new DatabaseColumn("path", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 255
-                });
-                    
-                
-                
-            }
-
-            public IColumn ID{
-                get{
-                    return this.GetColumn("ID");
-                }
-            }
-				
-   			public static string IDColumn{
-			      get{
-        			return "ID";
-      			}
-		    }
-            
-            public IColumn GID{
-                get{
-                    return this.GetColumn("GID");
-                }
-            }
-				
-   			public static string GIDColumn{
-			      get{
-        			return "GID";
-      			}
-		    }
-            
-            public IColumn bigID{
-                get{
-                    return this.GetColumn("bigID");
-                }
-            }
-				
-   			public static string bigIDColumn{
-			      get{
-        			return "bigID";
-      			}
-		    }
-            
-            public IColumn className{
-                get{
-                    return this.GetColumn("className");
-                }
-            }
-				
-   			public static string classNameColumn{
-			      get{
-        			return "className";
-      			}
-		    }
-            
-            public IColumn path{
-                get{
-                    return this.GetColumn("path");
-                }
-            }
-				
-   			public static string pathColumn{
-			      get{
-        			return "path";
-      			}
-		    }
-            
-                    
-        }
-        
-        /// <summary>
-        /// Table: WXSysExamCategory
-        /// Primary Key: ID
-        /// </summary>
-
-        public class WXSysExamCategoryTable: DatabaseTable {
-            
-            public WXSysExamCategoryTable(IDataProvider provider):base("WXSysExamCategory",provider){
-                ClassName = "WXSysExamCategory";
-                SchemaName = "dbo";
-                
-
-                Columns.Add(new DatabaseColumn("ID", this)
-                {
-	                IsPrimaryKey = true,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = true,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("GID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("PID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("className", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 200
-                });
-
-                Columns.Add(new DatabaseColumn("path", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 4000
-                });
-                    
-                
-                
-            }
-
-            public IColumn ID{
-                get{
-                    return this.GetColumn("ID");
-                }
-            }
-				
-   			public static string IDColumn{
-			      get{
-        			return "ID";
-      			}
-		    }
-            
-            public IColumn GID{
-                get{
-                    return this.GetColumn("GID");
-                }
-            }
-				
-   			public static string GIDColumn{
-			      get{
-        			return "GID";
-      			}
-		    }
-            
-            public IColumn PID{
-                get{
-                    return this.GetColumn("PID");
-                }
-            }
-				
-   			public static string PIDColumn{
-			      get{
-        			return "PID";
-      			}
-		    }
-            
-            public IColumn className{
-                get{
-                    return this.GetColumn("className");
-                }
-            }
-				
-   			public static string classNameColumn{
-			      get{
-        			return "className";
-      			}
-		    }
-            
-            public IColumn path{
-                get{
-                    return this.GetColumn("path");
-                }
-            }
-				
-   			public static string pathColumn{
-			      get{
-        			return "path";
-      			}
-		    }
-            
-                    
-        }
-        
-        /// <summary>
         /// Table: WXAdminUsers
         /// Primary Key: ID
         /// </summary>
@@ -1359,6 +1101,135 @@ namespace WangxiaoCN {
    			public static string intimeColumn{
 			      get{
         			return "intime";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXSysExamCategory
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXSysExamCategoryTable: DatabaseTable {
+            
+            public WXSysExamCategoryTable(IDataProvider provider):base("WXSysExamCategory",provider){
+                ClassName = "WXSysExamCategory";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("GID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("PID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("className", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 200
+                });
+
+                Columns.Add(new DatabaseColumn("path", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 4000
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn GID{
+                get{
+                    return this.GetColumn("GID");
+                }
+            }
+				
+   			public static string GIDColumn{
+			      get{
+        			return "GID";
+      			}
+		    }
+            
+            public IColumn PID{
+                get{
+                    return this.GetColumn("PID");
+                }
+            }
+				
+   			public static string PIDColumn{
+			      get{
+        			return "PID";
+      			}
+		    }
+            
+            public IColumn className{
+                get{
+                    return this.GetColumn("className");
+                }
+            }
+				
+   			public static string classNameColumn{
+			      get{
+        			return "className";
+      			}
+		    }
+            
+            public IColumn path{
+                get{
+                    return this.GetColumn("path");
+                }
+            }
+				
+   			public static string pathColumn{
+			      get{
+        			return "path";
       			}
 		    }
             
