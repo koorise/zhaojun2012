@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using SubSonic.Linq.Structure;
+using SubSonic.Query;
 using SubSonic.Repository;
 using Ext.Net;
 using WangxiaoCN;
@@ -18,27 +19,18 @@ public partial class Dictionary_Category : System.Web.UI.Page
     {
         if(!IsPostBack)
         {
-            TreeBind();
+            this.BuildTree(TreePanel1.Root);
         }
     }
     protected void TreeBind()
     {
-        this.PlaceHolder1.Controls.Clear();
-        TreePanel tree = new TreePanel();
-        this.PlaceHolder1.Controls.Add(tree);
-
-        tree.ID = "TreePanel1";
-        tree.Width = Unit.Pixel(300);
-        tree.Region = Region.West;
-        tree.Icon = Icon.BookOpen;
-        tree.Title = "分类目录";
-        tree.AutoScroll = true;
-        tree.Listeners.Click.Handler = txtParent.ClientID + ".setValue(node.text,false);" + txtParentID.ClientID + ".setValue(node.id,false);";
+        
+        TreePanel1.Listeners.Click.Handler = txtParent.ClientID + ".setValue(node.text,false);" + txtParentID.ClientID + ".setValue(node.id,false);";
 
         root = new TreeNode(Config.g.ToString(), "Root", Icon.FolderHome);
         root.Expanded = true;
 
-        tree.Root.Add(root);
+        TreePanel1.Root.Add(root);
         TreeNodes(root, Config.g);
     }
     public void TreeNodes(TreeNode t,Guid guid)
@@ -63,6 +55,34 @@ public partial class Dictionary_Category : System.Web.UI.Page
             TreeNodes(tn, wx.GID);
         } 
     }
+
+    private Ext.Net.TreeNodeCollection BuildTree(Ext.Net.TreeNodeCollection nodes)
+    {
+        if (nodes == null)
+        {
+            nodes = new Ext.Net.TreeNodeCollection();
+        }
+
+        TreePanel1.Listeners.Click.Handler = txtParent.ClientID + ".setValue(node.text,false);" + txtParentID.ClientID + ".setValue(node.id,false);";
+
+        root = new TreeNode(Config.g.ToString(), "Root", Icon.FolderHome);
+        root.Expanded = true;
+
+        nodes.Add(root);
+        TreeNodes(root, Config.g); 
+         
+
+        return nodes;
+    }
+
+    [DirectMethod]
+    public string RefreshMenu()
+    {
+        Ext.Net.TreeNodeCollection nodes = this.BuildTree(null);
+
+        return nodes.ToJson();
+    }
+
     protected void btn_Click1(object s, DirectEventArgs e)
     {
         Guid gg = Guid.NewGuid();
@@ -80,20 +100,34 @@ public partial class Dictionary_Category : System.Web.UI.Page
         else
         {
             var q = WXSysExamCategory.SingleOrDefault(x => x.GID == GID);
-            wx.PID = q.PID;
-            var qq = WXSysExamCategory.SingleOrDefault(x => x.GID == q.PID);
-            wx.path = qq.path + "|" + gg;
-            wx.Save(); 
+            wx.PID = GID;
+            wx.path = q.path + "|" + gg;
+            wx.Save();
+
         }
-        TreeBind();
-         
+        X.Msg.Notify("成功", "增加分类成功！").Show(); 
     }
+
     protected void btn_Click2(object s, DirectEventArgs e)
     {
-        X.Msg.Alert("AA", txtParent.Text).Show();
+        Guid GID = new Guid(txtParentID.Text);
+        WXSysExamCategory wx = new WXSysExamCategory(x=>x.GID==GID);
+        wx.className = txtSelf.Text;
+        wx.Save();
+        X.Msg.Notify("成功", "修改该分类成功！").Show();
     }
     protected void btn_Click3(object s, DirectEventArgs e)
     {
-        X.Msg.Alert("AA", txtParent.Text).Show();
+        Guid GID = new Guid(txtParentID.Text);
+        bool result = WXSysExamCategory.Exists(x => x.PID == GID);
+        if(result)
+        {
+            X.Msg.Notify("错误", "请删除该分类下的子分类。").Show();
+        }
+        else
+        {
+            WXSysExamCategory.Delete(x=>x.GID==GID);
+            X.Msg.Notify("成功", "删除该分类成功！").Show();
+        }
     }
 }
