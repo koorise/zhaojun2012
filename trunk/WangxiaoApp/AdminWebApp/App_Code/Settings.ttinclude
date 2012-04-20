@@ -37,7 +37,7 @@
 	    string result=tableName;
     	
 	    //strip blanks
-	     result=result.Replace(" ",""); 
+	     result=result.Replace("_",""); 
 	    //put your logic here...
     	
 	    return result;

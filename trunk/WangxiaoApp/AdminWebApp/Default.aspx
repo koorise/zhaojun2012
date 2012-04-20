@@ -65,7 +65,7 @@
                             <Items> 
                                 <ext:MenuItem ID="MenuItem1" runat="server" Text="试卷年份">
                                 <Listeners>
-                                    <Click Handler="addTab(#{TabPanel1}, 'MenuItem1', 'http://www.163.com','试卷年份');" />
+                                    <Click Handler="addTab(#{TabPanel1}, 'MenuItem1', '/Dictionary/years.aspx','试卷年份');" />
                                 </Listeners>
                                 </ext:MenuItem>
                                 <ext:MenuItem ID="MenuItem2" runat="server" Text="试卷分类">

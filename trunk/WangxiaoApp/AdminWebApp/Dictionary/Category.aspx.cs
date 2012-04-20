@@ -33,7 +33,7 @@ public partial class Dictionary_Category : System.Web.UI.Page
         TreePanel1.Root.Add(root);
         TreeNodes(root, Config.g);
     }
-    public void TreeNodes(TreeNode t,Guid guid)
+    protected void TreeNodes(TreeNode t,Guid guid)
     {
         var q = from c in WXSysExamCategory.All()
                 where c.PID == guid
@@ -76,7 +76,7 @@ public partial class Dictionary_Category : System.Web.UI.Page
     }
 
     [DirectMethod]
-    public string RefreshMenu()
+    protected string RefreshMenu()
     {
         Ext.Net.TreeNodeCollection nodes = this.BuildTree(null);
 

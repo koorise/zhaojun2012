@@ -44,7 +44,7 @@ public partial class Dictionary_year : System.Web.UI.Page
         X.Msg.Notify("提示", "添加成功！").Show();
     }
     [DirectMethod(Namespace = "CompanyX")]
-    public void AfterEdit(int id, string field, string oldValue, string newValue, object customer)
+    protected void AfterEdit(int id, string field, string oldValue, string newValue, object customer)
     {
         string message = "<b>Property:</b> {0}<br /><b>Field:</b> {1}<br /><b>Old Value:</b> {2}<br /><b>New Value:</b> {3}";
 
