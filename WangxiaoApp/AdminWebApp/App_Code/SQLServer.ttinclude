@@ -38,7 +38,10 @@ const string FKSql=@"SELECT
 
 const string TABLE_SQL=@"SELECT *
     FROM  INFORMATION_SCHEMA.TABLES
-    WHERE TABLE_TYPE='BASE TABLE'";
+    WHERE TABLE_TYPE='BASE TABLE'
+	union
+    select Table_catalog, table_schema, table_name, 'View' table_type 
+    from information_schema.views";
 
 const string COLUMN_SQL=@"SELECT 
         TABLE_CATALOG AS [Database],

@@ -128,17 +128,19 @@ namespace WangxiaoCN
             return null;
         }
 			
-        public Query<WXSysProvince> WXSysProvinces { get; set; }
-        public Query<WXSysCity> WXSysCities { get; set; }
+        public Query<vwExamPaperExamCategory> vwExamPaperExamCategories { get; set; }
+        public Query<vwsysProvinceCity> vwsysProvinceCities { get; set; }
         public Query<WXAdminPowerCategory> WXAdminPowerCategories { get; set; }
         public Query<WXAdminUser> WXAdminUsers { get; set; }
-        public Query<WXPointsBank> WXPointsBanks { get; set; }
-        public Query<WXUser> WXUsers { get; set; }
-        public Query<WXSysExamCategory> WXSysExamCategories { get; set; }
-        public Query<WXExamPaper> WXExamPapers { get; set; }
         public Query<WXExamDetail> WXExamDetails { get; set; }
+        public Query<WXExamPaper> WXExamPapers { get; set; }
+        public Query<WXPointsBank> WXPointsBanks { get; set; }
+        public Query<WXSysCity> WXSysCities { get; set; }
+        public Query<WXSysExamCategory> WXSysExamCategories { get; set; }
+        public Query<WXSysProvince> WXSysProvinces { get; set; }
         public Query<WXSysYear> WXSysYears { get; set; }
         public Query<WXUserDetail> WXUserDetails { get; set; }
+        public Query<WXUser> WXUsers { get; set; }
 
 			
 
@@ -242,34 +244,38 @@ namespace WangxiaoCN
             provider = new DbQueryProvider(this.Provider);
 
             #region ' Query Defs '
-            WXSysProvinces = new Query<WXSysProvince>(provider);
-            WXSysCities = new Query<WXSysCity>(provider);
+            vwExamPaperExamCategories = new Query<vwExamPaperExamCategory>(provider);
+            vwsysProvinceCities = new Query<vwsysProvinceCity>(provider);
             WXAdminPowerCategories = new Query<WXAdminPowerCategory>(provider);
             WXAdminUsers = new Query<WXAdminUser>(provider);
-            WXPointsBanks = new Query<WXPointsBank>(provider);
-            WXUsers = new Query<WXUser>(provider);
-            WXSysExamCategories = new Query<WXSysExamCategory>(provider);
-            WXExamPapers = new Query<WXExamPaper>(provider);
             WXExamDetails = new Query<WXExamDetail>(provider);
+            WXExamPapers = new Query<WXExamPaper>(provider);
+            WXPointsBanks = new Query<WXPointsBank>(provider);
+            WXSysCities = new Query<WXSysCity>(provider);
+            WXSysExamCategories = new Query<WXSysExamCategory>(provider);
+            WXSysProvinces = new Query<WXSysProvince>(provider);
             WXSysYears = new Query<WXSysYear>(provider);
             WXUserDetails = new Query<WXUserDetail>(provider);
+            WXUsers = new Query<WXUser>(provider);
             #endregion
 
 
             #region ' Schemas '
         	if(DataProvider.Schema.Tables.Count == 0)
 			{
-            	DataProvider.Schema.Tables.Add(new WXSysProvinceTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXSysCityTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new vwExamPaperExamCategoryTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new vwsysProvinceCityTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdminPowerCategoryTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdminUsersTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXPointsBankTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXUsersTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXSysExamCategoryTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXExamPaperTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXExamPaperTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXPointsBankTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXSysCityTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXSysExamCategoryTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXSysProvinceTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysYearsTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXUserDetailsTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXUsersTable(DataProvider));
             }
             #endregion
         }
