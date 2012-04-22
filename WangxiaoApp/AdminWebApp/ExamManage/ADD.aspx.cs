@@ -68,11 +68,14 @@ public partial class ExamManage_ADD : System.Web.UI.Page
     protected void SearchClick(object s,DirectEventArgs e)
     {
         string path = e.ExtraParams["SelectedID"].ToString();
-        var q = from c in vwExamPaperExamCategory.All()
-                where c.path.StartsWith(path)
+
+        var q = from c in vwExamPaperExamCategory.Find(x => x.path.StartsWith(path)) 
                 select c;
+        
         Store1.DataSource = q;
         Store1.DataBind();
+        //X.Msg.Alert("aaa",path).Show();
+        
     }
     protected void TreeNodes(TreeNode t, Guid guid)
     {
@@ -144,8 +147,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         wx.eHot = int.Parse(txteHot.Text);
         wx.ePoints = int.Parse(txtePoints.Text);
         wx.Save();
-        Store1_DataBind();
-        X.Msg.Notify("添加成功", "试题："+txteTitle.Text).Show();
+        //X.Msg.Notify("添加成功", "试题："+txteTitle.Text).Show();
 
 
     }
@@ -166,6 +168,6 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         wx.ePoints = int.Parse(txtePoints.Text);
         wx.Save(); 
         ClearGrid(s, e);
-        X.Msg.Notify("修改成功", "试题：" + txteTitle.Text).Show();
+        //X.Msg.Notify("修改成功", "试题：" + txteTitle.Text).Show();
     }
 }
