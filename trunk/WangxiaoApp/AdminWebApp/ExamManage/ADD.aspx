@@ -11,9 +11,10 @@
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
         ConnectionString="<%$ ConnectionStrings:WxConn %>" 
         SelectCommand="SELECT * FROM [WXSysProvince]"></asp:SqlDataSource>
+
     <ext:Viewport ID="Viewport1" runat="server" Layout="border">
         <Items>
-            <ext:GridPanel ID="GridPanel1" runat="server" Margins="0 0 5 5" Region="Center" Frame="true" Title="Title">
+            <ext:GridPanel ID="GridPanel1" runat="server" AutoExpandColumn="eTitle" Margins="0 0 5 5" Region="Center" Frame="true" Title="试卷列表" Icon="TextListBullets">
             <TopBar>
                 <ext:Toolbar ID="Toolbar1" LabelAlign="Right" runat="server">
                     <Items>
@@ -26,7 +27,7 @@
                                     <ext:Parameter Name="SelectedID" Value="node.id" Mode="Raw"></ext:Parameter>
                                 </ExtraParams>
                              </Click>
-                        </DirectEvents>
+                        </DirectEvents> 
                         <Buttons>
                             <ext:Button ID="Button4" runat="server" Text="关闭">
                                 <Listeners>
@@ -34,7 +35,9 @@
                                 </Listeners>
                             </ext:Button>
                         </Buttons>
+                           
                         </ext:TreePanel>
+                        
                     </Component>
                     </ext:DropDownField>
                      
@@ -60,9 +63,10 @@
                                 <ext:RecordField Name="eHot"></ext:RecordField>
                                 <ext:RecordField Name="ePoints"></ext:RecordField>
                                 <ext:RecordField Name="pName"></ext:RecordField>
+                                <ext:RecordField Name="path"></ext:RecordField>
                             </Fields>
                         </ext:JsonReader>
-                    </Reader>
+                    </Reader> 
                 </ext:Store>
             </Store>
             <ColumnModel runat="server">
@@ -98,7 +102,7 @@
             <LoadMask ShowMask="true" />
             </ext:GridPanel>
             <ext:FormPanel ID="FormPanel1" runat="server"  Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5"
-                Title="Title" Width="350" >
+                Title="试卷添加" Icon="Attach" Width="350" >
                 <Items>
                     <ext:TextField ID="txtExamGID" runat="server" AnchorHorizontal="100%"  FieldLabel="试卷编号" DataIndex="ExamGID"  Disabled="True" />
                     
@@ -156,9 +160,9 @@
                     <ext:Button ID="Button1" runat="server" Icon="Disk" Text="添加">
                     <DirectEvents>
                         <Click OnEvent="BtnAdd"></Click>
-                    </DirectEvents>
+                    </DirectEvents> 
                     <Listeners>
-                            <Click Delay="500" Handler="#{FormPanel1}.getForm().reset();" />
+                            <Click Delay="500" Handler="#{FormPanel1}.getForm().reset();#{GridPanel1}.store.reload();" />
                     </Listeners>
                     </ext:Button>
                     <ext:Button ID="Button2" runat="server" Icon="BookEdit" Text="修改">
@@ -166,7 +170,7 @@
                         <Click OnEvent="BtnEdit"></Click>
                     </DirectEvents>
                      <Listeners>
-                            <Click Delay="500"  Handler="#{FormPanel1}.getForm().reset();" />
+                            <Click Delay="500" Handler="#{FormPanel1}.getForm().reset();#{GridPanel1}.store.reload();" />
                         </Listeners>
                     </ext:Button>
                     <ext:Button ID="Button5" Icon="Erase" runat="server" Text="清除">
