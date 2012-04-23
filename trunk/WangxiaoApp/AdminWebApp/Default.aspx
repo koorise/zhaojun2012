@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
+﻿<%@ Page Title="在线考试系统 管理员后台面板" Language="C#" MasterPageFile="~/MasterPage.master"   AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="_Default" %>
 
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
@@ -47,15 +47,18 @@
             <ext:Panel ID="Panel6" runat="server" Collapsible="true" Layout="accordion" Collapsed="false" Region="West"
                 Split="true" Title="功能面板" Width="200">
                 <Items>
-                      <ext:MenuPanel ID="MenuPanel1" runat="server" Height="300" Title="试题管理" Width="185">
+                      <ext:MenuPanel ID="MenuPanel1" runat="server" Height="300" Title="试卷管理" Width="185">
                         <Menu runat="server">
                             <Items> 
-                                <ext:MenuItem ID="MenuItem4" runat="server" Text="试题添加">
+                                <ext:MenuItem ID="MenuItem4" runat="server" Text="试卷添加">
                                 <Listeners>
-                                   <Click Handler="addTab(#{TabPanel1}, 'MenuItem4', 'ExamManage/add.aspx','试题添加');" />
+                                   <Click Handler="addTab(#{TabPanel1}, 'MenuItem4', 'ExamManage/add.aspx','试卷添加');" />
                                 </Listeners>
                                 </ext:MenuItem>
-                                <ext:MenuItem ID="MenuItem5" runat="server" Text="试题列表">
+                                <ext:MenuItem ID="MenuItem5" runat="server" Text="试题添加">
+                                <Listeners>
+                                   <Click Handler="addTab(#{TabPanel1}, 'MenuItem5', 'ExamManage/AddItems.aspx','试题添加');" />
+                                </Listeners>
                                 </ext:MenuItem> 
                             </Items>
                         </Menu>
@@ -65,7 +68,7 @@
                             <Items> 
                                 <ext:MenuItem ID="MenuItem1" runat="server" Text="试卷年份">
                                 <Listeners>
-                                    <Click Handler="addTab(#{TabPanel1}, 'MenuItem1', '/Dictionary/years.aspx','试卷年份');" />
+                                    <Click Handler="addTab(#{TabPanel1}, 'MenuItem1', '/Dictionary/year.aspx','试卷年份');" />
                                 </Listeners>
                                 </ext:MenuItem>
                                 <ext:MenuItem ID="MenuItem2" runat="server" Text="试卷分类">
