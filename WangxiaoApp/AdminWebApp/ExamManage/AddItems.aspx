@@ -3,6 +3,26 @@
 <%@ Register Assembly="Ext.Net" Namespace="Ext.Net" TagPrefix="ext" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<script type="text/javascript">
+    var template = '<span style="color:{0};">{1}</span>';
+
+    var typeName = function (value) {
+        switch (value) {
+        case 1:
+            return String.format(template, "blue", "单选题");
+        case 2:
+            return String.format(template, "green", "多选题");
+        case 3:
+            return String.format(template, "black", "判断题");
+        case 4:
+            return String.format(template, "red", "简述题");
+        default:
+        }
+        
+    }
+
+     
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" 
@@ -72,7 +92,7 @@
                                 </ext:RowSelectionModel>
                             </SelectionModel>
                             <BottomBar>
-                                <ext:PagingToolbar ID="PagingToolbar1" runat="server" PageSize="10" />
+                                <ext:PagingToolbar ID="PagingToolbar1" runat="server" PageSize="12" />
                             </BottomBar>
                             <LoadMask ShowMask="true" />
                         </ext:GridPanel> 
@@ -110,12 +130,24 @@
                                 <ext:Column   DataIndex="ID" Header="编号" />
                                 <ext:Column   DataIndex="QGID" Width="250" Header="唯一" />
                                 <ext:Column   DataIndex="qContent" Header="题目内容" />
-                                <ext:Column   DataIndex="qType" Header="类型" />
+                                <ext:Column   DataIndex="qType" Header="类型">
+                                    <Renderer Fn="typeName" />
+                                </ext:Column>
                                 <ext:Column   DataIndex="qSelectNum" Header="选项数" />
                                 <ext:Column   DataIndex="qOrderNum" Header="序号" />
                                 <ext:Column   DataIndex="qAnswer" Header="答案" />
+                                 
                             </Columns>
                         </ColumnModel>
+                        <SelectionModel>
+                            <ext:RowSelectionModel ID="RowSelectionModel2" SingleSelect="true" runat="server">
+                                <Listeners>
+                                    <RowSelect Handler="#{Button3}.enable();" />
+                                    <RowDeselect Handler="if (!#{GridPanel2}.hasSelection()) {#{Button3}.disable();}" />
+                                </Listeners>
+                            </ext:RowSelectionModel>
+                        </SelectionModel>
+                        
                         </ext:GridPanel>
                     </ext:LayoutRow>
                     
@@ -186,8 +218,8 @@
                                         <ext:SelectedListItem Value="1" />
                                     </SelectedItems>
                                 </ext:MultiCombo>
-                                <ext:TextField ID="txtqOrderNum" FieldLabel="试题序号" AnchorHorizontal="98%" runat="server">
-                                </ext:TextField>
+                                <ext:SpinnerField ID="txtqOrderNum" MinValue="1" MaxValue="100" DecimalPrecision="1" IncrementValue="1" FieldLabel="试题序号" AnchorHorizontal="98%" runat="server">
+                                </ext:SpinnerField> 
                                 <ext:TextArea ID="txtqAnswer2" FieldLabel="简述题答案" AnchorHorizontal="98%" EmptyText="此项仅供简述题书写答案..." runat="server">
                                 </ext:TextArea>
                             </Items>
@@ -206,8 +238,20 @@
                     <DirectEvents>
                         <Click OnEvent="BtnAdd_Click"></Click>
                     </DirectEvents>
+                    <Listeners>
+                        <Click  Delay="500" Handler="#{txtqSelectNum}.reset();#{txtqAnswer2}.reset();#{txtqContent}.reset();#{txtqOrderNum}.reset();#{txtqAnswer1}.reset();#{txtqType}.reset();"/>
+                    </Listeners>
                 </ext:Button>
-                <ext:Button ID="Button2" runat="server" Text="清除" Icon="Erase" />
+                <ext:Button ID="Button2" runat="server" Text="清除" Icon="Erase">
+                    <Listeners>
+                        <Click Handler="#{txtqSelectNum}.reset();#{txtExamGID}.reset();#{txtqAnswer2}.reset();#{txtqContent}.reset();#{txtqOrderNum}.reset();#{txtqAnswer1}.reset();#{txtqType}.reset();"></Click>
+                    </Listeners>
+                </ext:Button>
+                <ext:Button ID="Button3" runat="server" Text="删除" Icon="Delete">
+                    <Listeners>
+                        <Click Handler="#{GridPanel2}.deleteSelected();if (!#{GridPanel2}.hasSelection()) {#{Button3}.disable();}" />
+                    </Listeners>
+                </ext:Button>
             </Buttons>
         </ext:Panel>
 
