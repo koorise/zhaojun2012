@@ -39,21 +39,31 @@ public partial class ExamManage_AddItems : System.Web.UI.Page
 
         WXExamDetail wx = new WXExamDetail();
         wx.QGID = Guid.NewGuid();
-        wx.ExamGID=new Guid(txtExamGID.Text);
+        wx.ExamGID = new Guid(txtExamGID.Text);
         wx.qContent = txtqContent.Text;
         wx.qType = int.Parse(txtqType.SelectedItem.Value);
         wx.qSelectNum = int.Parse(txtqSelectNum.SelectedItem.Value);
         wx.qOrderNum = int.Parse(txtqOrderNum.Text);
-        if (int.Parse(txtqType.SelectedItem.Value)!=4)
+        if (int.Parse(txtqType.SelectedItem.Value) != 4)
         {
-            wx.qAnswer = txtqAnswer1.Text;
+            string str = "";
+            foreach (var i in txtqAnswer1.SelectedItems)
+            {
+                str += i.Value+",";
+            }
+            wx.qAnswer = str.Substring(0, str.Length - 1);
+
         }
         else
         {
             wx.qAnswer = txtqAnswer2.Text;
         }
-        
         wx.Save();
+        var qq = from cc in WXExamDetail.All()
+                 where cc.ExamGID == new Guid(txtExamGID.Text)
+                 select cc;
+        Store2.DataSource = qq;
+        Store2.DataBind();
     }
     protected void GridPanel1_Selected(object s,DirectEventArgs e)
     {
@@ -63,12 +73,13 @@ public partial class ExamManage_AddItems : System.Web.UI.Page
             txtExamGID.Text = row.RecordID;
             var q = from c in WXExamDetail.All()
                     select c;
+            txtqOrderNum.Text = (q.Count(x => x.ExamGID == new Guid(row.RecordID)) + 1).ToString();
             var qq = from cc in WXExamDetail.All()
                     where cc.ExamGID == new Guid(row.RecordID) 
                     select cc;
             Store2.DataSource = qq;
             Store2.DataBind();
-            txtqOrderNum.Text = (q.Count(x=>x.ExamGID==new Guid(row.RecordID))+1).ToString();
+            
         }
          
         
