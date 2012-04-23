@@ -13,7 +13,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <ext:ResourceManager ID="ResourceManager1" runat="server" Theme="Gray">
+    <ext:ResourceManager ID="ResourceManager1" runat="server" Theme="Default" />
     </ext:ResourceManager>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         

@@ -137,6 +137,8 @@ namespace WangxiaoCN
         public Query<WXPointsBank> WXPointsBanks { get; set; }
         public Query<WXSysCity> WXSysCities { get; set; }
         public Query<WXSysExamCategory> WXSysExamCategories { get; set; }
+        public Query<WXSysExamQstType> WXSysExamQstTypes { get; set; }
+        public Query<WXSysExamType> WXSysExamTypes { get; set; }
         public Query<WXSysProvince> WXSysProvinces { get; set; }
         public Query<WXSysYear> WXSysYears { get; set; }
         public Query<WXUserDetail> WXUserDetails { get; set; }
@@ -253,6 +255,8 @@ namespace WangxiaoCN
             WXPointsBanks = new Query<WXPointsBank>(provider);
             WXSysCities = new Query<WXSysCity>(provider);
             WXSysExamCategories = new Query<WXSysExamCategory>(provider);
+            WXSysExamQstTypes = new Query<WXSysExamQstType>(provider);
+            WXSysExamTypes = new Query<WXSysExamType>(provider);
             WXSysProvinces = new Query<WXSysProvince>(provider);
             WXSysYears = new Query<WXSysYear>(provider);
             WXUserDetails = new Query<WXUserDetail>(provider);
@@ -272,6 +276,8 @@ namespace WangxiaoCN
             	DataProvider.Schema.Tables.Add(new WXPointsBankTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysCityTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysExamCategoryTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXSysExamQstTypeTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXSysExamTypeTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysProvinceTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysYearsTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXUserDetailsTable(DataProvider));

@@ -35,9 +35,7 @@
                                 </Listeners>
                             </ext:Button>
                         </Buttons>
-                           
                         </ext:TreePanel>
-                        
                     </Component>
                     </ext:DropDownField>
                      

@@ -948,6 +948,16 @@ namespace WangxiaoCN {
 	                MaxLength = 0
                 });
 
+                Columns.Add(new DatabaseColumn("ExamTypeID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
                 Columns.Add(new DatabaseColumn("eTitle", this)
                 {
 	                IsPrimaryKey = false,
@@ -1077,6 +1087,18 @@ namespace WangxiaoCN {
    			public static string PvcIDColumn{
 			      get{
         			return "PvcID";
+      			}
+		    }
+            
+            public IColumn ExamTypeID{
+                get{
+                    return this.GetColumn("ExamTypeID");
+                }
+            }
+				
+   			public static string ExamTypeIDColumn{
+			      get{
+        			return "ExamTypeID";
       			}
 		    }
             
@@ -1476,6 +1498,16 @@ namespace WangxiaoCN {
 	                IsForeignKey = false,
 	                MaxLength = 4000
                 });
+
+                Columns.Add(new DatabaseColumn("isDeep", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
                     
                 
                 
@@ -1538,6 +1570,144 @@ namespace WangxiaoCN {
    			public static string pathColumn{
 			      get{
         			return "path";
+      			}
+		    }
+            
+            public IColumn isDeep{
+                get{
+                    return this.GetColumn("isDeep");
+                }
+            }
+				
+   			public static string isDeepColumn{
+			      get{
+        			return "isDeep";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXSysExamQstType
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXSysExamQstTypeTable: DatabaseTable {
+            
+            public WXSysExamQstTypeTable(IDataProvider provider):base("WXSysExamQstType",provider){
+                ClassName = "WXSysExamQstType";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("TypeName", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.AnsiString,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 100
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn TypeName{
+                get{
+                    return this.GetColumn("TypeName");
+                }
+            }
+				
+   			public static string TypeNameColumn{
+			      get{
+        			return "TypeName";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXSysExamType
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXSysExamTypeTable: DatabaseTable {
+            
+            public WXSysExamTypeTable(IDataProvider provider):base("WXSysExamType",provider){
+                ClassName = "WXSysExamType";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamType", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 100
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn ExamType{
+                get{
+                    return this.GetColumn("ExamType");
+                }
+            }
+				
+   			public static string ExamTypeColumn{
+			      get{
+        			return "ExamType";
       			}
 		    }
             

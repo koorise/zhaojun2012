@@ -17,7 +17,7 @@ public partial class Dictionary_Category : System.Web.UI.Page
     
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(!IsPostBack)
+        if (!IsPostBack && !X.IsAjaxRequest)
         {
             this.BuildTree(TreePanel1.Root);
         }
@@ -63,7 +63,7 @@ public partial class Dictionary_Category : System.Web.UI.Page
             nodes = new Ext.Net.TreeNodeCollection();
         }
 
-        TreePanel1.Listeners.Click.Handler = txtParent.ClientID + ".setValue(node.text,false);" + txtParentID.ClientID + ".setValue(node.id,false);";
+        //TreePanel1.Listeners.Click.Handler = txtParent.ClientID + ".setValue(node.text,false);" + txtParentID.ClientID + ".setValue(node.id,false);";
 
         root = new TreeNode(Config.g.ToString(), "Root", Icon.FolderHome);
         root.Expanded = true;
@@ -78,7 +78,7 @@ public partial class Dictionary_Category : System.Web.UI.Page
     [DirectMethod]
     protected string RefreshMenu()
     {
-        Ext.Net.TreeNodeCollection nodes = this.BuildTree(null);
+        Ext.Net.TreeNodeCollection nodes = this.BuildTree(TreePanel1.Root);
 
         return nodes.ToJson();
     }
@@ -95,17 +95,24 @@ public partial class Dictionary_Category : System.Web.UI.Page
         {
             wx.PID = Config.g;
             wx.path = Config.g + "|" + gg;
-            wx.Save();
+            wx.isDeep = 1;
+            wx.Save(); 
+            
         }
         else
         {
             var q = WXSysExamCategory.SingleOrDefault(x => x.GID == GID);
             wx.PID = GID;
             wx.path = q.path + "|" + gg;
+            wx.isDeep = 1;
             wx.Save();
+            
+            WXSysExamCategory w = new WXSysExamCategory(x=>x.path==q.path);
+            w.isDeep = 0;
+            w.Save();
 
-        }
-        X.Msg.Notify("成功", "增加分类成功！").Show(); 
+        } 
+       // X.Msg.Notify("成功", "增加分类成功！").Show(); 
     }
 
     protected void btn_Click2(object s, DirectEventArgs e)
