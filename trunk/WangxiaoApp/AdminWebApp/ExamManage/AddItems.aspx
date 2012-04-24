@@ -168,7 +168,7 @@
                             
                                             <ext:TextField ID="txtExamGID" FieldLabel="试卷编号" Disabled="True" AnchorHorizontal="98%" runat="server">
                                             </ext:TextField>
-                                            <ext:ComboBox ID="txtqType" Editable="false" FieldLabel="试题类型" AnchorHorizontal="98%" DisplayField="TypeName" ValueField="ID" runat="server">
+                                            <ext:ComboBox ID="txtqType" Editable="false" FieldLabel="试题类型" AnchorHorizontal="98%"  DisplayField="TypeName" ValueField="ID" runat="server">
                                                 <Store>
                                                     <ext:Store ID="Store3" DataSourceID="SqlDataSource3" runat="server">
                                                         <Reader>
