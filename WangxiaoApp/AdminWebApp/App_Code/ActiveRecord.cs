@@ -370,6 +370,25 @@ namespace WangxiaoCN
             }
         }
 
+        int _ExamTypeID;
+        public int ExamTypeID
+        {
+            get { return _ExamTypeID; }
+            set
+            {
+                if(_ExamTypeID!=value){
+                    _ExamTypeID=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="ExamTypeID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
         string _eTitle;
         public string eTitle
         {
@@ -522,6 +541,25 @@ namespace WangxiaoCN
             }
         }
 
+        Guid _PID;
+        public Guid PID
+        {
+            get { return _PID; }
+            set
+            {
+                if(_PID!=value){
+                    _PID=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="PID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
         string _className;
         public string className
         {
@@ -560,15 +598,15 @@ namespace WangxiaoCN
             }
         }
 
-        string _pName;
-        public string pName
+        int? _isDeep;
+        public int? isDeep
         {
-            get { return _pName; }
+            get { return _isDeep; }
             set
             {
-                if(_pName!=value){
-                    _pName=value;
-                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="pName");
+                if(_isDeep!=value){
+                    _isDeep=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="isDeep");
                     if(col!=null){
                         if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
                             _dirtyColumns.Add(col);
@@ -579,15 +617,34 @@ namespace WangxiaoCN
             }
         }
 
-        Guid _PID;
-        public Guid PID
+        string _ExamType;
+        public string ExamType
         {
-            get { return _PID; }
+            get { return _ExamType; }
             set
             {
-                if(_PID!=value){
-                    _PID=value;
-                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="PID");
+                if(_ExamType!=value){
+                    _ExamType=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="ExamType");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        string _pName;
+        public string pName
+        {
+            get { return _pName; }
+            set
+            {
+                if(_pName!=value){
+                    _pName=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="pName");
                     if(col!=null){
                         if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
                             _dirtyColumns.Add(col);

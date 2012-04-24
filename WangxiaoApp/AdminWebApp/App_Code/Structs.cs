@@ -61,6 +61,16 @@ namespace WangxiaoCN {
 	                MaxLength = 0
                 });
 
+                Columns.Add(new DatabaseColumn("ExamTypeID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
                 Columns.Add(new DatabaseColumn("eTitle", this)
                 {
 	                IsPrimaryKey = false,
@@ -141,6 +151,16 @@ namespace WangxiaoCN {
 	                MaxLength = 0
                 });
 
+                Columns.Add(new DatabaseColumn("PID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
                 Columns.Add(new DatabaseColumn("className", this)
                 {
 	                IsPrimaryKey = false,
@@ -161,6 +181,26 @@ namespace WangxiaoCN {
 	                MaxLength = 4000
                 });
 
+                Columns.Add(new DatabaseColumn("isDeep", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamType", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 100
+                });
+
                 Columns.Add(new DatabaseColumn("pName", this)
                 {
 	                IsPrimaryKey = false,
@@ -169,16 +209,6 @@ namespace WangxiaoCN {
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 32
-                });
-
-                Columns.Add(new DatabaseColumn("PID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
                 });
                     
                 
@@ -230,6 +260,18 @@ namespace WangxiaoCN {
    			public static string PvcIDColumn{
 			      get{
         			return "PvcID";
+      			}
+		    }
+            
+            public IColumn ExamTypeID{
+                get{
+                    return this.GetColumn("ExamTypeID");
+                }
+            }
+				
+   			public static string ExamTypeIDColumn{
+			      get{
+        			return "ExamTypeID";
       			}
 		    }
             
@@ -329,6 +371,18 @@ namespace WangxiaoCN {
       			}
 		    }
             
+            public IColumn PID{
+                get{
+                    return this.GetColumn("PID");
+                }
+            }
+				
+   			public static string PIDColumn{
+			      get{
+        			return "PID";
+      			}
+		    }
+            
             public IColumn className{
                 get{
                     return this.GetColumn("className");
@@ -353,6 +407,30 @@ namespace WangxiaoCN {
       			}
 		    }
             
+            public IColumn isDeep{
+                get{
+                    return this.GetColumn("isDeep");
+                }
+            }
+				
+   			public static string isDeepColumn{
+			      get{
+        			return "isDeep";
+      			}
+		    }
+            
+            public IColumn ExamType{
+                get{
+                    return this.GetColumn("ExamType");
+                }
+            }
+				
+   			public static string ExamTypeColumn{
+			      get{
+        			return "ExamType";
+      			}
+		    }
+            
             public IColumn pName{
                 get{
                     return this.GetColumn("pName");
@@ -362,18 +440,6 @@ namespace WangxiaoCN {
    			public static string pNameColumn{
 			      get{
         			return "pName";
-      			}
-		    }
-            
-            public IColumn PID{
-                get{
-                    return this.GetColumn("PID");
-                }
-            }
-				
-   			public static string PIDColumn{
-			      get{
-        			return "PID";
       			}
 		    }
             

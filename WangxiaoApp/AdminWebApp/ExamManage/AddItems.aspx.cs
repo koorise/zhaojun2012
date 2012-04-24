@@ -36,20 +36,21 @@ public partial class ExamManage_AddItems : System.Web.UI.Page
     }
     protected void BtnAdd_Click(object s,DirectEventArgs e)
     {
+        Guid ExamGID=new Guid(txtExamGID.Text);
 
         WXExamDetail wx = new WXExamDetail();
         wx.QGID = Guid.NewGuid();
-        wx.ExamGID = new Guid(txtExamGID.Text);
+        wx.ExamGID = ExamGID;
         wx.qContent = txtqContent.Text;
         wx.qType = int.Parse(txtqType.SelectedItem.Value);
         wx.qSelectNum = int.Parse(txtqSelectNum.SelectedItem.Value);
-        wx.qOrderNum = int.Parse(txtqOrderNum.Text);
+        wx.qOrderNum = int.Parse(txtqOrderNum.Number.ToString());
         if (int.Parse(txtqType.SelectedItem.Value) != 4)
         {
             string str = "";
             foreach (var i in txtqAnswer1.SelectedItems)
             {
-                str += i.Value+",";
+                str += i.Value + ",";
             }
             wx.qAnswer = str.Substring(0, str.Length - 1);
 
@@ -57,7 +58,8 @@ public partial class ExamManage_AddItems : System.Web.UI.Page
         else
         {
             wx.qAnswer = txtqAnswer2.Text;
-        }
+        } 
+
         wx.Save();
         var qq = from cc in WXExamDetail.All()
                  where cc.ExamGID == new Guid(txtExamGID.Text)

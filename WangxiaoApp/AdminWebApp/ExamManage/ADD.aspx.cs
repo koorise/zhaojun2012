@@ -38,7 +38,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         root = new TreeNode(Config.g.ToString(), "Root", Icon.FolderHome);
         root.Expanded = true;
         TreePanel2.Root.Add(root);
-        TreePanel2.Listeners.Click.Handler = DropDownField2.ClientID + ".setValue(node.text,false);";
+        //TreePanel2.Listeners.Click.Handler = DropDownField2.ClientID + ".setValue(node.text,false);";
         TreeNodes2(root, Config.g);
     }
     
@@ -69,7 +69,8 @@ public partial class ExamManage_ADD : System.Web.UI.Page
     {
         string path = e.ExtraParams["SelectedID"].ToString();
 
-        var q = from c in vwExamPaperExamCategory.Find(x => x.path.StartsWith(path)) 
+        var q = from c in vwExamPaperExamCategory.All()
+                where c.path.StartsWith(path)
                 select c;
         
         Store1.DataSource = q;
@@ -101,6 +102,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
     }
     protected void Store1_Refresh(object sender, StoreRefreshDataEventArgs e)
     {
+        //X.Msg.Alert("aa",e.Parameters["path"].ToString()).Show();
         Store1_DataBind();
     }
     protected void ClearGrid(object s ,DirectEventArgs e)
@@ -121,6 +123,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
                                           q.ClassGID,
                                           q.eTitle,
                                           q.pName,
+                                          q.ExamTypeID,
                                           q.eYear,
                                           q.eStars,
                                           q.eTotalScore,
@@ -140,15 +143,16 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         wx.PvcID = int.Parse(ComboBox2.SelectedItem.Value);
         wx.eTitle = txteTitle.Text;
         wx.eYear = int.Parse(ComboBox1.SelectedItem.Value);
-        wx.eStars = int.Parse(txteStars.Text);
-        wx.eTotalScore = int.Parse(txteTotalScore.Text);
-        wx.ePassingScore = int.Parse(txtePassingScore.Text);
+        wx.eStars = int.Parse(txteStars.Number.ToString());
+        wx.eTotalScore = int.Parse(txteTotalScore.Number.ToString());
+        wx.ePassingScore = int.Parse(txtePassingScore.Number.ToString());
         wx.eFrom = txteFrom.Text;
-        wx.eHot = int.Parse(txteHot.Text);
-        wx.ePoints = int.Parse(txtePoints.Text);
+        wx.eHot = int.Parse(txteHot.Number.ToString());
+        wx.ePoints = int.Parse(txtePoints.Number.ToString());
+        wx.ExamTypeID = int.Parse(txtExamTypeID.SelectedItem.Value);
         wx.Save();
         //X.Msg.Notify("添加成功", "试题："+txteTitle.Text).Show();
-
+        Store1_DataBind();
 
     }
     protected  void BtnEdit(object s, DirectEventArgs e)
@@ -166,8 +170,10 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         wx.eFrom = txteFrom.Text;
         wx.eHot = int.Parse(txteHot.Text);
         wx.ePoints = int.Parse(txtePoints.Text);
+        wx.ExamTypeID = int.Parse(txtExamTypeID.SelectedItem.Value);
         wx.Save(); 
         ClearGrid(s, e);
+        Store1_DataBind();
         //X.Msg.Notify("修改成功", "试题：" + txteTitle.Text).Show();
     }
 }
