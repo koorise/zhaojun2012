@@ -554,6 +554,286 @@ namespace WangxiaoCN {
         }
         
         /// <summary>
+        /// Table: WXAdmin_Logs_Opration
+        /// Primary Key: OprateID
+        /// </summary>
+
+        public class WXAdminLogsOprationTable: DatabaseTable {
+            
+            public WXAdminLogsOprationTable(IDataProvider provider):base("WXAdmin_Logs_Opration",provider){
+                ClassName = "WXAdminLogsOpration";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("OprateID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("GID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("AdminID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("Opration", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("GGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("inTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+                    
+                
+                
+            }
+
+            public IColumn OprateID{
+                get{
+                    return this.GetColumn("OprateID");
+                }
+            }
+				
+   			public static string OprateIDColumn{
+			      get{
+        			return "OprateID";
+      			}
+		    }
+            
+            public IColumn GID{
+                get{
+                    return this.GetColumn("GID");
+                }
+            }
+				
+   			public static string GIDColumn{
+			      get{
+        			return "GID";
+      			}
+		    }
+            
+            public IColumn AdminID{
+                get{
+                    return this.GetColumn("AdminID");
+                }
+            }
+				
+   			public static string AdminIDColumn{
+			      get{
+        			return "AdminID";
+      			}
+		    }
+            
+            public IColumn Opration{
+                get{
+                    return this.GetColumn("Opration");
+                }
+            }
+				
+   			public static string OprationColumn{
+			      get{
+        			return "Opration";
+      			}
+		    }
+            
+            public IColumn GGID{
+                get{
+                    return this.GetColumn("GGID");
+                }
+            }
+				
+   			public static string GGIDColumn{
+			      get{
+        			return "GGID";
+      			}
+		    }
+            
+            public IColumn inTime{
+                get{
+                    return this.GetColumn("inTime");
+                }
+            }
+				
+   			public static string inTimeColumn{
+			      get{
+        			return "inTime";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXAdmin_Power_Tree
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXAdminPowerTreeTable: DatabaseTable {
+            
+            public WXAdminPowerTreeTable(IDataProvider provider):base("WXAdmin_Power_Tree",provider){
+                ClassName = "WXAdminPowerTree";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("GID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("AdminID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("GGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("CURD", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn GID{
+                get{
+                    return this.GetColumn("GID");
+                }
+            }
+				
+   			public static string GIDColumn{
+			      get{
+        			return "GID";
+      			}
+		    }
+            
+            public IColumn AdminID{
+                get{
+                    return this.GetColumn("AdminID");
+                }
+            }
+				
+   			public static string AdminIDColumn{
+			      get{
+        			return "AdminID";
+      			}
+		    }
+            
+            public IColumn GGID{
+                get{
+                    return this.GetColumn("GGID");
+                }
+            }
+				
+   			public static string GGIDColumn{
+			      get{
+        			return "GGID";
+      			}
+		    }
+            
+            public IColumn CURD{
+                get{
+                    return this.GetColumn("CURD");
+                }
+            }
+				
+   			public static string CURDColumn{
+			      get{
+        			return "CURD";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
         /// Table: WXAdminPowerCategory
         /// Primary Key: ID
         /// </summary>
@@ -858,6 +1138,66 @@ namespace WangxiaoCN {
 	                IsForeignKey = false,
 	                MaxLength = 2000
                 });
+
+                Columns.Add(new DatabaseColumn("CreateID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("CreateTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
                     
                 
                 
@@ -956,6 +1296,78 @@ namespace WangxiaoCN {
    			public static string qAnswerColumn{
 			      get{
         			return "qAnswer";
+      			}
+		    }
+            
+            public IColumn CreateID{
+                get{
+                    return this.GetColumn("CreateID");
+                }
+            }
+				
+   			public static string CreateIDColumn{
+			      get{
+        			return "CreateID";
+      			}
+		    }
+            
+            public IColumn CreateTime{
+                get{
+                    return this.GetColumn("CreateTime");
+                }
+            }
+				
+   			public static string CreateTimeColumn{
+			      get{
+        			return "CreateTime";
+      			}
+		    }
+            
+            public IColumn EditID{
+                get{
+                    return this.GetColumn("EditID");
+                }
+            }
+				
+   			public static string EditIDColumn{
+			      get{
+        			return "EditID";
+      			}
+		    }
+            
+            public IColumn EditTime{
+                get{
+                    return this.GetColumn("EditTime");
+                }
+            }
+				
+   			public static string EditTimeColumn{
+			      get{
+        			return "EditTime";
+      			}
+		    }
+            
+            public IColumn DelID{
+                get{
+                    return this.GetColumn("DelID");
+                }
+            }
+				
+   			public static string DelIDColumn{
+			      get{
+        			return "DelID";
+      			}
+		    }
+            
+            public IColumn DelTime{
+                get{
+                    return this.GetColumn("DelTime");
+                }
+            }
+				
+   			public static string DelTimeColumn{
+			      get{
+        			return "DelTime";
       			}
 		    }
             
@@ -1099,6 +1511,66 @@ namespace WangxiaoCN {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
 	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("CreateID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("CreateTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1261,6 +1733,78 @@ namespace WangxiaoCN {
    			public static string ePointsColumn{
 			      get{
         			return "ePoints";
+      			}
+		    }
+            
+            public IColumn CreateID{
+                get{
+                    return this.GetColumn("CreateID");
+                }
+            }
+				
+   			public static string CreateIDColumn{
+			      get{
+        			return "CreateID";
+      			}
+		    }
+            
+            public IColumn CreateTime{
+                get{
+                    return this.GetColumn("CreateTime");
+                }
+            }
+				
+   			public static string CreateTimeColumn{
+			      get{
+        			return "CreateTime";
+      			}
+		    }
+            
+            public IColumn EditID{
+                get{
+                    return this.GetColumn("EditID");
+                }
+            }
+				
+   			public static string EditIDColumn{
+			      get{
+        			return "EditID";
+      			}
+		    }
+            
+            public IColumn EditTime{
+                get{
+                    return this.GetColumn("EditTime");
+                }
+            }
+				
+   			public static string EditTimeColumn{
+			      get{
+        			return "EditTime";
+      			}
+		    }
+            
+            public IColumn DelID{
+                get{
+                    return this.GetColumn("DelID");
+                }
+            }
+				
+   			public static string DelIDColumn{
+			      get{
+        			return "DelID";
+      			}
+		    }
+            
+            public IColumn DelTime{
+                get{
+                    return this.GetColumn("DelTime");
+                }
+            }
+				
+   			public static string DelTimeColumn{
+			      get{
+        			return "DelTime";
       			}
 		    }
             

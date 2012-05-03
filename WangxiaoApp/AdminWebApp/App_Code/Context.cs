@@ -130,6 +130,8 @@ namespace WangxiaoCN
 			
         public Query<vwExamPaperExamCategory> vwExamPaperExamCategories { get; set; }
         public Query<vwsysProvinceCity> vwsysProvinceCities { get; set; }
+        public Query<WXAdminLogsOpration> WXAdminLogsOprations { get; set; }
+        public Query<WXAdminPowerTree> WXAdminPowerTrees { get; set; }
         public Query<WXAdminPowerCategory> WXAdminPowerCategories { get; set; }
         public Query<WXAdminUser> WXAdminUsers { get; set; }
         public Query<WXExamDetail> WXExamDetails { get; set; }
@@ -248,6 +250,8 @@ namespace WangxiaoCN
             #region ' Query Defs '
             vwExamPaperExamCategories = new Query<vwExamPaperExamCategory>(provider);
             vwsysProvinceCities = new Query<vwsysProvinceCity>(provider);
+            WXAdminLogsOprations = new Query<WXAdminLogsOpration>(provider);
+            WXAdminPowerTrees = new Query<WXAdminPowerTree>(provider);
             WXAdminPowerCategories = new Query<WXAdminPowerCategory>(provider);
             WXAdminUsers = new Query<WXAdminUser>(provider);
             WXExamDetails = new Query<WXExamDetail>(provider);
@@ -269,6 +273,8 @@ namespace WangxiaoCN
 			{
             	DataProvider.Schema.Tables.Add(new vwExamPaperExamCategoryTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new vwsysProvinceCityTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXAdminLogsOprationTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXAdminPowerTreeTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdminPowerCategoryTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdminUsersTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
