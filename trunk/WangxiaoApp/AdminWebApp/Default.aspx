@@ -47,15 +47,15 @@
             <ext:Panel ID="Panel6" runat="server" Collapsible="true" Layout="accordion" Collapsed="false" Region="West"
                 Split="true" Title="功能面板" Width="200">
                 <Items>
-                      <ext:MenuPanel ID="MenuPanel1" runat="server" Height="300" Title="试卷管理" Width="185">
+                      <ext:MenuPanel ID="MenuPanel1" runat="server" Height="300" Icon="MonitorGo" Title="试卷管理" Width="185">
                         <Menu runat="server">
                             <Items> 
-                                <ext:MenuItem ID="MenuItem4" runat="server" Text="试卷添加">
+                                <ext:MenuItem ID="MenuItem4" runat="server" Icon="BookAdd" Text="试卷添加">
                                 <Listeners>
                                    <Click Handler="addTab(#{TabPanel1}, 'MenuItem4', 'ExamManage/add.aspx','试卷添加');" />
                                 </Listeners>
                                 </ext:MenuItem>
-                                <ext:MenuItem ID="MenuItem5" runat="server" Text="试题添加">
+                                <ext:MenuItem ID="MenuItem5" runat="server" Icon="BrickAdd" Text="试题添加">
                                 <Listeners>
                                    <Click Handler="addTab(#{TabPanel1}, 'MenuItem5', 'ExamManage/AddItems.aspx','试题添加');" />
                                 </Listeners>
@@ -63,15 +63,20 @@
                             </Items>
                         </Menu>
                     </ext:MenuPanel>
-                    <ext:MenuPanel ID="MenuPanel2" runat="server" Height="300" Title="字典类管理" Width="185">
+                    <ext:MenuPanel ID="MenuPanel2" runat="server" Height="300" Icon="Monitor" Title="管理" Width="185">
                         <Menu>
-                            <Items> 
-                                <ext:MenuItem ID="MenuItem1" runat="server" Text="试卷年份">
+                            <Items>
+                                <ext:MenuItem ID="MenuItem3" runat="server" Icon="UserStar" Text="后台用户">
+                                <Listeners>
+                                    <Click Handler="addTab(#{TabPanel1}, 'MenuItem3', '/Admin/Add.aspx','后台用户');" />
+                                </Listeners>
+                                </ext:MenuItem> 
+                                <ext:MenuItem ID="MenuItem1" runat="server" Icon="DateLink" Text="试卷年份">
                                 <Listeners>
                                     <Click Handler="addTab(#{TabPanel1}, 'MenuItem1', '/Dictionary/year.aspx','试卷年份');" />
                                 </Listeners>
                                 </ext:MenuItem>
-                                <ext:MenuItem ID="MenuItem2" runat="server" Text="试卷分类">
+                                <ext:MenuItem ID="MenuItem2" runat="server" Icon="TableSort" Text="试卷分类">
                                     <Listeners>
                                         <Click Handler="addTab(#{TabPanel1}, 'MenuItem2', '/Dictionary/category.aspx','试卷分类');"></Click>
                                     </Listeners>
