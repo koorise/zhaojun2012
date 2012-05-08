@@ -75,7 +75,7 @@
                     </ext:Button>
                     <ext:Button ID="Button2" runat="server" Icon="BookEdit"  Text="编辑">
                         <DirectEvents>
-                            <Click OnEvent="btn_Click2"></Click>
+                            <Click OnEvent="btn_Click2"></Click>    
                         </DirectEvents>
                         <Listeners>
                             <Click Handler="#{txtSelf}.reset();refreshTree(#{TreePanel1});" Delay="500">
