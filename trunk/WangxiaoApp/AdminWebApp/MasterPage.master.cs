@@ -9,6 +9,19 @@ public partial class MasterPage : System.Web.UI.MasterPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        switch (mCookies.Cookie.MD5CookiesCheck("cGID", "cMD5"))
+        {
+            case 0:
+                Response.Redirect("~/login.aspx");
+                break;
+            case 1:
+                Response.Redirect("~/default.aspx");
+                break;
+            case -1:
+                Response.Redirect("~/login.aspx");
+                break;
+            default: break;
 
+        }
     }
 }

@@ -18,9 +18,9 @@
         Closable="False" Padding="5"
             Layout="Form" Collapsed="false" Resizable="false" Modal="true">
         <items>
-            <ext:TextField ID="txtUsername" AnchorHorizontal="100%"  FieldLabel="用户名" AllowBlank="false" runat="server">
+            <ext:TextField ID="txtUsername" AnchorHorizontal="98%"  FieldLabel="用户名" AllowBlank="false" runat="server">
             </ext:TextField>
-            <ext:TextField ID="txtPasswd" AnchorHorizontal="100%"  FieldLabel="密码" InputType="Password" AllowBlank="false" runat="server">
+            <ext:TextField ID="txtPasswd" AnchorHorizontal="98%"  FieldLabel="密码" InputType="Password" AllowBlank="false" runat="server">
             </ext:TextField>
         </items>
         <Buttons>
