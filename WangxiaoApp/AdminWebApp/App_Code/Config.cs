@@ -23,4 +23,13 @@ public class Config
         }
         
     }
+    public static Guid c
+    {
+        get
+        {
+            Guid guid = new Guid(System.Web.Configuration.WebConfigurationManager.AppSettings["c"]);
+            return guid;
+        }
+
+    }
 }
