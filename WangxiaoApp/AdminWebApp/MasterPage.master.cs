@@ -14,9 +14,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             case 0:
                 Response.Redirect("~/login.aspx");
                 break;
-            case 1:
-                Response.Redirect("~/default.aspx");
-                break;
+             
             case -1:
                 Response.Redirect("~/login.aspx");
                 break;
