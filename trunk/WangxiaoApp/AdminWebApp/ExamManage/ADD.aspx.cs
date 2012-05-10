@@ -14,7 +14,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         TreeBind();
-        Store1_DataBind();
+        //Store1_DataBind();
     }
     protected void Store1_DataBind()
     {
@@ -100,11 +100,11 @@ public partial class ExamManage_ADD : System.Web.UI.Page
             TreeNodes(tn, wx.GID);
         }
     }
-    protected void Store1_Refresh(object sender, StoreRefreshDataEventArgs e)
-    {
-        //X.Msg.Alert("aa",e.Parameters["path"].ToString()).Show();
-        Store1_DataBind();
-    }
+    //protected void Store1_Refresh(object sender, StoreRefreshDataEventArgs e)
+    //{
+    //    //X.Msg.Alert("aa",e.Parameters["path"].ToString()).Show();
+    //    Store1_DataBind();
+    //}
     protected void ClearGrid(object s ,DirectEventArgs e)
     {
         RowSelectionModel sm = this.GridPanel1.SelectionModel.Primary as RowSelectionModel;
