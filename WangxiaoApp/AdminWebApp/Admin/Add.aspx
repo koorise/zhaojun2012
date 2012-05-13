@@ -83,11 +83,7 @@
             </ext:Panel>
         </Items>
     </ext:Viewport>
-    <ext:Window ID="Window1" runat="server"  Hidden="True"   Modal="True" Collapsible="False" Height="185" Icon="Application"
-        Title="管理员权限细分" Width="350">
-        <Items>
-            
-        </Items>
-    </ext:Window>
+    
+ 
 </asp:Content>
 

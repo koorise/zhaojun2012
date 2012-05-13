@@ -30,6 +30,7 @@ public partial class Login : System.Web.UI.Page
                  select c;
          if(q.Count()!=0)
          {
+             mCookies.Cookie.SaveCookie("cID",q.First().ID.ToString(),0);
              mCookies.Cookie.SaveCookie("cGID",q.First().GID.ToString(),0);
              mCookies.Cookie.SaveCookie("cMD5", mCookies.Cookie.MD5CookiesSet(q.First().GID.ToString()), 0);
              Response.Redirect("~/Default.aspx");

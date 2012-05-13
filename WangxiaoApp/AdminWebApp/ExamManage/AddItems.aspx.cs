@@ -45,6 +45,8 @@ public partial class ExamManage_AddItems : System.Web.UI.Page
         wx.qType = int.Parse(txtqType.SelectedItem.Value);
         wx.qSelectNum = int.Parse(txtqSelectNum.SelectedItem.Value);
         wx.qOrderNum = int.Parse(txtqOrderNum.Number.ToString());
+        wx.CreateID = int.Parse(Cookies.GetValue("cID"));
+        wx.CreateTime = DateTime.Now;
         if (int.Parse(txtqType.SelectedItem.Value) != 4)
         {
             string str = "";
