@@ -6,12 +6,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using WangxiaoCN;
 using Ext.Net;
+using Panel = System.Web.UI.WebControls.Panel;
+using TreeNode = Ext.Net.TreeNode;
 
 public partial class Admin_Add : System.Web.UI.Page
 {
+    private TreeNode root;
     protected void Page_Load(object sender, EventArgs e)
     {
-
+         
     }
     protected void BtnAdd_Click(object s,DirectEventArgs e)
     {
@@ -38,9 +41,29 @@ public partial class Admin_Add : System.Web.UI.Page
         }
 
     }
+     
     protected void BtnCMD_Click(object s, DirectEventArgs e)
     {
         string adminID = e.ExtraParams["AdminID"].ToString();
-        Window1.Show();
+
+        var win = new Window
+        {
+            ID = "Window1",
+            Title = "权限细分",
+            Width = Unit.Pixel(600),
+            Height = Unit.Pixel(400),
+            Modal = true,
+            Collapsible = true,
+            Maximizable = true,
+            Hidden = true
+        };
+
+        win.AutoLoad.Url = "~/Admin/Powerpage.aspx?adminID=" + adminID;
+        win.AutoLoad.Mode = LoadMode.IFrame;
+
+        win.Render(this.Form);
+        win.Show();
+         
+       
     }
 }

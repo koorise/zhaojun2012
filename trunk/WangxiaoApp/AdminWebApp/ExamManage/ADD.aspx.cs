@@ -28,7 +28,6 @@ public partial class ExamManage_ADD : System.Web.UI.Page
     {
 
         TreePanel1.Listeners.Click.Handler = DropDownField1.ClientID + ".setValue(node.text,false);" + txtClassGID.ClientID + ".setValue(node.id,false);";
-
         root = new TreeNode(Config.g.ToString(), "Root", Icon.FolderHome);
         root.Expanded = true;
         
@@ -150,9 +149,11 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         wx.eHot = int.Parse(txteHot.Number.ToString());
         wx.ePoints = int.Parse(txtePoints.Number.ToString());
         wx.ExamTypeID = int.Parse(txtExamTypeID.SelectedItem.Value);
+        wx.CreateID = int.Parse(Cookies.GetCookie("cID").Value.ToString());
+        wx.CreateTime = DateTime.Now;
         wx.Save();
         //X.Msg.Notify("添加成功", "试题："+txteTitle.Text).Show();
-        Store1_DataBind();
+         
 
     }
     protected  void BtnEdit(object s, DirectEventArgs e)
@@ -171,9 +172,10 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         wx.eHot = int.Parse(txteHot.Text);
         wx.ePoints = int.Parse(txtePoints.Text);
         wx.ExamTypeID = int.Parse(txtExamTypeID.SelectedItem.Value);
+        wx.EditID = int.Parse(Cookies.GetCookie("cID").Value.ToString());
+        wx.DelTime = DateTime.Now;
         wx.Save(); 
-        ClearGrid(s, e);
-        Store1_DataBind();
+        ClearGrid(s, e); 
         //X.Msg.Notify("修改成功", "试题：" + txteTitle.Text).Show();
     }
 }
