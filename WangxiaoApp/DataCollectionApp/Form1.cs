@@ -22,61 +22,40 @@ namespace DataCollectionApp
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
-            string aHtml = getContent("http://ks.233.com/"+textBox1.Text+"/");
-            string bHtml = GetHtml("<div class=\"contlist\">", "</div>", aHtml);
-            List<string> strs = GetHtmls("\">", "</A>", bHtml);
-            List<string> strs2 = GetHtmls("\"/", "/\"", bHtml);
-            
+        {  
             Guid guid = Guid.NewGuid();
             Guid cGuid=new Guid("85F3F1E6-13A4-4BDA-903A-C5D6106343DF");
-            WXSysExamCategory wx=new WXSysExamCategory();
-            wx.GID = guid;
-            wx.PID = cGuid;
-            wx.className = textBox2.Text;
-            wx.path = cGuid.ToString() + "|" + guid.ToString();
-            wx.isDeep = 0;
-            wx.ksID = int.Parse(textBox1.Text);
-            wx.Save();
-            int i = 0;
-            foreach (var str in strs)
+            InsertData(textBox1.Text,cGuid,cGuid.ToString(),1,textBox2.Text);
+             
+        }
+        public void InsertData(string ksid,Guid pid,string path,int isdeep,string classname)
+        {
+
+            WXSysExamCategory w = new WXSysExamCategory();
+            w.GID = Guid.NewGuid();
+            w.PID = pid;
+            w.className = classname;
+            w.path = path + "|" + w.GID.ToString();
+            w.isDeep = isdeep;
+            w.ksID = int.Parse(ksid);
+            w.Save();
+
+            
+            string aHtml = getContent("http://ks.233.com/" + ksid + "/");
+            string bHtml = GetHtml("<div class=\"contlist\">", "</div>", aHtml);
+            if (bHtml.IndexOf(@"/" + ksid + "/") == -1)
             {
-                Guid guid1= Guid.NewGuid();
+                List<string> _classname = GetHtmls("\">", "</A>", bHtml);
+                List<string> _ksid = GetHtmls("\"/", "/\"", bHtml);
 
-                WXSysExamCategory w= new WXSysExamCategory();
-                w.GID = guid1;
-                w.PID = guid;
-                w.className = str;
-                w.path = wx.path + "|" + guid1.ToString();
-                w.isDeep = 1;
-                w.ksID = int.Parse(strs2[i]);
-                w.Save();
-
-                string aHtml1 = getContent("http://ks.233.com/" + strs2[i] + "/");
-                string bHtml1 = GetHtml("<div class=\"contlist\">", "</div>", aHtml1);
-                List<string> _strs = GetHtmls("\">", "</A>", bHtml1);
-                List<string> _strs2 = GetHtmls("\"/", "/\"", bHtml1);
-                int t = 0;
-                
-                    foreach (var s in _strs)
-                    {
-                        if (_strs2.Count != strs2.Count)
-                        {
-                            Guid guid2 = Guid.NewGuid();
-                            WXSysExamCategory w2 = new WXSysExamCategory();
-                            w2.GID = guid2;
-                            w2.PID = guid1;
-                            w2.className = s;
-                            w2.path = w.path + "|" + guid2.ToString();
-                            w2.isDeep = 2;
-                            w2.ksID = int.Parse(_strs2[t]);
-                            w2.Save();
-                        }
-                        t++;
-                    }
-                i++;
+                int i = 0;
+                foreach (var s in _classname)
+                {
+                    InsertData(_ksid[i], w.GID, path, isdeep + 1, s);
+                    i++;
+                }
             }
+
         }
         private static string getContent(string Url)
         {
