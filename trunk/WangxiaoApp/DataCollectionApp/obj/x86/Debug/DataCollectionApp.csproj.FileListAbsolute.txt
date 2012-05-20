@@ -1,0 +1,11 @@
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\DataCollectionApp.exe
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\DataCollectionApp.pdb
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.Form1.resources
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.Properties.Resources.resources
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.exe
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.pdb
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\DataCollectionApp.exe.config
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\SubSonic.Core.dll
