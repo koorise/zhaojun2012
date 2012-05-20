@@ -65,10 +65,8 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
-    <Compile Include="Areas\Admin\Controllers\indexController.cs" />
-    <Compile Include="Areas\Home\Controllers\indexController.cs" />
-    <Compile Include="Areas\Home\HomeAreaRegistration.cs" />
+    <Compile Include="Areas\ExamCenter\Controllers\ExamCenterController.cs" />
+    <Compile Include="Areas\ExamCenter\ExamCenterAreaRegistration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -95,8 +93,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Admin\Views\index\login.aspx" />
-    <Content Include="Areas\Home\Views\index\login.aspx" />
+    <Content Include="Areas\ExamCenter\Views\ExamDetail.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Web.config" />
@@ -121,16 +118,13 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Areas\Admin\Views\Shared\" />
-    <Folder Include="Areas\Home\Models\" />
-    <Folder Include="Areas\Home\Views\Shared\" />
+    <Folder Include="Areas\ExamCenter\Models\" />
     <Folder Include="Controllers\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Home\Web.config" />
-    <Content Include="Areas\Admin\Views\Web.config" />
+    <Content Include="Areas\ExamCenter\Views\Web.config" />
+    <Content Include="Areas\ExamCenter\Views\Shared\ViewMasterPage1.Master" />
     <None Include="Models\ActiveRecord.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ActiveRecord.cs</LastGenOutput>

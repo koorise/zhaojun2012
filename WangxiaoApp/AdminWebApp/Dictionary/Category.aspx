@@ -28,7 +28,7 @@
     <ext:ColumnLayout ID="ColumnLayout1"  runat="server">
     <Columns>
         <ext:LayoutColumn ColumnWidth="0.7"> 
-            <ext:TreePanel ID="TreePanel1" runat="server"    Title="分类目录"  >
+            <ext:TreePanel ID="TreePanel1" runat="server"  AutoScroll="True"    Title="分类目录"  >
             
             <Root></Root>
             <TopBar>
