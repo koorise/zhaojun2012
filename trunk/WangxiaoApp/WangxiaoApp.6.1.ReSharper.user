@@ -1,0 +1,695 @@
+<Configuration>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:Login.aspx.cs" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:Default2.aspx" caret="168" fromTop="1" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:Default2.aspx.cs" caret="267" fromTop="11" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:Context.tt" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:ActiveRecord.tt" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:Config.cs" caret="418" fromTop="22" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:ActiveRecord.cs" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:web.config" caret="2398" fromTop="26" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:Structs.cs" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:Context.cs" caret="9447" fromTop="17" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:Settings.ttinclude" caret="1378" fromTop="39" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:Login.aspx" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Dictionary/f:year.aspx" caret="936" fromTop="24" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Dictionary/f:year.aspx.cs" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:Default.aspx" caret="2918" fromTop="24" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:App_Code/f:SQLServer.ttinclude" caret="3441" fromTop="13" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:MasterPage.master" caret="622" fromTop="15" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Dictionary/f:Category.aspx" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Dictionary/f:Category.aspx.cs" caret="1805" fromTop="19" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:AddItems.aspx" caret="14767" fromTop="34" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:AddItems.aspx.cs" caret="1491" fromTop="22" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx.cs" caret="5201" fromTop="39" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="4648" fromTop="38" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="9096" fromTop="4" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="12462" fromTop="34" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="10610" fromTop="14" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="10556" fromTop="12" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="7914" fromTop="14" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="11387" fromTop="29" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="12871" fromTop="28" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="13352" fromTop="36" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="11997" fromTop="24" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="6951" fromTop="20" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="5002" fromTop="35" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="1131" fromTop="16" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx.cs" caret="2166" fromTop="10" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx.cs" caret="1208" fromTop="31" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="2901" fromTop="14" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="4428" fromTop="26" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="4428" fromTop="26" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="4428" fromTop="26" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="4428" fromTop="22" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="1448" fromTop="12" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="2151" fromTop="23" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="15060" fromTop="48" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="400" fromTop="7" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx" caret="4648" fromTop="38" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx.cs" caret="3019" fromTop="34" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:AddItems.aspx.cs" caret="1871" fromTop="29" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:AddItems.aspx.cs" caret="1136" fromTop="8" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:AddItems.aspx" caret="10626" fromTop="14" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:AddItems.aspx.cs" caret="1491" fromTop="22" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:ExamManage/f:ADD.aspx.cs" caret="5219" fromTop="39" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False" />
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="livetemplates.csharp.usevar">True</setting>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="CSharpCodeCompletionContext">
+      <Item value="WangxiaoCN" priority="435" />
+      <Item value="Data" priority="78" />
+      <Item value="ks_ExamDetail`0" priority="26" />
+      <Item value="using" priority="651" />
+      <Item value="WangxiaoCN.Data" priority="30" />
+      <Item value="ks_user`0" priority="159" />
+      <Item value="ksUser" priority="224" />
+      <Item value="new" priority="1663" />
+      <Item value="ks_user" priority="138" />
+      <Item value="DateTime`0" priority="31" />
+      <Item value="Response" priority="95" />
+      <Item value="var" priority="639" />
+      <Item value="from" priority="447" />
+      <Item value="db" priority="64" />
+      <Item value="select" priority="351" />
+      <Item value="p" priority="63" />
+      <Item value="User" priority="63" />
+      <Item value="HttpPost" priority="94" />
+      <Item value="MaintainScrollPositionOnPostBack" priority="31" />
+      <Item value="MemberwiseClone`0" priority="31" />
+      <Item value="m" priority="63" />
+      <Item value="public" priority="287" />
+      <Item value="ActionResult`0" priority="95" />
+      <Item value="return" priority="191" />
+      <Item value="View`0" priority="95" />
+      <Item value="string" priority="220" />
+      <Item value="int" priority="703" />
+      <Item value="id" priority="127" />
+      <Item value="Html" priority="223" />
+      <Item value="Login`0" priority="95" />
+      <Item value="Login" priority="65" />
+      <Item value="login" priority="32" />
+      <Item value="ViewData" priority="63" />
+      <Item value="s" priority="95" />
+      <Item value="Request" priority="31" />
+      <Item value="WangxiaoWebApp" priority="30" />
+      <Item value="SubSonic" priority="124" />
+      <Item value="Sql2005Generator`0" priority="31" />
+      <Item value="WXAdminPowerCategory`0" priority="31" />
+      <Item value="WangxiaoCNDB`0" priority="95" />
+      <Item value="IsPostBack" priority="31" />
+      <Item value="WXSysExamCategory`0" priority="1429" />
+      <Item value="wxSysExamCategory" priority="128" />
+      <Item value="WXSysExamCategory" priority="466" />
+      <Item value="List" priority="127" />
+      <Item value="where" priority="351" />
+      <Item value="c" priority="639" />
+      <Item value="Ext.Net" priority="61" />
+      <Item value="TreePanel`0" priority="63" />
+      <Item value="TreePanel" priority="57" />
+      <Item value="this" priority="127" />
+      <Item value="tp" priority="383" />
+      <Item value="Unit`0" priority="63" />
+      <Item value="Book" priority="16" />
+      <Item value="true" priority="63" />
+      <Item value="TreeNode`0" priority="58" />
+      <Item value="Ext" priority="191" />
+      <Item value="Net" priority="163" />
+      <Item value="TreeNode" priority="308" />
+      <Item value="icon" priority="31" />
+      <Item value="Icon`0" priority="31" />
+      <Item value="root" priority="351" />
+      <Item value="WxSysExam" priority="65" />
+      <Item value="protected" priority="511" />
+      <Item value="RootBuilder`0" priority="31" />
+      <Item value="wxSysExam" priority="64" />
+      <Item value="SqlDataSource`0" priority="31" />
+      <Item value="wx" priority="2303" />
+      <Item value="q" priority="799" />
+      <Item value="bool" priority="95" />
+      <Item value="repo" priority="63" />
+      <Item value="x" priority="543" />
+      <Item value="uuu" priority="127" />
+      <Item value="ID" priority="240" />
+      <Item value="UpdateOptions" priority="29" />
+      <Item value="Queryable`0" priority="31" />
+      <Item value="query" priority="64" />
+      <Item value="Query&lt;WXSysExamCategory&gt;" priority="28" />
+      <Item value="Func" priority="64" />
+      <Item value="AggregateExpression`0" priority="32" />
+      <Item value="WriteUTF8ResourceString`0" priority="31" />
+      <Item value="u" priority="31" />
+      <Item value="Region`0" priority="63" />
+      <Item value="void" priority="511" />
+      <Item value="t" priority="159" />
+      <Item value="bigid" priority="95" />
+      <Item value="foreach" priority="127" />
+      <Item value="tn" priority="223" />
+      <Item value="TreeNodes`0" priority="159" />
+      <Item value="uu" priority="31" />
+      <Item value="if" priority="319" />
+      <Item value="result" priority="63" />
+      <Item value="private" priority="31" />
+      <Item value="else" priority="159" />
+      <Item value="tree" priority="96" />
+      <Item value="txtParent" priority="127" />
+      <Item value="object" priority="383" />
+      <Item value="DirectEvent`0" priority="31" />
+      <Item value="X`0" priority="575" />
+      <Item value="Hidden1" priority="31" />
+      <Item value="DirectEventArgs`0" priority="319" />
+      <Item value="RecordsToXmlConverter`0" priority="31" />
+      <Item value="ec" priority="255" />
+      <Item value="txtSelf" priority="159" />
+      <Item value="WXAdminUser`0" priority="31" />
+      <Item value="WXAdminUser" priority="28" />
+      <Item value="WXP" priority="30" />
+      <Item value="Guid`0" priority="639" />
+      <Item value="Guid" priority="377" />
+      <Item value="guid" priority="161" />
+      <Item value="g" priority="31" />
+      <Item value="Config`0" priority="223" />
+      <Item value="static" priority="31" />
+      <Item value="get" priority="32" />
+      <Item value="txtParentID" priority="63" />
+      <Item value="GID" priority="255" />
+      <Item value="gg" priority="223" />
+      <Item value="for" priority="31" />
+      <Item value="i" priority="127" />
+      <Item value="Length" priority="53" />
+      <Item value="path" priority="159" />
+      <Item value="qq" priority="31" />
+      <Item value="TreePanel1" priority="31" />
+      <Item value="nodes" priority="63" />
+      <Item value="WXExamPaper`0" priority="63" />
+      <Item value="WXExamPaper" priority="57" />
+      <Item value="WXSysYear`0" priority="191" />
+      <Item value="Store1" priority="447" />
+      <Item value="BindData`0" priority="31" />
+      <Item value="WXSysYear" priority="86" />
+      <Item value="EnableEventValidation" priority="31" />
+      <Item value="newValue" priority="31" />
+      <Item value="e" priority="127" />
+      <Item value="DirectMethod" priority="31" />
+      <Item value="txtYears" priority="31" />
+      <Item value="vwExamPaperExamCategory`0" priority="159" />
+      <Item value="DropDownField1" priority="31" />
+      <Item value="FormLayout`0" priority="26" />
+      <Item value="TreePanel2" priority="31" />
+      <Item value="orderby" priority="31" />
+      <Item value="descending" priority="31" />
+      <Item value="Store1_DataBind`0" priority="127" />
+      <Item value="Store`0" priority="63" />
+      <Item value="txtClassGID" priority="63" />
+      <Item value="ExamGID" priority="159" />
+      <Item value="ClassGID" priority="31" />
+      <Item value="txteTitle" priority="63" />
+      <Item value="ComboBox1" priority="31" />
+      <Item value="txteStars" priority="31" />
+      <Item value="txteTotalScore" priority="31" />
+      <Item value="txtePassingScoreda" priority="31" />
+      <Item value="txteFrom" priority="31" />
+      <Item value="txteHot" priority="31" />
+      <Item value="txtePoints" priority="31" />
+      <Item value="Theme" priority="31" />
+      <Item value="Store1_Refresh`0" priority="31" />
+      <Item value="GridPanel1" priority="223" />
+      <Item value="ascending" priority="31" />
+      <Item value="Store" priority="28" />
+      <Item value="s1" priority="95" />
+      <Item value="store1" priority="31" />
+      <Item value="StoreRefreshDataEventArgs`0" priority="63" />
+      <Item value="SqlDataSource2" priority="63" />
+      <Item value="txtExamGID" priority="95" />
+      <Item value="row" priority="63" />
+      <Item value="WXExamDetail`0" priority="191" />
+      <Item value="WXExamDetailTable`0" priority="31" />
+      <Item value="txtqOrderNum" priority="63" />
+      <Item value="WXExamDetail" priority="28" />
+      <Item value="txtqType" priority="31" />
+      <Item value="txtqSelectNum" priority="31" />
+      <Item value="txtqAnswer1" priority="31" />
+      <Item value="txtqAnswer2" priority="31" />
+      <Item value="Store2" priority="95" />
+      <Item value="str" priority="95" />
+      <Item value="wxSys" priority="32" />
+      <Item value="w" priority="95" />
+      <Item value="txtExamTypeID" priority="31" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WangxiaoCN.Data.ks_user">
+      <Item value="Add`0" priority="26" />
+      <Item value="Columns" priority="26" />
+      <Item value="intime" priority="53" />
+      <Item value="Save`0" priority="26" />
+      <Item value="uid" priority="26" />
+      <Item value="username" priority="53" />
+      <Item value="Score" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.DateTime">
+      <Item value="Now" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpResponseBase">
+      <Item value="Write`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Security.Principal.IPrincipal">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.Mvc.HtmlHelper`1">
+      <Item value="TextArea`0" priority="26" />
+      <Item value="TextAreaFor`2" priority="27" />
+      <Item value="BeginForm`0" priority="53" />
+      <Item value="TextBoxFor`2" priority="81" />
+      <Item value="EndForm`0" priority="27" />
+      <Item value="ActionLink`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="ToString`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="AspCodeCompletionContext">
+      <Item value="button" priority="6" />
+      <Item value="type" priority="6" />
+      <Item value="submit" priority="6" />
+      <Item value="value" priority="13" />
+      <Item value="Name" priority="91" />
+      <Item value="FieldLabel" priority="137" />
+      <Item value="InputType" priority="13" />
+      <Item value="Password" priority="6" />
+      <Item value="AllowBlank" priority="14" />
+      <Item value="Draggable" priority="6" />
+      <Item value="Closable" priority="6" />
+      <Item value="Buttons" priority="20" />
+      <Item value="Listeners" priority="104" />
+      <Item value="Click" priority="147" />
+      <Item value="Handler" priority="113" />
+      <Item value="DirectEvents" priority="91" />
+      <Item value="AnchorHorizontal" priority="70" />
+      <Item value="Collapsed" priority="13" />
+      <Item value="Resizable" priority="6" />
+      <Item value="Modal" priority="6" />
+      <Item value="Region" priority="70" />
+      <Item value="West" priority="20" />
+      <Item value="Center" priority="36" />
+      <Item value="Padding" priority="6" />
+      <Item value="Items" priority="41" />
+      <Item value="ext" priority="208" />
+      <Item value="RegexText" priority="6" />
+      <Item value="Disabled" priority="44" />
+      <Item value="Visible" priority="6" />
+      <Item value="Icon" priority="80" />
+      <Item value="Delete" priority="13" />
+      <Item value="DiskBlack" priority="6" />
+      <Item value="Fn" priority="22" />
+      <Item value="Delay" priority="41" />
+      <Item value="ClockEdit" priority="6" />
+      <Item value="BookEdit" priority="13" />
+      <Item value="Store" priority="50" />
+      <Item value="intType" priority="6" />
+      <Item value="Int" priority="6" />
+      <Item value="ColumnModel" priority="20" />
+      <Item value="Columns" priority="27" />
+      <Item value="South" priority="6" />
+      <Item value="North" priority="13" />
+      <Item value="Frame" priority="29" />
+      <Item value="Table" priority="6" />
+      <Item value="Add" priority="20" />
+      <Item value="AutoExpandColumn" priority="20" />
+      <Item value="ext:Column" priority="13" />
+      <Item value="Command" priority="35" />
+      <Item value="ExtraParams" priority="27" />
+      <Item value="del" priority="6" />
+      <Item value="Value" priority="34" />
+      <Item value="Mode" priority="43" />
+      <Item value="Raw" priority="20" />
+      <Item value="command" priority="27" />
+      <Item value="ConfigOptionsExtraction" priority="7" />
+      <Item value="Reader" priority="41" />
+      <Item value="Fields" priority="49" />
+      <Item value="IDProperty" priority="13" />
+      <Item value="enumSeperator" priority="6" />
+      <Item value="East" priority="6" />
+      <Item value="DataSourceID" priority="42" />
+      <Item value="SqlDataSource1" priority="20" />
+      <Item value="Component" priority="6" />
+      <Item value="Width" priority="35" />
+      <Item value="SqlDataSource2" priority="13" />
+      <Item value="DisplayField" priority="28" />
+      <Item value="ValueField" priority="27" />
+      <Item value="StoreID" priority="6" />
+      <Item value="Store2" priority="6" />
+      <Item value="Editable" priority="36" />
+      <Item value="VtypeText" priority="6" />
+      <Item value="Vtype" priority="7" />
+      <Item value="TopBar" priority="20" />
+      <Item value="ext:PagingToolbar" priority="6" />
+      <Item value="LabelAlign" priority="20" />
+      <Item value="Right" priority="14" />
+      <Item value="ID" priority="14" />
+      <Item value="runat" priority="28" />
+      <Item value="server" priority="27" />
+      <Item value="DataIndex" priority="35" />
+      <Item value="MaskRe" priority="6" />
+      <Item value="ApplicationFormMagnify" priority="6" />
+      <Item value="Erase" priority="13" />
+      <Item value="Find" priority="6" />
+      <Item value="TextListBullets" priority="6" />
+      <Item value="Attach" priority="6" />
+      <Item value="Title" priority="6" />
+      <Item value="RefreshData" priority="13" />
+      <Item value="Render" priority="6" />
+      <Item value="figure" priority="6" />
+      <Item value="BaseParams" priority="6" />
+      <Item value="PageSize" priority="6" />
+      <Item value="SqlDataSource3" priority="6" />
+      <Item value="Layout" priority="21" />
+      <Item value="ColumnWidth" priority="21" />
+      <Item value="Top" priority="13" />
+      <Item value="Text" priority="13" />
+      <Item value="AutoHeight" priority="6" />
+      <Item value="Height" priority="6" />
+      <Item value="ext:Button" priority="14" />
+      <Item value="RowSelect" priority="6" />
+      <Item value="EmptyText" priority="6" />
+      <Item value="MinValue" priority="6" />
+      <Item value="MaxValue" priority="6" />
+      <Item value="DecimalPrecision" priority="6" />
+      <Item value="IncrementValue" priority="6" />
+      <Item value="Theme" priority="7" />
+      <Item value="Default" priority="6" />
+      <Item value="ext:Viewport" priority="6" />
+      <Item value="Tools" priority="7" />
+      <Item value="Root" priority="6" />
+      <Item value="IndicatorIcon" priority="6" />
+      <Item value="StarGold" priority="6" />
+      <Item value="DefaultValue" priority="23" />
+      <Item value="ValueText" priority="6" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.HttpRequestBase">
+      <Item value="Form" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="JavaScriptSpecificContext">
+      <Item value="titles" priority="10" />
+      <Item value="value" priority="10" />
+      <Item value="switch" priority="10" />
+      <Item value="case" priority="32" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WangxiaoCN.WXSysExamCategory">
+      <Item value="Columns" priority="26" />
+      <Item value="ID" priority="351" />
+      <Item value="bigID" priority="188" />
+      <Item value="className" priority="215" />
+      <Item value="path" priority="513" />
+      <Item value="Add`0" priority="26" />
+      <Item value="Update`0" priority="55" />
+      <Item value="Save`0" priority="161" />
+      <Item value="Delete`0" priority="26" />
+      <Item value="GID" priority="435" />
+      <Item value="PID" priority="215" />
+      <Item value="isDeep" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Dictionary_Category">
+      <Item value="PlaceHolder1" priority="54" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.PlaceHolder">
+      <Item value="Controls" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.ControlCollection">
+      <Item value="Add`0" priority="27" />
+      <Item value="Clear`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.TreePanel">
+      <Item value="ID" priority="26" />
+      <Item value="Width" priority="26" />
+      <Item value="Height" priority="26" />
+      <Item value="Icon" priority="26" />
+      <Item value="Title" priority="26" />
+      <Item value="AutoScroll" priority="26" />
+      <Item value="Root" priority="54" />
+      <Item value="Region" priority="53" />
+      <Item value="Listeners" priority="53" />
+      <Item value="DirectEvents" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Web.UI.WebControls.Unit">
+      <Item value="Pixel`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Ext.Net.Icon">
+      <Item value="FolderHome" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.TreeNode">
+      <Item value="Expanded" priority="26" />
+      <Item value="NodeID" priority="26" />
+      <Item value="Text" priority="26" />
+      <Item value="Nodes" priority="134" />
+      <Item value="Listeners" priority="26" />
+      <Item value="Qtip" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.TreeNodeCollection">
+      <Item value="Add`0" priority="192" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@WangxiaoCN.WXSysExamCategory">
+      <Item value="All`0" priority="188" />
+      <Item value="Delete`0" priority="107" />
+      <Item value="Exists`0" priority="53" />
+      <Item value="SingleOrDefault`0" priority="53" />
+      <Item value="Find`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SubSonic.Repository.SimpleRepository">
+      <Item value="Exists`1" priority="26" />
+      <Item value="Add`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SubSonic.Linq.Structure.Query`1">
+      <Item value="Where`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Aggregate`1" priority="26" />
+      <Item value="Contains`0" priority="26" />
+      <Item value="StartsWith`0" priority="107" />
+      <Item value="Split`0" priority="135" />
+      <Item value="ToArray`1" priority="26" />
+      <Item value="ToString`0" priority="109" />
+      <Item value="Substring`0" priority="26" />
+      <Item value="Length" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Ext.Net.Region">
+      <Item value="Center" priority="26" />
+      <Item value="West" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.TreePanelListeners">
+      <Item value="Click" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.ComponentListener">
+      <Item value="Handler" priority="26" />
+      <Item value="Fn" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.TreePanelDirectEvents">
+      <Item value="Click" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.Hidden">
+      <Item value="ClientID" priority="26" />
+      <Item value="Text" priority="26" />
+      <Item value="Value" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Ext.Net.X">
+      <Item value="Msg" priority="404" />
+      <Item value="WindowManager" priority="26" />
+      <Item value="Form`0" priority="26" />
+      <Item value="IsAjaxRequest" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.MessageBox">
+      <Item value="Alert`0" priority="324" />
+      <Item value="Show`0" priority="296" />
+      <Item value="Notify`0" priority="107" />
+      <Item value="ToScript`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.TextField">
+      <Item value="Text" priority="620" />
+      <Item value="ClientID" priority="26" />
+      <Item value="ToScript`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Object">
+      <Item value="ToString`0" priority="80" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Int32">
+      <Item value="Parse`0" priority="485" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Config">
+      <Item value="g`0" priority="26" />
+      <Item value="g" priority="188" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Guid">
+      <Item value="ToString`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Guid">
+      <Item value="NewGuid`0" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SubSonic.Query.Select">
+      <Item value="From`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.Notification">
+      <Item value="Show`0" priority="107" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@WangxiaoCN.WXSysYear">
+      <Item value="All`0" priority="26" />
+      <Item value="Delete`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.Store">
+      <Item value="DataSource" priority="134" />
+      <Item value="DataBind`0" priority="242" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WangxiaoCN.WXSysYear">
+      <Item value="ID" priority="107" />
+      <Item value="Years" priority="53" />
+      <Item value="Save`0" priority="53" />
+      <Item value="Delete`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.DirectEventArgs">
+      <Item value="ExtraParams" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.Parameter">
+      <Item value="ToString`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@WangxiaoCN.vwExamPaperExamCategory">
+      <Item value="All`0" priority="107" />
+      <Item value="Find`0" priority="53" />
+      <Item value="SingleOrDefault`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WangxiaoCN.vwExamPaperExamCategory">
+      <Item value="ID" priority="26" />
+      <Item value="path" priority="80" />
+      <Item value="ExamGID" priority="80" />
+      <Item value="className" priority="54" />
+      <Item value="ClassGID" priority="26" />
+      <Item value="eTitle" priority="27" />
+      <Item value="pName" priority="26" />
+      <Item value="eYear" priority="26" />
+      <Item value="eStars" priority="26" />
+      <Item value="eTotalScore" priority="26" />
+      <Item value="ePassingScore" priority="26" />
+      <Item value="eFrom" priority="26" />
+      <Item value="eHot" priority="26" />
+      <Item value="ePoints" priority="26" />
+      <Item value="ExamTypeID" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WangxiaoCN.WXExamPaper">
+      <Item value="ExamGID" priority="53" />
+      <Item value="ClassGID" priority="54" />
+      <Item value="PvcID" priority="26" />
+      <Item value="eTitle" priority="26" />
+      <Item value="eYear" priority="26" />
+      <Item value="eStars" priority="26" />
+      <Item value="eTotalScore" priority="26" />
+      <Item value="ePassingScore" priority="26" />
+      <Item value="eFrom" priority="53" />
+      <Item value="eHot" priority="26" />
+      <Item value="ePoints" priority="26" />
+      <Item value="Save`0" priority="26" />
+      <Item value="ExamTypeID" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.DisplayField">
+      <Item value="Text" priority="53" />
+      <Item value="Value" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.ComboBox">
+      <Item value="SelectedItem" priority="188" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.ListItem">
+      <Item value="Value" priority="134" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:ExamManage_ADD">
+      <Item value="FormPanel1" priority="26" />
+      <Item value="ClearGrid`0" priority="26" />
+      <Item value="GridPanel1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.FormPanel">
+      <Item value="SetValues`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.GridPanel">
+      <Item value="DataBind`0" priority="53" />
+      <Item value="Store" priority="107" />
+      <Item value="ClearContent`0" priority="26" />
+      <Item value="Items" priority="26" />
+      <Item value="GetStore`0" priority="26" />
+      <Item value="SelectionModel" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.StoreCollection">
+      <Item value="Remove`0" priority="53" />
+      <Item value="Add`0" priority="27" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.ItemsCollection`1">
+      <Item value="Clear`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.SqlDataSource">
+      <Item value="SelectParameters" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Web.UI.WebControls.Parameter">
+      <Item value="DefaultValue" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:SubSonic.Query.SqlQuery">
+      <Item value="GetRecordCount`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@WangxiaoCN.WXExamDetail">
+      <Item value="Find`0" priority="53" />
+      <Item value="All`0" priority="53" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:WangxiaoCN.WXExamDetail">
+      <Item value="ExamGID" priority="107" />
+      <Item value="QGID" priority="26" />
+      <Item value="qContent" priority="26" />
+      <Item value="qType" priority="26" />
+      <Item value="qSelectNum" priority="26" />
+      <Item value="qOrderNum" priority="26" />
+      <Item value="qAnswer" priority="80" />
+      <Item value="Save`0" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Count`1" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.SelectedRow">
+      <Item value="RecordID" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.HtmlEditor">
+      <Item value="Value" priority="26" />
+      <Item value="Text" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.MultiCombo">
+      <Item value="Text" priority="26" />
+      <Item value="SelectedItems" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.TextArea">
+      <Item value="Text" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.SelectedListItem">
+      <Item value="Value" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.StoreRefreshDataEventArgs">
+      <Item value="Parameters" priority="26" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:Ext.Net.SpinnerField">
+      <Item value="Value" priority="26" />
+      <Item value="Number" priority="161" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Double">
+      <Item value="ToString`0" priority="161" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+</Configuration>

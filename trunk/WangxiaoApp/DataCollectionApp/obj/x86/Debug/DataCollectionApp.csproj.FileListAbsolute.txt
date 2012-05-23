@@ -9,3 +9,9 @@ D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.exe
 D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.pdb
 D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\DataCollectionApp.exe.config
 D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\SubSonic.Core.dll
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\Newtonsoft.Json.dll
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\Newtonsoft.Json.pdb
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\Newtonsoft.Json.xml
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.Form2.resources
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\zoyobar.shared.panzer.IEBrowser.dll
+D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\zoyobar.shared.panzer.IEBrowser.xml
