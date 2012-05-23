@@ -135,13 +135,14 @@ namespace WangxiaoCN
         public Query<WXPointsBank> WXPointsBanks { get; set; }
         public Query<WXUser> WXUsers { get; set; }
         public Query<WXSysExamCategory> WXSysExamCategories { get; set; }
-        public Query<WXExamDetail> WXExamDetails { get; set; }
         public Query<WXSysYear> WXSysYears { get; set; }
         public Query<WXSysExamQstType> WXSysExamQstTypes { get; set; }
         public Query<WXSysExamType> WXSysExamTypes { get; set; }
-        public Query<WXExamPaper> WXExamPapers { get; set; }
         public Query<WXAdmin_Logs_Opration> WXAdmin_Logs_Oprations { get; set; }
         public Query<WXAdmin_Power_Tree> WXAdmin_Power_Trees { get; set; }
+        public Query<WXExamRule> WXExamRules { get; set; }
+        public Query<WXExamDetail> WXExamDetails { get; set; }
+        public Query<WXExamPaper> WXExamPapers { get; set; }
         public Query<WXUserDetail> WXUserDetails { get; set; }
 
 			
@@ -253,13 +254,14 @@ namespace WangxiaoCN
             WXPointsBanks = new Query<WXPointsBank>(provider);
             WXUsers = new Query<WXUser>(provider);
             WXSysExamCategories = new Query<WXSysExamCategory>(provider);
-            WXExamDetails = new Query<WXExamDetail>(provider);
             WXSysYears = new Query<WXSysYear>(provider);
             WXSysExamQstTypes = new Query<WXSysExamQstType>(provider);
             WXSysExamTypes = new Query<WXSysExamType>(provider);
-            WXExamPapers = new Query<WXExamPaper>(provider);
             WXAdmin_Logs_Oprations = new Query<WXAdmin_Logs_Opration>(provider);
             WXAdmin_Power_Trees = new Query<WXAdmin_Power_Tree>(provider);
+            WXExamRules = new Query<WXExamRule>(provider);
+            WXExamDetails = new Query<WXExamDetail>(provider);
+            WXExamPapers = new Query<WXExamPaper>(provider);
             WXUserDetails = new Query<WXUserDetail>(provider);
             #endregion
 
@@ -274,13 +276,14 @@ namespace WangxiaoCN
             	DataProvider.Schema.Tables.Add(new WXPointsBankTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXUsersTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysExamCategoryTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysYearsTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysExamQstTypeTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysExamTypeTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXExamPaperTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdmin_Logs_OprationTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdmin_Power_TreeTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXExamRulesTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXExamPaperTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXUserDetailsTable(DataProvider));
             }
             #endregion

@@ -754,6 +754,16 @@ namespace WangxiaoCN {
 	                IsForeignKey = false,
 	                MaxLength = 0
                 });
+
+                Columns.Add(new DatabaseColumn("isBottom", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
                     
                 
                 
@@ -843,330 +853,15 @@ namespace WangxiaoCN {
       			}
 		    }
             
-                    
-        }
-        
-        /// <summary>
-        /// Table: WXExamDetail
-        /// Primary Key: ID
-        /// </summary>
-
-        public class WXExamDetailTable: DatabaseTable {
-            
-            public WXExamDetailTable(IDataProvider provider):base("WXExamDetail",provider){
-                ClassName = "WXExamDetail";
-                SchemaName = "dbo";
-                
-
-                Columns.Add(new DatabaseColumn("ID", this)
-                {
-	                IsPrimaryKey = true,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = true,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("QGID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("ExamGID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("qContent", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 1000
-                });
-
-                Columns.Add(new DatabaseColumn("qType", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("qSelectNum", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("qOrderNum", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("qAnswer", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 2000
-                });
-
-                Columns.Add(new DatabaseColumn("CreateID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("CreateTime", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.DateTime,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("EditID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("EditTime", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.DateTime,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("DelID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("DelTime", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.DateTime,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-                    
-                
-                
-            }
-
-            public IColumn ID{
+            public IColumn isBottom{
                 get{
-                    return this.GetColumn("ID");
+                    return this.GetColumn("isBottom");
                 }
             }
 				
-   			public static string IDColumn{
+   			public static string isBottomColumn{
 			      get{
-        			return "ID";
-      			}
-		    }
-            
-            public IColumn QGID{
-                get{
-                    return this.GetColumn("QGID");
-                }
-            }
-				
-   			public static string QGIDColumn{
-			      get{
-        			return "QGID";
-      			}
-		    }
-            
-            public IColumn ExamGID{
-                get{
-                    return this.GetColumn("ExamGID");
-                }
-            }
-				
-   			public static string ExamGIDColumn{
-			      get{
-        			return "ExamGID";
-      			}
-		    }
-            
-            public IColumn qContent{
-                get{
-                    return this.GetColumn("qContent");
-                }
-            }
-				
-   			public static string qContentColumn{
-			      get{
-        			return "qContent";
-      			}
-		    }
-            
-            public IColumn qType{
-                get{
-                    return this.GetColumn("qType");
-                }
-            }
-				
-   			public static string qTypeColumn{
-			      get{
-        			return "qType";
-      			}
-		    }
-            
-            public IColumn qSelectNum{
-                get{
-                    return this.GetColumn("qSelectNum");
-                }
-            }
-				
-   			public static string qSelectNumColumn{
-			      get{
-        			return "qSelectNum";
-      			}
-		    }
-            
-            public IColumn qOrderNum{
-                get{
-                    return this.GetColumn("qOrderNum");
-                }
-            }
-				
-   			public static string qOrderNumColumn{
-			      get{
-        			return "qOrderNum";
-      			}
-		    }
-            
-            public IColumn qAnswer{
-                get{
-                    return this.GetColumn("qAnswer");
-                }
-            }
-				
-   			public static string qAnswerColumn{
-			      get{
-        			return "qAnswer";
-      			}
-		    }
-            
-            public IColumn CreateID{
-                get{
-                    return this.GetColumn("CreateID");
-                }
-            }
-				
-   			public static string CreateIDColumn{
-			      get{
-        			return "CreateID";
-      			}
-		    }
-            
-            public IColumn CreateTime{
-                get{
-                    return this.GetColumn("CreateTime");
-                }
-            }
-				
-   			public static string CreateTimeColumn{
-			      get{
-        			return "CreateTime";
-      			}
-		    }
-            
-            public IColumn EditID{
-                get{
-                    return this.GetColumn("EditID");
-                }
-            }
-				
-   			public static string EditIDColumn{
-			      get{
-        			return "EditID";
-      			}
-		    }
-            
-            public IColumn EditTime{
-                get{
-                    return this.GetColumn("EditTime");
-                }
-            }
-				
-   			public static string EditTimeColumn{
-			      get{
-        			return "EditTime";
-      			}
-		    }
-            
-            public IColumn DelID{
-                get{
-                    return this.GetColumn("DelID");
-                }
-            }
-				
-   			public static string DelIDColumn{
-			      get{
-        			return "DelID";
-      			}
-		    }
-            
-            public IColumn DelTime{
-                get{
-                    return this.GetColumn("DelTime");
-                }
-            }
-				
-   			public static string DelTimeColumn{
-			      get{
-        			return "DelTime";
+        			return "isBottom";
       			}
 		    }
             
@@ -1356,443 +1051,6 @@ namespace WangxiaoCN {
    			public static string ExamTypeColumn{
 			      get{
         			return "ExamType";
-      			}
-		    }
-            
-                    
-        }
-        
-        /// <summary>
-        /// Table: WXExamPaper
-        /// Primary Key: ID
-        /// </summary>
-
-        public class WXExamPaperTable: DatabaseTable {
-            
-            public WXExamPaperTable(IDataProvider provider):base("WXExamPaper",provider){
-                ClassName = "WXExamPaper";
-                SchemaName = "dbo";
-                
-
-                Columns.Add(new DatabaseColumn("ID", this)
-                {
-	                IsPrimaryKey = true,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = true,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("ExamGID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("ClassGID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Guid,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("PvcID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("ExamTypeID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("eTitle", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 200
-                });
-
-                Columns.Add(new DatabaseColumn("eYear", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("eStars", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("eTotalScore", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("ePassingScore", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("eFrom", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.String,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 50
-                });
-
-                Columns.Add(new DatabaseColumn("eHot", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("ePoints", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = false,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("CreateID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("CreateTime", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.DateTime,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("EditID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("EditTime", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.DateTime,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("DelID", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.Int32,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-
-                Columns.Add(new DatabaseColumn("DelTime", this)
-                {
-	                IsPrimaryKey = false,
-	                DataType = DbType.DateTime,
-	                IsNullable = true,
-	                AutoIncrement = false,
-	                IsForeignKey = false,
-	                MaxLength = 0
-                });
-                    
-                
-                
-            }
-
-            public IColumn ID{
-                get{
-                    return this.GetColumn("ID");
-                }
-            }
-				
-   			public static string IDColumn{
-			      get{
-        			return "ID";
-      			}
-		    }
-            
-            public IColumn ExamGID{
-                get{
-                    return this.GetColumn("ExamGID");
-                }
-            }
-				
-   			public static string ExamGIDColumn{
-			      get{
-        			return "ExamGID";
-      			}
-		    }
-            
-            public IColumn ClassGID{
-                get{
-                    return this.GetColumn("ClassGID");
-                }
-            }
-				
-   			public static string ClassGIDColumn{
-			      get{
-        			return "ClassGID";
-      			}
-		    }
-            
-            public IColumn PvcID{
-                get{
-                    return this.GetColumn("PvcID");
-                }
-            }
-				
-   			public static string PvcIDColumn{
-			      get{
-        			return "PvcID";
-      			}
-		    }
-            
-            public IColumn ExamTypeID{
-                get{
-                    return this.GetColumn("ExamTypeID");
-                }
-            }
-				
-   			public static string ExamTypeIDColumn{
-			      get{
-        			return "ExamTypeID";
-      			}
-		    }
-            
-            public IColumn eTitle{
-                get{
-                    return this.GetColumn("eTitle");
-                }
-            }
-				
-   			public static string eTitleColumn{
-			      get{
-        			return "eTitle";
-      			}
-		    }
-            
-            public IColumn eYear{
-                get{
-                    return this.GetColumn("eYear");
-                }
-            }
-				
-   			public static string eYearColumn{
-			      get{
-        			return "eYear";
-      			}
-		    }
-            
-            public IColumn eStars{
-                get{
-                    return this.GetColumn("eStars");
-                }
-            }
-				
-   			public static string eStarsColumn{
-			      get{
-        			return "eStars";
-      			}
-		    }
-            
-            public IColumn eTotalScore{
-                get{
-                    return this.GetColumn("eTotalScore");
-                }
-            }
-				
-   			public static string eTotalScoreColumn{
-			      get{
-        			return "eTotalScore";
-      			}
-		    }
-            
-            public IColumn ePassingScore{
-                get{
-                    return this.GetColumn("ePassingScore");
-                }
-            }
-				
-   			public static string ePassingScoreColumn{
-			      get{
-        			return "ePassingScore";
-      			}
-		    }
-            
-            public IColumn eFrom{
-                get{
-                    return this.GetColumn("eFrom");
-                }
-            }
-				
-   			public static string eFromColumn{
-			      get{
-        			return "eFrom";
-      			}
-		    }
-            
-            public IColumn eHot{
-                get{
-                    return this.GetColumn("eHot");
-                }
-            }
-				
-   			public static string eHotColumn{
-			      get{
-        			return "eHot";
-      			}
-		    }
-            
-            public IColumn ePoints{
-                get{
-                    return this.GetColumn("ePoints");
-                }
-            }
-				
-   			public static string ePointsColumn{
-			      get{
-        			return "ePoints";
-      			}
-		    }
-            
-            public IColumn CreateID{
-                get{
-                    return this.GetColumn("CreateID");
-                }
-            }
-				
-   			public static string CreateIDColumn{
-			      get{
-        			return "CreateID";
-      			}
-		    }
-            
-            public IColumn CreateTime{
-                get{
-                    return this.GetColumn("CreateTime");
-                }
-            }
-				
-   			public static string CreateTimeColumn{
-			      get{
-        			return "CreateTime";
-      			}
-		    }
-            
-            public IColumn EditID{
-                get{
-                    return this.GetColumn("EditID");
-                }
-            }
-				
-   			public static string EditIDColumn{
-			      get{
-        			return "EditID";
-      			}
-		    }
-            
-            public IColumn EditTime{
-                get{
-                    return this.GetColumn("EditTime");
-                }
-            }
-				
-   			public static string EditTimeColumn{
-			      get{
-        			return "EditTime";
-      			}
-		    }
-            
-            public IColumn DelID{
-                get{
-                    return this.GetColumn("DelID");
-                }
-            }
-				
-   			public static string DelIDColumn{
-			      get{
-        			return "DelID";
-      			}
-		    }
-            
-            public IColumn DelTime{
-                get{
-                    return this.GetColumn("DelTime");
-                }
-            }
-				
-   			public static string DelTimeColumn{
-			      get{
-        			return "DelTime";
       			}
 		    }
             
@@ -2073,6 +1331,1097 @@ namespace WangxiaoCN {
    			public static string CURDColumn{
 			      get{
         			return "CURD";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXExamRules
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXExamRulesTable: DatabaseTable {
+            
+            public WXExamRulesTable(IDataProvider provider):base("WXExamRules",provider){
+                ClassName = "WXExamRule";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("GID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("S_Sorts", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("RulesTitle", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 4000
+                });
+
+                Columns.Add(new DatabaseColumn("RulesScore", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Decimal,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("RulesScoreSet", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 10
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn GID{
+                get{
+                    return this.GetColumn("GID");
+                }
+            }
+				
+   			public static string GIDColumn{
+			      get{
+        			return "GID";
+      			}
+		    }
+            
+            public IColumn ExamGID{
+                get{
+                    return this.GetColumn("ExamGID");
+                }
+            }
+				
+   			public static string ExamGIDColumn{
+			      get{
+        			return "ExamGID";
+      			}
+		    }
+            
+            public IColumn S_Sorts{
+                get{
+                    return this.GetColumn("S_Sorts");
+                }
+            }
+				
+   			public static string S_SortsColumn{
+			      get{
+        			return "S_Sorts";
+      			}
+		    }
+            
+            public IColumn RulesTitle{
+                get{
+                    return this.GetColumn("RulesTitle");
+                }
+            }
+				
+   			public static string RulesTitleColumn{
+			      get{
+        			return "RulesTitle";
+      			}
+		    }
+            
+            public IColumn RulesScore{
+                get{
+                    return this.GetColumn("RulesScore");
+                }
+            }
+				
+   			public static string RulesScoreColumn{
+			      get{
+        			return "RulesScore";
+      			}
+		    }
+            
+            public IColumn RulesScoreSet{
+                get{
+                    return this.GetColumn("RulesScoreSet");
+                }
+            }
+				
+   			public static string RulesScoreSetColumn{
+			      get{
+        			return "RulesScoreSet";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXExamDetail
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXExamDetailTable: DatabaseTable {
+            
+            public WXExamDetailTable(IDataProvider provider):base("WXExamDetail",provider){
+                ClassName = "WXExamDetail";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("QGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("qContent", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 1000
+                });
+
+                Columns.Add(new DatabaseColumn("qType", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("qSelectNum", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("qOrderNum", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("qAnswer", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = false,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 2000
+                });
+
+                Columns.Add(new DatabaseColumn("Analysis", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 4000
+                });
+
+                Columns.Add(new DatabaseColumn("CreateID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("CreateTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ReviewCount", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.AnsiString,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 100
+                });
+
+                Columns.Add(new DatabaseColumn("AnalyseNum", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.AnsiString,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 100
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn QGID{
+                get{
+                    return this.GetColumn("QGID");
+                }
+            }
+				
+   			public static string QGIDColumn{
+			      get{
+        			return "QGID";
+      			}
+		    }
+            
+            public IColumn ExamGID{
+                get{
+                    return this.GetColumn("ExamGID");
+                }
+            }
+				
+   			public static string ExamGIDColumn{
+			      get{
+        			return "ExamGID";
+      			}
+		    }
+            
+            public IColumn qContent{
+                get{
+                    return this.GetColumn("qContent");
+                }
+            }
+				
+   			public static string qContentColumn{
+			      get{
+        			return "qContent";
+      			}
+		    }
+            
+            public IColumn qType{
+                get{
+                    return this.GetColumn("qType");
+                }
+            }
+				
+   			public static string qTypeColumn{
+			      get{
+        			return "qType";
+      			}
+		    }
+            
+            public IColumn qSelectNum{
+                get{
+                    return this.GetColumn("qSelectNum");
+                }
+            }
+				
+   			public static string qSelectNumColumn{
+			      get{
+        			return "qSelectNum";
+      			}
+		    }
+            
+            public IColumn qOrderNum{
+                get{
+                    return this.GetColumn("qOrderNum");
+                }
+            }
+				
+   			public static string qOrderNumColumn{
+			      get{
+        			return "qOrderNum";
+      			}
+		    }
+            
+            public IColumn qAnswer{
+                get{
+                    return this.GetColumn("qAnswer");
+                }
+            }
+				
+   			public static string qAnswerColumn{
+			      get{
+        			return "qAnswer";
+      			}
+		    }
+            
+            public IColumn Analysis{
+                get{
+                    return this.GetColumn("Analysis");
+                }
+            }
+				
+   			public static string AnalysisColumn{
+			      get{
+        			return "Analysis";
+      			}
+		    }
+            
+            public IColumn CreateID{
+                get{
+                    return this.GetColumn("CreateID");
+                }
+            }
+				
+   			public static string CreateIDColumn{
+			      get{
+        			return "CreateID";
+      			}
+		    }
+            
+            public IColumn CreateTime{
+                get{
+                    return this.GetColumn("CreateTime");
+                }
+            }
+				
+   			public static string CreateTimeColumn{
+			      get{
+        			return "CreateTime";
+      			}
+		    }
+            
+            public IColumn EditID{
+                get{
+                    return this.GetColumn("EditID");
+                }
+            }
+				
+   			public static string EditIDColumn{
+			      get{
+        			return "EditID";
+      			}
+		    }
+            
+            public IColumn EditTime{
+                get{
+                    return this.GetColumn("EditTime");
+                }
+            }
+				
+   			public static string EditTimeColumn{
+			      get{
+        			return "EditTime";
+      			}
+		    }
+            
+            public IColumn DelID{
+                get{
+                    return this.GetColumn("DelID");
+                }
+            }
+				
+   			public static string DelIDColumn{
+			      get{
+        			return "DelID";
+      			}
+		    }
+            
+            public IColumn DelTime{
+                get{
+                    return this.GetColumn("DelTime");
+                }
+            }
+				
+   			public static string DelTimeColumn{
+			      get{
+        			return "DelTime";
+      			}
+		    }
+            
+            public IColumn ExamID{
+                get{
+                    return this.GetColumn("ExamID");
+                }
+            }
+				
+   			public static string ExamIDColumn{
+			      get{
+        			return "ExamID";
+      			}
+		    }
+            
+            public IColumn ReviewCount{
+                get{
+                    return this.GetColumn("ReviewCount");
+                }
+            }
+				
+   			public static string ReviewCountColumn{
+			      get{
+        			return "ReviewCount";
+      			}
+		    }
+            
+            public IColumn AnalyseNum{
+                get{
+                    return this.GetColumn("AnalyseNum");
+                }
+            }
+				
+   			public static string AnalyseNumColumn{
+			      get{
+        			return "AnalyseNum";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXExamPaper
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXExamPaperTable: DatabaseTable {
+            
+            public WXExamPaperTable(IDataProvider provider):base("WXExamPaper",provider){
+                ClassName = "WXExamPaper";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ClassGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("PvcID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamTypeID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("eTitle", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 200
+                });
+
+                Columns.Add(new DatabaseColumn("eYear", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("eStars", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("eTotalScore", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ePassingScore", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("eFrom", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 50
+                });
+
+                Columns.Add(new DatabaseColumn("eHot", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ePoints", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("CreateID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("CreateTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("EditTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("DelTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("tExamID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("tKSID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("inTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn ExamGID{
+                get{
+                    return this.GetColumn("ExamGID");
+                }
+            }
+				
+   			public static string ExamGIDColumn{
+			      get{
+        			return "ExamGID";
+      			}
+		    }
+            
+            public IColumn ClassGID{
+                get{
+                    return this.GetColumn("ClassGID");
+                }
+            }
+				
+   			public static string ClassGIDColumn{
+			      get{
+        			return "ClassGID";
+      			}
+		    }
+            
+            public IColumn PvcID{
+                get{
+                    return this.GetColumn("PvcID");
+                }
+            }
+				
+   			public static string PvcIDColumn{
+			      get{
+        			return "PvcID";
+      			}
+		    }
+            
+            public IColumn ExamTypeID{
+                get{
+                    return this.GetColumn("ExamTypeID");
+                }
+            }
+				
+   			public static string ExamTypeIDColumn{
+			      get{
+        			return "ExamTypeID";
+      			}
+		    }
+            
+            public IColumn eTitle{
+                get{
+                    return this.GetColumn("eTitle");
+                }
+            }
+				
+   			public static string eTitleColumn{
+			      get{
+        			return "eTitle";
+      			}
+		    }
+            
+            public IColumn eYear{
+                get{
+                    return this.GetColumn("eYear");
+                }
+            }
+				
+   			public static string eYearColumn{
+			      get{
+        			return "eYear";
+      			}
+		    }
+            
+            public IColumn eStars{
+                get{
+                    return this.GetColumn("eStars");
+                }
+            }
+				
+   			public static string eStarsColumn{
+			      get{
+        			return "eStars";
+      			}
+		    }
+            
+            public IColumn eTotalScore{
+                get{
+                    return this.GetColumn("eTotalScore");
+                }
+            }
+				
+   			public static string eTotalScoreColumn{
+			      get{
+        			return "eTotalScore";
+      			}
+		    }
+            
+            public IColumn ePassingScore{
+                get{
+                    return this.GetColumn("ePassingScore");
+                }
+            }
+				
+   			public static string ePassingScoreColumn{
+			      get{
+        			return "ePassingScore";
+      			}
+		    }
+            
+            public IColumn eFrom{
+                get{
+                    return this.GetColumn("eFrom");
+                }
+            }
+				
+   			public static string eFromColumn{
+			      get{
+        			return "eFrom";
+      			}
+		    }
+            
+            public IColumn eHot{
+                get{
+                    return this.GetColumn("eHot");
+                }
+            }
+				
+   			public static string eHotColumn{
+			      get{
+        			return "eHot";
+      			}
+		    }
+            
+            public IColumn ePoints{
+                get{
+                    return this.GetColumn("ePoints");
+                }
+            }
+				
+   			public static string ePointsColumn{
+			      get{
+        			return "ePoints";
+      			}
+		    }
+            
+            public IColumn CreateID{
+                get{
+                    return this.GetColumn("CreateID");
+                }
+            }
+				
+   			public static string CreateIDColumn{
+			      get{
+        			return "CreateID";
+      			}
+		    }
+            
+            public IColumn CreateTime{
+                get{
+                    return this.GetColumn("CreateTime");
+                }
+            }
+				
+   			public static string CreateTimeColumn{
+			      get{
+        			return "CreateTime";
+      			}
+		    }
+            
+            public IColumn EditID{
+                get{
+                    return this.GetColumn("EditID");
+                }
+            }
+				
+   			public static string EditIDColumn{
+			      get{
+        			return "EditID";
+      			}
+		    }
+            
+            public IColumn EditTime{
+                get{
+                    return this.GetColumn("EditTime");
+                }
+            }
+				
+   			public static string EditTimeColumn{
+			      get{
+        			return "EditTime";
+      			}
+		    }
+            
+            public IColumn DelID{
+                get{
+                    return this.GetColumn("DelID");
+                }
+            }
+				
+   			public static string DelIDColumn{
+			      get{
+        			return "DelID";
+      			}
+		    }
+            
+            public IColumn DelTime{
+                get{
+                    return this.GetColumn("DelTime");
+                }
+            }
+				
+   			public static string DelTimeColumn{
+			      get{
+        			return "DelTime";
+      			}
+		    }
+            
+            public IColumn tExamID{
+                get{
+                    return this.GetColumn("tExamID");
+                }
+            }
+				
+   			public static string tExamIDColumn{
+			      get{
+        			return "tExamID";
+      			}
+		    }
+            
+            public IColumn tKSID{
+                get{
+                    return this.GetColumn("tKSID");
+                }
+            }
+				
+   			public static string tKSIDColumn{
+			      get{
+        			return "tKSID";
+      			}
+		    }
+            
+            public IColumn inTime{
+                get{
+                    return this.GetColumn("inTime");
+                }
+            }
+				
+   			public static string inTimeColumn{
+			      get{
+        			return "inTime";
       			}
 		    }
             

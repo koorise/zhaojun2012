@@ -1,0 +1,36 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">True</setting>
+    </boolean>
+  </SettingsComponent>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Dictionary/f:Category.aspx.cs" caret="0" fromTop="0" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:MasterPage.master" caret="624" fromTop="14" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:Login.aspx" caret="1676" fromTop="22" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Dictionary/f:Category.aspx" caret="3663" fromTop="22" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Admin/f:Add.aspx" caret="0" fromTop="0" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Dictionary/f:Category.aspx" caret="3692" fromTop="10" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Admin/f:Add.aspx" caret="1275" fromTop="24" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Admin/f:Add.aspx" caret="2101" fromTop="36" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/f:MasterPage.master" caret="624" fromTop="14" />
+      <File id="D80F22FC-D17F-4BAF-968B-5FDA01BA42D6/d:Admin/f:Add.aspx" caret="558" fromTop="9" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
