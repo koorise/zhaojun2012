@@ -9,7 +9,9 @@
 //****************************************************************************************************
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -18,6 +20,73 @@ namespace DataCollectionApp
     public class Tools
     {
         /// <summary>
+        /// 保存图片并过滤字符串
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public static string GetFilterStr(string str)
+        {
+            List<string> ImgUrlsOld = imgUrl(str);
+            foreach (var s in ImgUrlsOld)
+            {
+                string imgurl = SaveImg(ConfigurationSettings.AppSettings["targetUrl"] + s, ConfigurationSettings.AppSettings["path"]);
+                str = str.Replace(s, imgurl);
+            }
+            return str;
+        }
+        /// <summary>
+        /// 字符串替换
+        /// </summary>
+        /// <param name="aStr"></param>
+        /// <param name="bStr"></param>
+        /// <param name="cStr"></param>
+        /// <returns></returns>
+        public static string strReplace(string aStr,string bStr,string cStr)
+        {
+            return aStr.Replace(bStr, cStr);
+        }
+        /// <summary>
+        /// 保存图片
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="path"></param>
+        /// <returns>图片地址</returns>
+        public static string SaveImg(string url,string path)
+        {
+            WebClient mywebclient = new WebClient();
+             
+            string newfilename =  Guid.NewGuid()+".gif";
+            string filepath =  AppDomain.CurrentDomain.BaseDirectory + path+"\\"+ newfilename;
+            try
+            {
+                mywebclient.DownloadFile(url, filepath);
+                //filename = newfilename;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return path + "/" + newfilename;
+        }
+
+        /// <summary>
+        /// 正则获取图片链接
+        /// </summary>
+        /// <param name="htmlText"></param>
+        /// <returns></returns>
+        public static List<string> imgUrl(string htmlText)
+        {
+            string pattern = @"(?<=<[iI][mM][gG].*? src="")(?:http)?[^""]+(?="")";
+            List<string> strs=new List<string>();
+            Match match = Regex.Match(htmlText, pattern, RegexOptions.IgnoreCase);  //找到img标记
+            while (match.Success)
+            {
+                strs.Add(match.Value);
+                match.NextMatch();
+            }
+            return strs;
+        } 
+        /// <summary>
         /// Unescape 字符串
         /// </summary>
         /// <param name="str">字符串</param>
@@ -25,19 +94,6 @@ namespace DataCollectionApp
         public static string unescape(string str)
         {
             return System.Web.HttpUtility.UrlDecode(str);
-
-            //StringBuilder sb = new StringBuilder();
-            //int len = str.Length;
-            //int i = 0;
-            //while (i != len)
-            //{
-            //    if (Uri.IsHexEncoding(str, i))
-            //        sb.Append(Uri.HexUnescape(str, ref i));
-            //    else
-            //        sb.Append(str[i++]);
-            //}
-            //return sb.ToString(); 
-
         }
         /// <summary>
         /// 分组获取指定指定HTML

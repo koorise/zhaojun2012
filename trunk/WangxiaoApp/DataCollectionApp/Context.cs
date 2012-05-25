@@ -140,10 +140,10 @@ namespace WangxiaoCN
         public Query<WXSysExamType> WXSysExamTypes { get; set; }
         public Query<WXAdmin_Logs_Opration> WXAdmin_Logs_Oprations { get; set; }
         public Query<WXAdmin_Power_Tree> WXAdmin_Power_Trees { get; set; }
-        public Query<WXExamRule> WXExamRules { get; set; }
-        public Query<WXExamDetail> WXExamDetails { get; set; }
         public Query<WXExamPaper> WXExamPapers { get; set; }
         public Query<WXDataCollection> WXDataCollections { get; set; }
+        public Query<WXExamRule> WXExamRules { get; set; }
+        public Query<WXExamDetail> WXExamDetails { get; set; }
         public Query<WXUserDetail> WXUserDetails { get; set; }
 
 			
@@ -260,10 +260,10 @@ namespace WangxiaoCN
             WXSysExamTypes = new Query<WXSysExamType>(provider);
             WXAdmin_Logs_Oprations = new Query<WXAdmin_Logs_Opration>(provider);
             WXAdmin_Power_Trees = new Query<WXAdmin_Power_Tree>(provider);
-            WXExamRules = new Query<WXExamRule>(provider);
-            WXExamDetails = new Query<WXExamDetail>(provider);
             WXExamPapers = new Query<WXExamPaper>(provider);
             WXDataCollections = new Query<WXDataCollection>(provider);
+            WXExamRules = new Query<WXExamRule>(provider);
+            WXExamDetails = new Query<WXExamDetail>(provider);
             WXUserDetails = new Query<WXUserDetail>(provider);
             #endregion
 
@@ -283,10 +283,10 @@ namespace WangxiaoCN
             	DataProvider.Schema.Tables.Add(new WXSysExamTypeTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdmin_Logs_OprationTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdmin_Power_TreeTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXExamRulesTable(DataProvider));
-            	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXExamPaperTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXDataCollectionsTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXExamRulesTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXUserDetailsTable(DataProvider));
             }
             #endregion
