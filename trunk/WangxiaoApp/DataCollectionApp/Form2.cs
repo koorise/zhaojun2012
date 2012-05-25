@@ -295,7 +295,7 @@ namespace DataCollectionApp
                 catch (Exception)
                 {
                     
-                    throw;
+                    break;
                 }
                 
                 string jsonItem = _ie.Document.Body.InnerHtml;
@@ -310,18 +310,25 @@ namespace DataCollectionApp
             Guid ExamGuid = Guid.Parse(q.ExamGID.ToString());
             foreach (ExamXRules exs in examXRuleses)
             {
-                int s = int.Parse(exs.S);
+                int s = 1;
+                int.TryParse(exs.S, out s);
+                if (exs.Rules == null) break;
+                 
                 foreach (ExamRules ex in exs.Rules)
                 {
+                    decimal RulesScore = 0;
+                    decimal.TryParse(ex.RulesScore, out RulesScore);
                     Guid exrGuid = Guid.NewGuid();
                     WXExamRule exr = new WXExamRule();
                     exr.S_Sorts = s;
                     exr.GID = exrGuid;
                     exr.ExamGID = ExamGuid;
                     exr.RulesTitle = Tools.unescape(ex.RulesTitle);
-                    exr.RulesScore = decimal.Parse(ex.RulesScore);
+                    exr.RulesScore = RulesScore;
                     exr.RulesScoreSet = ex.RulesScoreSet;
                     exr.Save();
+                    if (ex.examlist == null) break;
+                   
                     foreach (ExamItem ei in ex.examlist)
                     {
                         int selectNum =0;
