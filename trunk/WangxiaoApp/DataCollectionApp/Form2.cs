@@ -48,7 +48,7 @@ namespace DataCollectionApp
         {
             var q = from c in WXExamPaper.All()
                     where c.tExamID>=int.Parse(textBox1.Text)
-                    orderby c.tKSID ascending 
+                    orderby c.tExamID ascending 
                     select c.tExamID;
             foreach (var _q in q)
             {
