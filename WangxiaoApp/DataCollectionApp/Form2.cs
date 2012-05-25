@@ -50,6 +50,7 @@ namespace DataCollectionApp
                     where c.tExamID>=int.Parse(textBox1.Text)
                     orderby c.tExamID ascending 
                     select c.tExamID;
+            
             foreach (var _q in q)
             {
                 delegateItemAdd delegateItem = ExamItemAddShow;
@@ -366,7 +367,8 @@ namespace DataCollectionApp
 
         private void button3_Click(object sender, EventArgs e)
         {
-            PaperAdd(textBox1.Text);
+            WXExamDetail.Delete(x=>x.ID>0);
+            WXExamRule.Delete(x=>x.ID>0);
         }
         
     }
