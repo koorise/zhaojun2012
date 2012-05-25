@@ -764,6 +764,16 @@ namespace WangxiaoCN {
 	                IsForeignKey = false,
 	                MaxLength = 0
                 });
+
+                Columns.Add(new DatabaseColumn("iCount", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
                     
                 
                 
@@ -862,6 +872,18 @@ namespace WangxiaoCN {
    			public static string isBottomColumn{
 			      get{
         			return "isBottom";
+      			}
+		    }
+            
+            public IColumn iCount{
+                get{
+                    return this.GetColumn("iCount");
+                }
+            }
+				
+   			public static string iCountColumn{
+			      get{
+        			return "iCount";
       			}
 		    }
             
@@ -2422,6 +2444,135 @@ namespace WangxiaoCN {
    			public static string inTimeColumn{
 			      get{
         			return "inTime";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXDataCollections
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXDataCollectionsTable: DatabaseTable {
+            
+            public WXDataCollectionsTable(IDataProvider provider):base("WXDataCollections",provider){
+                ClassName = "WXDataCollection";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ksid", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("typeid", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("icount", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("intime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn ksid{
+                get{
+                    return this.GetColumn("ksid");
+                }
+            }
+				
+   			public static string ksidColumn{
+			      get{
+        			return "ksid";
+      			}
+		    }
+            
+            public IColumn typeid{
+                get{
+                    return this.GetColumn("typeid");
+                }
+            }
+				
+   			public static string typeidColumn{
+			      get{
+        			return "typeid";
+      			}
+		    }
+            
+            public IColumn icount{
+                get{
+                    return this.GetColumn("icount");
+                }
+            }
+				
+   			public static string icountColumn{
+			      get{
+        			return "icount";
+      			}
+		    }
+            
+            public IColumn intime{
+                get{
+                    return this.GetColumn("intime");
+                }
+            }
+				
+   			public static string intimeColumn{
+			      get{
+        			return "intime";
       			}
 		    }
             

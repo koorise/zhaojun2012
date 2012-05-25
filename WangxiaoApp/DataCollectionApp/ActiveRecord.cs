@@ -3328,6 +3328,25 @@ namespace WangxiaoCN
             }
         }
 
+        int? _iCount;
+        public int? iCount
+        {
+            get { return _iCount; }
+            set
+            {
+                if(_iCount!=value){
+                    _iCount=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="iCount");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
 
 
         public DbCommand GetUpdateCommand() {
@@ -7852,6 +7871,503 @@ namespace WangxiaoCN
 
 
         public static void Delete(Expression<Func<WXExamPaper, bool>> expression) {
+            var repo = GetRepo();
+            
+       
+            
+            repo.DeleteMany(expression);
+            
+        }
+
+        
+
+        public void Load(IDataReader rdr) {
+            Load(rdr, true);
+        }
+        public void Load(IDataReader rdr, bool closeReader) {
+            if (rdr.Read()) {
+
+                try {
+                    rdr.Load(this);
+                    SetIsNew(false);
+                    SetIsLoaded(true);
+                } catch {
+                    SetIsLoaded(false);
+                    throw;
+                }
+            }else{
+                SetIsLoaded(false);
+            }
+
+            if (closeReader)
+                rdr.Dispose();
+        }
+        
+
+    } 
+    
+    
+    /// <summary>
+    /// A class which represents the WXDataCollections table in the WangxiaoCN Database.
+    /// </summary>
+    public partial class WXDataCollection: IActiveRecord
+    {
+    
+        #region Built-in testing
+        static TestRepository<WXDataCollection> _testRepo;
+        
+
+        
+        static void SetTestRepo(){
+            _testRepo = _testRepo ?? new TestRepository<WXDataCollection>(new WangxiaoCN.WangxiaoCNDB());
+        }
+        public static void ResetTestRepo(){
+            _testRepo = null;
+            SetTestRepo();
+        }
+        public static void Setup(List<WXDataCollection> testlist){
+            SetTestRepo();
+            foreach (var item in testlist)
+            {
+                _testRepo._items.Add(item);
+            }
+        }
+        public static void Setup(WXDataCollection item) {
+            SetTestRepo();
+            _testRepo._items.Add(item);
+        }
+        public static void Setup(int testItems) {
+            SetTestRepo();
+            for(int i=0;i<testItems;i++){
+                WXDataCollection item=new WXDataCollection();
+                _testRepo._items.Add(item);
+            }
+        }
+        
+        public bool TestMode = false;
+
+
+        #endregion
+
+        IRepository<WXDataCollection> _repo;
+        ITable tbl;
+        bool _isNew;
+        public bool IsNew(){
+            return _isNew;
+        }
+        
+        public void SetIsLoaded(bool isLoaded){
+            _isLoaded=isLoaded;
+            if(isLoaded)
+                OnLoaded();
+        }
+        
+        public void SetIsNew(bool isNew){
+            _isNew=isNew;
+        }
+        bool _isLoaded;
+        public bool IsLoaded(){
+            return _isLoaded;
+        }
+                
+        List<IColumn> _dirtyColumns;
+        public bool IsDirty(){
+            return _dirtyColumns.Count>0;
+        }
+        
+        public List<IColumn> GetDirtyColumns (){
+            return _dirtyColumns;
+        }
+
+        WangxiaoCN.WangxiaoCNDB _db;
+        public WXDataCollection(string connectionString, string providerName) {
+
+            _db=new WangxiaoCN.WangxiaoCNDB(connectionString, providerName);
+            Init();            
+         }
+        void Init(){
+            TestMode=this._db.DataProvider.ConnectionString.Equals("test", StringComparison.InvariantCultureIgnoreCase);
+            _dirtyColumns=new List<IColumn>();
+            if(TestMode){
+                WXDataCollection.SetTestRepo();
+                _repo=_testRepo;
+            }else{
+                _repo = new SubSonicRepository<WXDataCollection>(_db);
+            }
+            tbl=_repo.GetTable();
+            SetIsNew(true);
+            OnCreated();       
+
+        }
+        
+        public WXDataCollection(){
+             _db=new WangxiaoCN.WangxiaoCNDB();
+            Init();            
+        }
+        
+       
+        partial void OnCreated();
+            
+        partial void OnLoaded();
+        
+        partial void OnSaved();
+        
+        partial void OnChanged();
+        
+        public IList<IColumn> Columns{
+            get{
+                return tbl.Columns;
+            }
+        }
+
+        public WXDataCollection(Expression<Func<WXDataCollection, bool>> expression):this() {
+
+            SetIsLoaded(_repo.Load(this,expression));
+        }
+        
+       
+        
+        internal static IRepository<WXDataCollection> GetRepo(string connectionString, string providerName){
+            WangxiaoCN.WangxiaoCNDB db;
+            if(String.IsNullOrEmpty(connectionString)){
+                db=new WangxiaoCN.WangxiaoCNDB();
+            }else{
+                db=new WangxiaoCN.WangxiaoCNDB(connectionString, providerName);
+            }
+            IRepository<WXDataCollection> _repo;
+            
+            if(db.TestMode){
+                WXDataCollection.SetTestRepo();
+                _repo=_testRepo;
+            }else{
+                _repo = new SubSonicRepository<WXDataCollection>(db);
+            }
+            return _repo;        
+        }       
+        
+        internal static IRepository<WXDataCollection> GetRepo(){
+            return GetRepo("","");
+        }
+        
+        public static WXDataCollection SingleOrDefault(Expression<Func<WXDataCollection, bool>> expression) {
+
+            var repo = GetRepo();
+            var results=repo.Find(expression);
+            WXDataCollection single=null;
+            if(results.Count() > 0){
+                single=results.ToList()[0];
+                single.OnLoaded();
+                single.SetIsLoaded(true);
+                single.SetIsNew(false);
+            }
+
+            return single;
+        }      
+        
+        public static WXDataCollection SingleOrDefault(Expression<Func<WXDataCollection, bool>> expression,string connectionString, string providerName) {
+            var repo = GetRepo(connectionString,providerName);
+            var results=repo.Find(expression);
+            WXDataCollection single=null;
+            if(results.Count() > 0){
+                single=results.ToList()[0];
+            }
+
+            return single;
+
+
+        }
+        
+        
+        public static bool Exists(Expression<Func<WXDataCollection, bool>> expression,string connectionString, string providerName) {
+           
+            return All(connectionString,providerName).Any(expression);
+        }        
+        public static bool Exists(Expression<Func<WXDataCollection, bool>> expression) {
+           
+            return All().Any(expression);
+        }        
+
+        public static IList<WXDataCollection> Find(Expression<Func<WXDataCollection, bool>> expression) {
+            
+            var repo = GetRepo();
+            return repo.Find(expression).ToList();
+        }
+        
+        public static IList<WXDataCollection> Find(Expression<Func<WXDataCollection, bool>> expression,string connectionString, string providerName) {
+
+            var repo = GetRepo(connectionString,providerName);
+            return repo.Find(expression).ToList();
+
+        }
+        public static IQueryable<WXDataCollection> All(string connectionString, string providerName) {
+            return GetRepo(connectionString,providerName).GetAll();
+        }
+        public static IQueryable<WXDataCollection> All() {
+            return GetRepo().GetAll();
+        }
+        
+        public static PagedList<WXDataCollection> GetPaged(string sortBy, int pageIndex, int pageSize,string connectionString, string providerName) {
+            return GetRepo(connectionString,providerName).GetPaged(sortBy, pageIndex, pageSize);
+        }
+      
+        public static PagedList<WXDataCollection> GetPaged(string sortBy, int pageIndex, int pageSize) {
+            return GetRepo().GetPaged(sortBy, pageIndex, pageSize);
+        }
+
+        public static PagedList<WXDataCollection> GetPaged(int pageIndex, int pageSize,string connectionString, string providerName) {
+            return GetRepo(connectionString,providerName).GetPaged(pageIndex, pageSize);
+            
+        }
+
+
+        public static PagedList<WXDataCollection> GetPaged(int pageIndex, int pageSize) {
+            return GetRepo().GetPaged(pageIndex, pageSize);
+            
+        }
+
+        public string KeyName()
+        {
+            return "ID";
+        }
+
+        public object KeyValue()
+        {
+            return this.ID;
+        }
+        
+        public void SetKeyValue(object value) {
+            if (value != null && value!=DBNull.Value) {
+                var settable = value.ChangeTypeTo<int>();
+                this.GetType().GetProperty(this.KeyName()).SetValue(this, settable, null);
+            }
+        }
+        
+        public override string ToString(){
+                            return this.ksid.ToString();
+                    }
+
+        public override bool Equals(object obj){
+            if(obj.GetType()==typeof(WXDataCollection)){
+                WXDataCollection compare=(WXDataCollection)obj;
+                return compare.KeyValue()==this.KeyValue();
+            }else{
+                return base.Equals(obj);
+            }
+        }
+
+        
+        public override int GetHashCode() {
+            return this.ID;
+        }
+        
+        public string DescriptorValue()
+        {
+                            return this.ksid.ToString();
+                    }
+
+        public string DescriptorColumn() {
+            return "ksid";
+        }
+        public static string GetKeyColumn()
+        {
+            return "ID";
+        }        
+        public static string GetDescriptorColumn()
+        {
+            return "ksid";
+        }
+        
+        #region ' Foreign Keys '
+        #endregion
+        
+
+        int _ID;
+        public int ID
+        {
+            get { return _ID; }
+            set
+            {
+                if(_ID!=value){
+                    _ID=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="ID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        int? _ksid;
+        public int? ksid
+        {
+            get { return _ksid; }
+            set
+            {
+                if(_ksid!=value){
+                    _ksid=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="ksid");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        int? _typeid;
+        public int? typeid
+        {
+            get { return _typeid; }
+            set
+            {
+                if(_typeid!=value){
+                    _typeid=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="typeid");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        int? _icount;
+        public int? icount
+        {
+            get { return _icount; }
+            set
+            {
+                if(_icount!=value){
+                    _icount=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="icount");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        DateTime? _intime;
+        public DateTime? intime
+        {
+            get { return _intime; }
+            set
+            {
+                if(_intime!=value){
+                    _intime=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="intime");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+
+
+        public DbCommand GetUpdateCommand() {
+            if(TestMode)
+                return _db.DataProvider.CreateCommand();
+            else
+                return this.ToUpdateQuery(_db.Provider).GetCommand().ToDbCommand();
+            
+        }
+        public DbCommand GetInsertCommand() {
+ 
+            if(TestMode)
+                return _db.DataProvider.CreateCommand();
+            else
+                return this.ToInsertQuery(_db.Provider).GetCommand().ToDbCommand();
+        }
+        
+        public DbCommand GetDeleteCommand() {
+            if(TestMode)
+                return _db.DataProvider.CreateCommand();
+            else
+                return this.ToDeleteQuery(_db.Provider).GetCommand().ToDbCommand();
+        }
+       
+        
+        public void Update(){
+            Update(_db.DataProvider);
+        }
+        
+        public void Update(IDataProvider provider){
+        
+            
+            if(this._dirtyColumns.Count>0){
+                _repo.Update(this,provider);
+                _dirtyColumns.Clear();    
+            }
+            OnSaved();
+       }
+ 
+        public void Add(){
+            Add(_db.DataProvider);
+        }
+        
+        
+       
+        public void Add(IDataProvider provider){
+
+            
+            var key=KeyValue();
+            if(key==null){
+                var newKey=_repo.Add(this,provider);
+                this.SetKeyValue(newKey);
+            }else{
+                _repo.Add(this,provider);
+            }
+            SetIsNew(false);
+            OnSaved();
+        }
+        
+                
+        
+        public void Save() {
+            Save(_db.DataProvider);
+        }      
+        public void Save(IDataProvider provider) {
+            
+           
+            if (_isNew) {
+                Add(provider);
+                
+            } else {
+                Update(provider);
+            }
+            
+        }
+
+        
+
+        public void Delete(IDataProvider provider) {
+                   
+                 
+            _repo.Delete(KeyValue());
+            
+                    }
+
+
+        public void Delete() {
+            Delete(_db.DataProvider);
+        }
+
+
+        public static void Delete(Expression<Func<WXDataCollection, bool>> expression) {
             var repo = GetRepo();
             
        

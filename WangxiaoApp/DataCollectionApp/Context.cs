@@ -143,6 +143,7 @@ namespace WangxiaoCN
         public Query<WXExamRule> WXExamRules { get; set; }
         public Query<WXExamDetail> WXExamDetails { get; set; }
         public Query<WXExamPaper> WXExamPapers { get; set; }
+        public Query<WXDataCollection> WXDataCollections { get; set; }
         public Query<WXUserDetail> WXUserDetails { get; set; }
 
 			
@@ -262,6 +263,7 @@ namespace WangxiaoCN
             WXExamRules = new Query<WXExamRule>(provider);
             WXExamDetails = new Query<WXExamDetail>(provider);
             WXExamPapers = new Query<WXExamPaper>(provider);
+            WXDataCollections = new Query<WXDataCollection>(provider);
             WXUserDetails = new Query<WXUserDetail>(provider);
             #endregion
 
@@ -284,6 +286,7 @@ namespace WangxiaoCN
             	DataProvider.Schema.Tables.Add(new WXExamRulesTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXExamPaperTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXDataCollectionsTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXUserDetailsTable(DataProvider));
             }
             #endregion
