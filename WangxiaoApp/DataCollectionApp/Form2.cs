@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
 using Newtonsoft.Json;
@@ -377,6 +378,56 @@ namespace DataCollectionApp
             WXExamDetail.Delete(x=>x.ID>0);
             WXExamRule.Delete(x=>x.ID>0);
         }
+
+        public delegate void delegateImg(WXExamDetail w);
+        private void button4_Click(object sender, EventArgs e)
+        {
+            dt.Clear();
+            dataGridView1.Columns.Clear();
+            DataColumn dc1 = new DataColumn("试题编号", typeof(int)); 
+            dt.Columns.Add(dc1);
+
+            Thread myThread = new Thread(LoadImg);
+            
+            myThread.IsBackground = true;
+            myThread.Start();
+            dataGridView1.DataSource = dt;  
+        }
+        private void LoadImg()
+        {
+
+            var q = from c in WXExamDetail.All()
+                    where c.isimg == 0 && c.ID >= int.Parse(textBox1.Text) && c.ID <= int.Parse(textBox2.Text)
+                    orderby c.ID ascending
+                    select c;
+            foreach (var w in q)
+            {
+                delegateImg delegateImg = LoadImgShowMsg;
+                IAsyncResult asyncResult = BeginInvoke(delegateImg, new object[] { w });
+                while (!asyncResult.AsyncWaitHandle.WaitOne(-1, false))
+                {
+                    Thread.Sleep(100);
+                }
+            }
+        }
+        
+        private void LoadImgShowMsg(WXExamDetail w)
+        {
+            string qContent = Tools.GetFilterStr(w.qContent);
+            string Analysis = Tools.GetFilterStr(w.Analysis);
+            WXExamDetail wx = new WXExamDetail(x => x.ID == w.ID);
+            wx.qContent = qContent;
+            wx.Analysis = Analysis;
+            wx.Update(); 
+
+            dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;                 //   设置为选中.(index为选重的记录索引)
+            dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows.Count - 1;     //   设置在当前区域的第一行显示 
+            DataRow dr = dt.NewRow();
+            dr[0] = w.ID; 
+            dt.Rows.Add(dr); 
+        }
+
+      
         
     }
 

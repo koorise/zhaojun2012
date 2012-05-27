@@ -2365,6 +2365,16 @@ namespace WangxiaoCN {
 	                IsForeignKey = false,
 	                MaxLength = 1000
                 });
+
+                Columns.Add(new DatabaseColumn("isimg", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
                     
                 
                 
@@ -2595,6 +2605,18 @@ namespace WangxiaoCN {
    			public static string AnalyseNumColumn{
 			      get{
         			return "AnalyseNum";
+      			}
+		    }
+            
+            public IColumn isimg{
+                get{
+                    return this.GetColumn("isimg");
+                }
+            }
+				
+   			public static string isimgColumn{
+			      get{
+        			return "isimg";
       			}
 		    }
             

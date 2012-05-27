@@ -59,8 +59,7 @@ namespace DataCollectionApp
             string filepath =  AppDomain.CurrentDomain.BaseDirectory + path+"\\"+ newfilename;
             try
             {
-                mywebclient.DownloadFile(url, filepath);
-                //filename = newfilename;
+                mywebclient.DownloadFile(url, filepath); 
             }
             catch (Exception ex)
             {
@@ -77,12 +76,12 @@ namespace DataCollectionApp
         public static List<string> imgUrl(string htmlText)
         {
             string pattern = @"(?<=<[iI][mM][gG].*? src="")(?:http)?[^""]+(?="")";
-            List<string> strs=new List<string>();
-            Match match = Regex.Match(htmlText, pattern, RegexOptions.IgnoreCase);  //找到img标记
-            while (match.Success)
+            Regex regex = new Regex(pattern, RegexOptions.IgnoreCase);
+            List<string> strs = new List<string>();
+            MatchCollection matchCollection = regex.Matches(htmlText);
+            foreach (Match m in matchCollection)
             {
-                strs.Add(match.Value);
-                match.NextMatch();
+                strs.Add(m.Value);
             }
             return strs;
         } 
