@@ -8295,6 +8295,25 @@ namespace WangxiaoCN
             }
         }
 
+        int? _isimg;
+        public int? isimg
+        {
+            get { return _isimg; }
+            set
+            {
+                if(_isimg!=value){
+                    _isimg=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="isimg");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
 
 
         public DbCommand GetUpdateCommand() {

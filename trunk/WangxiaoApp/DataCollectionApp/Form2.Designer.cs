@@ -32,18 +32,19 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(549, 14);
+            this.button1.Location = new System.Drawing.Point(467, 14);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -53,7 +54,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(445, 14);
+            this.button2.Location = new System.Drawing.Point(367, 14);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 6;
@@ -73,6 +74,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.textBox2);
             this.panel1.Controls.Add(this.label1);
@@ -86,18 +88,44 @@
             this.panel1.Size = new System.Drawing.Size(749, 49);
             this.panel1.TabIndex = 8;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(564, 14);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 12;
+            this.button4.Text = "图片采集";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(219, 19);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(17, 12);
+            this.label2.TabIndex = 11;
+            this.label2.Text = ">>";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(242, 16);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 21);
+            this.textBox2.TabIndex = 10;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(35, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 12);
+            this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 9;
-            this.label1.Text = "初始试卷编号";
+            this.label1.Text = "编号";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(639, 14);
+            this.button3.Location = new System.Drawing.Point(662, 14);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 8;
@@ -112,22 +140,6 @@
             this.textBox1.Size = new System.Drawing.Size(100, 21);
             this.textBox1.TabIndex = 7;
             this.textBox1.Text = "0";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(242, 16);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 21);
-            this.textBox2.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(219, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(17, 12);
-            this.label2.TabIndex = 11;
-            this.label2.Text = ">>";
             // 
             // Form2
             // 
@@ -157,5 +169,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button4;
     }
 }
