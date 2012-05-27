@@ -418,6 +418,7 @@ namespace DataCollectionApp
             WXExamDetail wx = new WXExamDetail(x => x.ID == w.ID);
             wx.qContent = qContent;
             wx.Analysis = Analysis;
+            wx.isimg = 1;
             wx.Update(); 
 
             dataGridView1.Rows[dataGridView1.Rows.Count - 1].Selected = true;                 //   设置为选中.(index为选重的记录索引)
