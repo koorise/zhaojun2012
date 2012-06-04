@@ -116,201 +116,265 @@
         SelectCommand="SELECT * FROM [vw_ExamPaper_ExamCategory] ORDER BY [ID] DESC"></asp:SqlDataSource>
     <ext:Viewport ID="Viewport1" runat="server" Layout="border">
         <Items>
-            <ext:GridPanel ID="GridPanel1"  runat="server"   Margins="0 0 5 5" Region="Center" Frame="true" Title="试卷列表" Icon="TextListBullets">
-            <Store>
-                <ext:Store ID="Store1"
-                  DataSourceID="SqlDataSource4"
-                 runat="server">
-                    <Reader>
-                        <ext:JsonReader IDProperty="ExamGID">
-                            <Fields>
-                                <ext:RecordField Name="eTitle"></ext:RecordField>
-                                <ext:RecordField Name="path"></ext:RecordField>
-                                <ext:RecordField Name="ExamTypeID"></ext:RecordField>
-                                <ext:RecordField Name="eYear"></ext:RecordField>
-                                <ext:RecordField Name="PvcID"></ext:RecordField>
-                                <ext:RecordField Name="ExamGID"></ext:RecordField>
-                                <ext:RecordField Name="className"></ext:RecordField>
-                                <ext:RecordField Name="eStars"></ext:RecordField>
-                                <ext:RecordField Name="eTotalScore"></ext:RecordField>
-                                <ext:RecordField Name="ePassingScore"></ext:RecordField>
-                                <ext:RecordField Name="eFrom"></ext:RecordField>
-                                <ext:RecordField Name="eHot"></ext:RecordField>
-                                <ext:RecordField Name="ePoints"></ext:RecordField>
-                                <ext:RecordField Name="pName"></ext:RecordField>
-                                <ext:RecordField Name="ExamType"></ext:RecordField>
-                            </Fields>
-                        </ext:JsonReader>
-                    </Reader>
-                </ext:Store>
-            </Store>
-            <ColumnModel runat="server">
-                <Columns> 
-                    <ext:Column   DataIndex="eTitle" Header="标题" Width="300" />
-                    <ext:Column   DataIndex="className" Header="分类" Width="300"   />
-                    <ext:Column   DataIndex="ExamType" Header="类型" />
-                    <ext:Column   DataIndex="eYear" Header="年份" />
-                    <ext:Column   DataIndex="pName" Header="省份" />
-                    <ext:Column   DataIndex="eStars" Header="星级" />
-                    <ext:Column   DataIndex="eTotalScore" Header="总分" />
-                    <ext:Column   DataIndex="ePassingScore" Header="及格分" />
-                    <ext:Column   DataIndex="eFrom" Header="来源" />
-                    <ext:Column   DataIndex="eHot" Header="热度" />
-                    <ext:Column   DataIndex="ePoints" Header="金币" /> 
-                </Columns>
-            </ColumnModel>
-            <SelectionModel>
-                <ext:RowSelectionModel ID="RowSelectionModel1" runat="server" SingleSelect="true">
-                    <DirectEvents>
-                        <RowSelect OnEvent="RowSelect" Buffer="100">
-                            <EventMask ShowMask="true" Target="CustomTarget" CustomTarget="#{FormPanel1}" />
-                            <ExtraParams>
-                                <%-- or can use params[2].id as value --%>
-                                <ext:Parameter Name="ExamGID" Value="this.getSelected().id" Mode="Raw" />
-                            </ExtraParams>
-                        </RowSelect>
-                    </DirectEvents>
-                </ext:RowSelectionModel>
-            </SelectionModel>
-            <BottomBar>
-                <ext:PagingToolbar ID="PagingToolbar1" runat="server" />
-            </BottomBar>
-            <View>
-                <ext:GridView runat="server">
-                    <HeaderRows>
-                        <ext:HeaderRow>
-                            <Columns>
-                                <ext:HeaderColumn Cls="x-small-editor">
-                                    <Component>
-                                        <ext:ComboBox 
-                                            ID="ComboBox6" 
-                                            runat="server"
-                                            TriggerAction="All"
-                                            Mode="Local"
-                                            DisplayField="eTitle"
-                                            ValueField="eTitle">
-                                            <Store>
-                                                <ext:Store ID="Store8" runat="server" DataSourceID="SqlDataSource4">
-                                                    <Reader>
-                                                        <ext:JsonReader runat="server">
-                                                            <Fields>
-                                                                <ext:RecordField Name="eTitle" />
-                                                            </Fields>
-                                                        </ext:JsonReader>
-                                                    </Reader>
-                                                </ext:Store>
-                                            </Store>
-                                            <Listeners>
-                                                <Select Handler="applyFilter(this);" />
-                                            </Listeners>     
-                                        </ext:ComboBox>
-                                    </Component>
-                                </ext:HeaderColumn>
-                                <ext:HeaderColumn Cls="x-small-editor">
-                                    <Component>
-                                       <ext:DropDownField ID="DropDownField2" Editable="false" Width="400"   runat="server">
-                                        <Component>
-                                            <ext:TreePanel ID="TreePanel2" runat="server" Height="300" Title="分类">
-                                            <Listeners>
-                                                <Click Handler="this.dropDownField.setValue(node.text,node.id,false);applyFilter(this);" Delay="500"></Click>
-                                            </Listeners> 
-                                            <Buttons>
-                                                <ext:Button ID="Button4" runat="server" Text="关闭">
-                                                    <Listeners>
-                                                        <Click Handler="#{DropDownField2}.collapse();" />
-                                                    </Listeners>
-                                                </ext:Button>
-                                            </Buttons>
-                                            </ext:TreePanel>
-                                        </Component>
-                                        
-                                        </ext:DropDownField>
-                                    </Component>
-                                </ext:HeaderColumn>
-                                <ext:HeaderColumn>
-                                    <Component>
-                                        <ext:ComboBox ID="ComboBox3"  AnchorHorizontal="98%" Editable="false" DisplayField="ExamType" ValueField="ID" runat="server">
-                                        <Store>
-                                            <ext:Store ID="Store5" DataSourceID="SqlDataSource3" runat="server">
-                                            <Reader>
-                                                <ext:JsonReader>
+            <ext:ColumnLayout ID="ColumnLayout1" runat="server" Split="true" FitHeight="true">
+                <Columns>
+                    <ext:LayoutColumn ColumnWidth="0.25" runat="server">
+                        <ext:GridPanel ID="GridPanel1"  runat="server"  Margins="0 0 5 5"  Title="试卷列表" Icon="TextListBullets">
+                                <Store>
+                                    <ext:Store ID="Store1"
+                                      DataSourceID="SqlDataSource4"
+                                     runat="server">
+                                        <Reader>
+                                            <ext:JsonReader IDProperty="ExamGID">
                                                 <Fields>
+                                                    <ext:RecordField Name="eTitle"></ext:RecordField>
+                                                    <ext:RecordField Name="path"></ext:RecordField>
+                                                    <ext:RecordField Name="ExamTypeID"></ext:RecordField>
+                                                    <ext:RecordField Name="eYear"></ext:RecordField>
+                                                    <ext:RecordField Name="PvcID"></ext:RecordField>
+                                                    <ext:RecordField Name="ExamGID"></ext:RecordField>
+                                                    <ext:RecordField Name="className"></ext:RecordField>
+                                                    <ext:RecordField Name="eStars"></ext:RecordField>
+                                                    <ext:RecordField Name="eTotalScore"></ext:RecordField>
+                                                    <ext:RecordField Name="ePassingScore"></ext:RecordField>
+                                                    <ext:RecordField Name="eFrom"></ext:RecordField>
+                                                    <ext:RecordField Name="eHot"></ext:RecordField>
+                                                    <ext:RecordField Name="ePoints"></ext:RecordField>
+                                                    <ext:RecordField Name="pName"></ext:RecordField>
                                                     <ext:RecordField Name="ExamType"></ext:RecordField>
-                                                    <ext:RecordField Name="ID"></ext:RecordField>
                                                 </Fields>
-                                                </ext:JsonReader>
-                                            </Reader>
-                                            </ext:Store>
-                                        </Store>
+                                            </ext:JsonReader>
+                                        </Reader>
+                                    </ext:Store>
+                                </Store>
+                                <ColumnModel ID="ColumnModel1" runat="server">
+                                    <Columns> 
+                                        <ext:Column   DataIndex="eTitle" Header="标题" Width="300" />
+                                        <ext:Column   DataIndex="className" Header="分类" Width="300"   />
+                                        <ext:Column   DataIndex="ExamType" Header="类型" />
+                                        <ext:Column   DataIndex="eYear" Header="年份" />
+                                        <ext:Column   DataIndex="pName" Header="省份" />
+                                        <ext:Column   DataIndex="eStars" Header="星级" />
+                                        <ext:Column   DataIndex="eTotalScore" Header="总分" />
+                                        <ext:Column   DataIndex="ePassingScore" Header="及格分" />
+                                        <ext:Column   DataIndex="eFrom" Header="来源" />
+                                        <ext:Column   DataIndex="eHot" Header="热度" />
+                                        <ext:Column   DataIndex="ePoints" Header="金币" /> 
+                                    </Columns>
+                                </ColumnModel>
+                                <SelectionModel>
+                                    <ext:RowSelectionModel ID="RowSelectionModel1" runat="server" SingleSelect="true">
+                                        <DirectEvents>
+                                            <RowSelect OnEvent="RowSelect" Buffer="100">
+                                                <EventMask ShowMask="true" Target="CustomTarget" CustomTarget="#{FormPanel1}" />
+                                                <ExtraParams>
+                                                    <%-- or can use params[2].id as value --%>
+                                                    <ext:Parameter Name="ExamGID" Value="this.getSelected().id" Mode="Raw" />
+                                                </ExtraParams>
+                                            </RowSelect>
+                                        </DirectEvents>
                                          <Listeners>
-                                                <Select Handler="applyFilter(this);" />
-                                        </Listeners>
-                                        </ext:ComboBox>
-                                    </Component>
-                                </ext:HeaderColumn>
-                                <ext:HeaderColumn>
-                                    <Component>
-                                        <ext:ComboBox ID="ComboBox4"   AnchorHorizontal="98%" Editable="false" DisplayField="Years" ValueField="Years" DataIndex="eYear"  runat="server">
-                                        <Store>
-                                            <ext:Store ID="Store6" DataSourceID="SqlDataSource2" runat="server">
-                                            <Reader>
-                                                <ext:JsonReader>
-                                                <Fields>
-                                                    <ext:RecordField Name="Years"></ext:RecordField>
-                                                </Fields>
-                                                </ext:JsonReader>
-                                            </Reader>
-                                            </ext:Store>
-                                        </Store>
-                                         <Listeners>
-                                                <Select Handler="applyFilter(this);" />
-                                        </Listeners>
-                                        </ext:ComboBox>
-                                    </Component>
-                                </ext:HeaderColumn>
-                                <ext:HeaderColumn>
-                                    <Component>
-                                        <ext:ComboBox ID="ComboBox5" AnchorHorizontal="98%" Editable="false" DisplayField="pName" ValueField="pID" DataIndex="pName" runat="server">
-                                           <Store>
-                                                <ext:Store ID="Store7" DataSourceID="SqlDataSource1" runat="server">
-                                                    <Reader>
-                                                        <ext:JsonReader>
-                                                            <Fields>
-                                                                <ext:RecordField Name="pID"></ext:RecordField>
-                                                                <ext:RecordField Name="pName"></ext:RecordField>
-                                                            </Fields>
-                                                        </ext:JsonReader>
-                                                    </Reader>
-                                                </ext:Store>
-                                            </Store>
-                                             <Listeners>
-                                                <Select Handler="applyFilter(this);" />
-                                             </Listeners>
-                                        </ext:ComboBox>
-                                    </Component>
-                                </ext:HeaderColumn>
-                                <ext:HeaderColumn AutoWidthElement="false">
-                                    <Component>
-                                        <ext:Button ID="ClearFilterButton" runat="server" Icon="Cancel">
-                                            <ToolTips>
-                                                <ext:ToolTip ID="ToolTip1" runat="server" Html="Clear filter" />
-                                            </ToolTips>
+                                                <RowSelect Handler="#{Store9}.reload();" Buffer="250" />
+                                         </Listeners>
+                                    </ext:RowSelectionModel>
+                                </SelectionModel>
+                                <BottomBar>
+                                    <ext:PagingToolbar ID="PagingToolbar1" runat="server" />
+                                </BottomBar>
+                                <View>
+                                    <ext:GridView ID="GridView1" runat="server">
+                                        <HeaderRows>
+                                            <ext:HeaderRow>
+                                                <Columns>
+                                                    <ext:HeaderColumn Cls="x-small-editor">
+                                                        <Component>
+                                                            <ext:ComboBox 
+                                                                ID="ComboBox6" 
+                                                                runat="server"
+                                                                TriggerAction="All"
+                                                                Mode="Local"
+                                                                DisplayField="eTitle"
+                                                                ValueField="eTitle">
+                                                                <Store>
+                                                                    <ext:Store ID="Store8" runat="server" DataSourceID="SqlDataSource4">
+                                                                        <Reader>
+                                                                            <ext:JsonReader runat="server">
+                                                                                <Fields>
+                                                                                    <ext:RecordField Name="eTitle" />
+                                                                                </Fields>
+                                                                            </ext:JsonReader>
+                                                                        </Reader>
+                                                                    </ext:Store>
+                                                                </Store>
+                                                                <Listeners>
+                                                                    <Select Handler="applyFilter(this);" />
+                                                                </Listeners>     
+                                                            </ext:ComboBox>
+                                                        </Component>
+                                                    </ext:HeaderColumn>
+                                                    <ext:HeaderColumn Cls="x-small-editor">
+                                                        <Component>
+                                                           <ext:DropDownField ID="DropDownField2" Editable="false" Width="400"   runat="server">
+                                                            <Component>
+                                                                <ext:TreePanel ID="TreePanel2" runat="server" Height="300" Title="分类">
+                                                                <Listeners>
+                                                                    <Click Handler="this.dropDownField.setValue(node.text,node.id,false);applyFilter(this);" Delay="500"></Click>
+                                                                </Listeners> 
+                                                                <Buttons>
+                                                                    <ext:Button ID="Button4" runat="server" Text="关闭">
+                                                                        <Listeners>
+                                                                            <Click Handler="#{DropDownField2}.collapse();" />
+                                                                        </Listeners>
+                                                                    </ext:Button>
+                                                                </Buttons>
+                                                                </ext:TreePanel>
+                                                            </Component>
+                                        
+                                                            </ext:DropDownField>
+                                                        </Component>
+                                                    </ext:HeaderColumn>
+                                                    <ext:HeaderColumn>
+                                                        <Component>
+                                                            <ext:ComboBox ID="ComboBox3"  AnchorHorizontal="98%" Editable="false" DisplayField="ExamType" ValueField="ID" runat="server">
+                                                            <Store>
+                                                                <ext:Store ID="Store5" DataSourceID="SqlDataSource3" runat="server">
+                                                                <Reader>
+                                                                    <ext:JsonReader>
+                                                                    <Fields>
+                                                                        <ext:RecordField Name="ExamType"></ext:RecordField>
+                                                                        <ext:RecordField Name="ID"></ext:RecordField>
+                                                                    </Fields>
+                                                                    </ext:JsonReader>
+                                                                </Reader>
+                                                                </ext:Store>
+                                                            </Store>
+                                                             <Listeners>
+                                                                    <Select Handler="applyFilter(this);" />
+                                                            </Listeners>
+                                                            </ext:ComboBox>
+                                                        </Component>
+                                                    </ext:HeaderColumn>
+                                                    <ext:HeaderColumn>
+                                                        <Component>
+                                                            <ext:ComboBox ID="ComboBox4"   AnchorHorizontal="98%" Editable="false" DisplayField="Years" ValueField="Years" DataIndex="eYear"  runat="server">
+                                                            <Store>
+                                                                <ext:Store ID="Store6" DataSourceID="SqlDataSource2" runat="server">
+                                                                <Reader>
+                                                                    <ext:JsonReader>
+                                                                    <Fields>
+                                                                        <ext:RecordField Name="Years"></ext:RecordField>
+                                                                    </Fields>
+                                                                    </ext:JsonReader>
+                                                                </Reader>
+                                                                </ext:Store>
+                                                            </Store>
+                                                             <Listeners>
+                                                                    <Select Handler="applyFilter(this);" />
+                                                            </Listeners>
+                                                            </ext:ComboBox>
+                                                        </Component>
+                                                    </ext:HeaderColumn>
+                                                    <ext:HeaderColumn>
+                                                        <Component>
+                                                            <ext:ComboBox ID="ComboBox5" AnchorHorizontal="98%" Editable="false" DisplayField="pName" ValueField="pID" DataIndex="pName" runat="server">
+                                                               <Store>
+                                                                    <ext:Store ID="Store7" DataSourceID="SqlDataSource1" runat="server">
+                                                                        <Reader>
+                                                                            <ext:JsonReader>
+                                                                                <Fields>
+                                                                                    <ext:RecordField Name="pID"></ext:RecordField>
+                                                                                    <ext:RecordField Name="pName"></ext:RecordField>
+                                                                                </Fields>
+                                                                            </ext:JsonReader>
+                                                                        </Reader>
+                                                                    </ext:Store>
+                                                                </Store>
+                                                                 <Listeners>
+                                                                    <Select Handler="applyFilter(this);" />
+                                                                 </Listeners>
+                                                            </ext:ComboBox>
+                                                        </Component>
+                                                    </ext:HeaderColumn>
+                                                    <ext:HeaderColumn AutoWidthElement="false">
+                                                        <Component>
+                                                            <ext:Button ID="ClearFilterButton" runat="server" Icon="Cancel">
+                                                                <ToolTips>
+                                                                    <ext:ToolTip ID="ToolTip1" runat="server" Html="Clear filter" />
+                                                                </ToolTips>
                                              
-                                            <Listeners>
-                                                <Click Handler="clearFilter(null);" />
-                                            </Listeners>                                            
-                                        </ext:Button>
-                                    </Component>
-                                </ext:HeaderColumn>
+                                                                <Listeners>
+                                                                    <Click Handler="clearFilter(null);" />
+                                                                </Listeners>                                            
+                                                            </ext:Button>
+                                                        </Component>
+                                                    </ext:HeaderColumn>
+                                                </Columns>
+                                            </ext:HeaderRow>
+                                        </HeaderRows>
+                                    </ext:GridView>
+                                </View>
+                                <LoadMask ShowMask="true" />
+                                <Buttons>
+                                    <ext:Button ID="Button6" runat="server" Icon="Add" Text="添加试卷">
+                                        <DirectEvents>
+                                            <Click OnEvent="OpenWindows_add"></Click>
+                                        </DirectEvents>
+                                        <Listeners>
+                                            <Click Handler="#{FormPanel1}.getForm().reset();" />
+                                        </Listeners>
+                                    </ext:Button>
+                                    <ext:Button ID="Button9" runat="server" Text="编辑试卷" Icon="CogEdit">
+                                        <DirectEvents>
+                                            <Click OnEvent="OpenWindows_edit"></Click>
+                                        </DirectEvents>
+                                    </ext:Button>
+                                    <ext:Button ID="Button7" runat="server" Icon="Delete" Text="删除试卷">
+                                    </ext:Button>
+
+                                </Buttons>
+                                </ext:GridPanel>
+                    </ext:LayoutColumn>
+                    <ext:LayoutColumn ColumnWidth="0.25">
+                        <ext:GridPanel ID="GridPanel2" runat="server" Height="300" Title="试卷规则">
+                        <Store>
+                            <ext:Store ID="Store9"  runat="server" OnRefreshData="Store9_Refresh">
+                                <Reader>
+                                    <ext:JsonReader IDProperty="GID">
+                                        <Fields>
+                                            <ext:RecordField Name="GID"></ext:RecordField>
+                                            <ext:RecordField Name="ExamGID"></ext:RecordField>
+                                            <ext:RecordField Name="RulesTitle"></ext:RecordField>
+                                            <ext:RecordField Name="RulesScore"></ext:RecordField>
+                                            <ext:RecordField Name="RulesScoreSet"></ext:RecordField>
+                                        </Fields>
+                                    </ext:JsonReader>
+                                </Reader>
+                                <BaseParams>
+                                    <ext:Parameter 
+                                        Name="SupplierID" 
+                                        Value="Ext.getCmp('#{GridPanel1}') && #{GridPanel1}.getSelectionModel().hasSelection() ? #{GridPanel1}.getSelectionModel().getSelected().id : -1"
+                                        Mode="Raw" 
+                                        />
+                                </BaseParams>
+                            </ext:Store>
+                        </Store>
+                        <ColumnModel>
+                            <Columns>
+                                <ext:Column DataIndex="RulesTitle" Header="试题分组规则"></ext:Column>
                             </Columns>
-                        </ext:HeaderRow>
-                    </HeaderRows>
-                </ext:GridView>
-            </View>
-            <LoadMask ShowMask="true" />
-            </ext:GridPanel>
-            <ext:FormPanel ID="FormPanel1" runat="server"  Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5"
-                Title="试卷添加" Icon="Attach" Width="350" >
+                        </ColumnModel>
+                        </ext:GridPanel>
+                    </ext:LayoutColumn> 
+                </Columns>
+            </ext:ColumnLayout>
+            
+            
+        </Items>
+    </ext:Viewport>
+    <ext:Window ID="Window1" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Closable="True"  Collapsible="false"  Height="450" Icon="Application"
+        Title="试卷添加" Icons="Attach" Width="350"  >
+        <Items>
+            <ext:FormPanel ID="FormPanel1" runat="server"  Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5">
                 <Items>
                     <ext:TextField ID="txtExamGID" runat="server" AnchorHorizontal="98%"  FieldLabel="试卷编号" DataIndex="ExamGID"  Disabled="True" />
                     
@@ -450,6 +514,6 @@
                 </Buttons>
             </ext:FormPanel>
         </Items>
-    </ext:Viewport>
+    </ext:Window>
 </asp:Content>
 

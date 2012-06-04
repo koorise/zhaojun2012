@@ -13,7 +13,8 @@ public partial class ExamManage_ADD : System.Web.UI.Page
     private TreeNode root;
     protected void Page_Load(object sender, EventArgs e)
     {
-        TreeBind();
+         
+        //TreeBind();
         //Store1_DataBind();
     }
     protected void Store1_DataBind()
@@ -39,6 +40,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         TreePanel2.Root.Add(root);
         //TreePanel2.Listeners.Click.Handler = DropDownField2.ClientID + ".setValue(node.text,false);";
         TreeNodes2(root, Config.g);
+        
     }
     
     protected void TreeNodes2(TreeNode t, Guid guid)
@@ -131,6 +133,29 @@ public partial class ExamManage_ADD : System.Web.UI.Page
                                           q.eHot,
                                           q.ePoints
                                       });
+        
+
+    }
+    protected  void Store9_Refresh(object s,StoreRefreshDataEventArgs e)
+    {
+        string guid = e.Parameters["SupplierID"].ToString();
+        Guid ExamGID =  new Guid(guid);
+         
+        var qq = from c in WXExamRule.All()
+                 where c.ExamGID == ExamGID 
+                 select c;
+        this.Store9.DataSource = qq;
+        this.Store9.DataBind();
+        X.Msg.Alert("GUID",qq.Count()).Show();
+    }
+    protected void OpenWindows_add(object s, DirectEventArgs e)
+    {
+        Window1.Show();
+    }
+    protected void OpenWindows_edit(object s, DirectEventArgs e)
+    {
+
+        Window1.Show();
     }
     protected void BtnAdd(object s,DirectEventArgs e)
     {
@@ -153,6 +178,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         wx.CreateTime = DateTime.Now;
         wx.Save();
         //X.Msg.Notify("添加成功", "试题："+txteTitle.Text).Show();
+        GridPanel1.DataBind();
          
 
     }
