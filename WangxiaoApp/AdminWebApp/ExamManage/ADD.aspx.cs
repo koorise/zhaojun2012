@@ -136,6 +136,28 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         
 
     }
+    protected void RowSelect2(object sender, DirectEventArgs e)
+    {
+        Guid RulesGID = new Guid(e.ExtraParams["RulesGID"].ToString());
+        var q = from c in WXExamDetail.All()
+                where c.RulesGID == RulesGID
+                select c;
+        Store10.DataSource = q;
+        Store10.DataBind();
+
+    }
+    protected void Store10_Refresh(object s, StoreRefreshDataEventArgs e)
+    {
+        string guid = e.Parameters["RulesGID"].ToString();
+        Guid RulesGID = new Guid(guid);
+
+        var q = from c in WXExamDetail.All()
+                where c.RulesGID == RulesGID
+                select c;
+        Store10.DataSource = q;
+        Store10.DataBind();
+
+    }
     protected  void Store9_Refresh(object s,StoreRefreshDataEventArgs e)
     {
         string guid = e.Parameters["SupplierID"].ToString();
@@ -146,7 +168,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
                  select c;
         this.Store9.DataSource = qq;
         this.Store9.DataBind();
-        X.Msg.Alert("GUID",qq.Count()).Show();
+         
     }
     protected void OpenWindows_add(object s, DirectEventArgs e)
     {

@@ -114,11 +114,14 @@
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" 
         ConnectionString="<%$ ConnectionStrings:WxConn %>" 
         SelectCommand="SELECT * FROM [vw_ExamPaper_ExamCategory] ORDER BY [ID] DESC"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="SqlDataSource5" runat="server"
+        ConnectionString="<%$ ConnectionStrings:WxConn %>" 
+        SelectCommand="SELECT * FROM [WXSysExamQstType] ORDER BY [ID] DESC"></asp:SqlDataSource>
     <ext:Viewport ID="Viewport1" runat="server" Layout="border">
         <Items>
-            <ext:ColumnLayout ID="ColumnLayout1" runat="server" Split="true" FitHeight="true">
-                <Columns>
-                    <ext:LayoutColumn ColumnWidth="0.25" runat="server">
+            <ext:RowLayout ID="ColumnLayout1" runat="server" Split="true" FitHeight="true">
+                <Rows>
+                    <ext:LayoutRow  RowHeight="0.25" runat="server">
                         <ext:GridPanel ID="GridPanel1"  runat="server"  Margins="0 0 5 5"  Title="试卷列表" Icon="TextListBullets">
                                 <Store>
                                     <ext:Store ID="Store1"
@@ -146,7 +149,28 @@
                                             </ext:JsonReader>
                                         </Reader>
                                     </ext:Store>
-                                </Store>
+                                </Store> 
+                            <TopBar>
+                                <ext:Toolbar ID="Toolbar1" runat="server">
+                                    <Items>
+                                         <ext:Button ID="Button6" runat="server" Icon="Add" Text="添加试卷">
+                                        <DirectEvents>
+                                            <Click OnEvent="OpenWindows_add"></Click>
+                                        </DirectEvents>
+                                        <Listeners>
+                                            <Click Handler="#{FormPanel1}.getForm().reset();" />
+                                        </Listeners>
+                                    </ext:Button>
+                                    <ext:Button ID="Button9" runat="server" Text="编辑试卷" Icon="CdrEdit">
+                                        <DirectEvents>
+                                            <Click OnEvent="OpenWindows_edit"></Click>
+                                        </DirectEvents>
+                                    </ext:Button>
+                                    <ext:Button ID="Button7" runat="server" Icon="Delete" Text="删除试卷">
+                                    </ext:Button>
+                                    </Items>
+                                </ext:Toolbar>
+                            </TopBar>
                                 <ColumnModel ID="ColumnModel1" runat="server">
                                     <Columns> 
                                         <ext:Column   DataIndex="eTitle" Header="标题" Width="300" />
@@ -166,7 +190,7 @@
                                     <ext:RowSelectionModel ID="RowSelectionModel1" runat="server" SingleSelect="true">
                                         <DirectEvents>
                                             <RowSelect OnEvent="RowSelect" Buffer="100">
-                                                <EventMask ShowMask="true" Target="CustomTarget" CustomTarget="#{FormPanel1}" />
+                                                <EventMask ShowMask="true" Target="CustomTarget" CustomTarget="#{GridPanel2}" />
                                                 <ExtraParams>
                                                     <%-- or can use params[2].id as value --%>
                                                     <ext:Parameter Name="ExamGID" Value="this.getSelected().id" Mode="Raw" />
@@ -313,29 +337,20 @@
                                         </HeaderRows>
                                     </ext:GridView>
                                 </View>
-                                <LoadMask ShowMask="true" />
-                                <Buttons>
-                                    <ext:Button ID="Button6" runat="server" Icon="Add" Text="添加试卷">
-                                        <DirectEvents>
-                                            <Click OnEvent="OpenWindows_add"></Click>
-                                        </DirectEvents>
-                                        <Listeners>
-                                            <Click Handler="#{FormPanel1}.getForm().reset();" />
-                                        </Listeners>
-                                    </ext:Button>
-                                    <ext:Button ID="Button9" runat="server" Text="编辑试卷" Icon="CogEdit">
-                                        <DirectEvents>
-                                            <Click OnEvent="OpenWindows_edit"></Click>
-                                        </DirectEvents>
-                                    </ext:Button>
-                                    <ext:Button ID="Button7" runat="server" Icon="Delete" Text="删除试卷">
-                                    </ext:Button>
-
-                                </Buttons>
+                                <LoadMask ShowMask="true" /> 
                                 </ext:GridPanel>
-                    </ext:LayoutColumn>
-                    <ext:LayoutColumn ColumnWidth="0.25">
+                    </ext:LayoutRow>
+                    <ext:LayoutRow RowHeight="0.25">
                         <ext:GridPanel ID="GridPanel2" runat="server" Height="300" Title="试卷规则">
+                            <TopBar>
+                                <ext:Toolbar  ID="Toolbar2" runat="server">
+                                    <Items>
+                                        <ext:Button runat="server" Text="添加规则" Icon="CogAdd" />
+                                        <ext:Button runat="server" Text="编辑规则" Icon="CogEdit" />
+                                        <ext:Button runat="server" Text="删除规则" Icon="CogDelete" />
+                                    </Items>
+                                </ext:Toolbar>
+                            </TopBar>
                         <Store>
                             <ext:Store ID="Store9"  runat="server" OnRefreshData="Store9_Refresh">
                                 <Reader>
@@ -363,10 +378,70 @@
                                 <ext:Column DataIndex="RulesTitle" Header="试题分组规则"></ext:Column>
                             </Columns>
                         </ColumnModel>
+                        <SelectionModel>
+                            <ext:RowSelectionModel ID="RowSelectionModel2" runat="server" SingleSelect="true">
+                                <DirectEvents>
+                                    <RowSelect OnEvent="RowSelect2" Buffer="100">
+                                        <EventMask ShowMask="true" Target="CustomTarget" CustomTarget="#{GridPanel3}" />
+                                        <ExtraParams>
+                                            <%-- or can use params[2].id as value --%>
+                                            <ext:Parameter Name="RulesGID" Value="this.getSelected().id" Mode="Raw" />
+                                        </ExtraParams>
+                                    </RowSelect>
+                                </DirectEvents>
+                                    <Listeners>
+                                        <RowSelect Handler="#{Store10}.reload();" Buffer="250" />
+                                    </Listeners>
+                            </ext:RowSelectionModel>
+                        </SelectionModel>
                         </ext:GridPanel>
-                    </ext:LayoutColumn> 
-                </Columns>
-            </ext:ColumnLayout>
+                    </ext:LayoutRow> 
+                    <ext:LayoutRow RowHeight="0.5">
+                        <ext:GridPanel ID="GridPanel3" runat="server" Height="300" Title="Title">
+                            <Store>
+                                <ext:Store runat="server" ID="Store10" OnRefreshData="Store10_Refresh">
+                                    <Reader>
+                                        <ext:JsonReader IDProperty="QGID">
+                                            <Fields>
+                                                <ext:RecordField  Name="QGID"></ext:RecordField>
+                                                <ext:RecordField  Name="ExamGID"></ext:RecordField>
+                                                <ext:RecordField  Name="RulesGID"></ext:RecordField>
+                                                <ext:RecordField  Name="qContent"></ext:RecordField>
+                                                <ext:RecordField  Name="qType"></ext:RecordField>
+                                                <ext:RecordField  Name="qSelectNum"></ext:RecordField>
+                                                <ext:RecordField  Name="qOrderNum"></ext:RecordField>
+                                                <ext:RecordField  Name="qAnswer"></ext:RecordField>
+                                                <ext:RecordField  Name="Analysis"></ext:RecordField>
+                                                <ext:RecordField  Name="ReviewCount"></ext:RecordField>
+                                                <ext:RecordField  Name="AnalyseNum"></ext:RecordField>
+                                            </Fields>
+                                        </ext:JsonReader>
+                                    </Reader>
+                                    <BaseParams>
+                                    <ext:Parameter 
+                                        Name="RulesGID" 
+                                        Value="Ext.getCmp('#{GridPanel2}') && #{GridPanel2}.getSelectionModel().hasSelection() ? #{GridPanel2}.getSelectionModel().getSelected().id : -1"
+                                        Mode="Raw" 
+                                        />
+                                    </BaseParams>
+                                </ext:Store>
+                            </Store>
+                            <ColumnModel>
+                                <Columns>
+                                    <ext:Column DataIndex="qContent" Header="试题内容"></ext:Column>
+                                    <ext:Column DataIndex="qType" Header="试题类型"></ext:Column>
+                                    <ext:Column DataIndex="qSelectNum" Header="选项个数"></ext:Column>
+                                    <ext:Column DataIndex="qOrderNum" Header="排序位置"></ext:Column>
+                                    <ext:Column DataIndex="qAnswer" Header="答案"></ext:Column>
+                                    <ext:Column DataIndex="ReviewCount" Header="ReviewCount"></ext:Column>
+                                    <ext:Column DataIndex="Analysis" Header="分析"></ext:Column>
+                                    <ext:Column DataIndex="AnalyseNum" Header="分析数目"></ext:Column>
+                                </Columns>
+                            </ColumnModel>
+                        </ext:GridPanel>
+                    </ext:LayoutRow>
+                </Rows>
+            </ext:RowLayout>
             
             
         </Items>
@@ -510,6 +585,59 @@
                         <DirectEvents>
                             <Click OnEvent="ClearGrid"></Click>
                         </DirectEvents>
+                    </ext:Button>
+                </Buttons>
+            </ext:FormPanel>
+        </Items>
+    </ext:Window>
+    <ext:Window ID="Window2" runat="server"Modal="true"  ShowOnLoad="false"  Hidden="True" Closable="True"  Height="185" Collapsible="false"   Icon="Application"
+        Title="Title" Width="350">
+        <Items>
+            <ext:FormPanel ID="FormPanel2" runat="server" ButtonAlign="Right" Height="185" Padding="5"
+                Title="Title" Width="300">
+                <Items>
+                    <ext:TextField ID="tfRulesName" runat="server" AnchorHorizontal="100%" FieldLabel="规则名称">
+                    </ext:TextField>
+                    <ext:ComboBox ID="ComboBox7" DisplayField="TypeName" ValueField="ID" runat="server" FieldLabel="题型">
+                        <Store>
+                            <ext:Store runat="server" ID="Store11">
+                                <Reader>
+                                    <ext:JsonReader IDProperty="ID">
+                                        <Fields>
+                                            <ext:RecordField Name="ID" ></ext:RecordField>
+                                            <ext:RecordField Name="TypeName"></ext:RecordField>
+                                        </Fields>
+                                    </ext:JsonReader>
+                                </Reader>
+                            </ext:Store>
+                        </Store>
+                    </ext:ComboBox>
+                    <ext:TextField runat="server" ID="tfRulesContent" AnchorHorizontal="98%" FieldLabel="题型介绍"></ext:TextField>
+                    <ext:SpinnerField ID="tfRulesScore" 
+                                        MinValue="0"
+                                        MaxValue="1000"
+                                        AllowDecimals="true"
+                                        DecimalPrecision="1"
+                                        IncrementValue="5"
+                                        Accelerate="true"
+                                        AlternateIncrementValue="10"
+                                        FieldLabel="题型总分" runat="server">
+                    </ext:SpinnerField>
+                    <ext:SpinnerField ID="tfRulesScoreSet" FieldLabel="分数设置"
+                                        MinValue="0"
+                                        MaxValue="1000"
+                                        AllowDecimals="true"
+                                        DecimalPrecision="1"
+                                        IncrementValue="5"
+                                        Accelerate="true"
+                                        AlternateIncrementValue="10"    
+                                        runat="server">
+                    </ext:SpinnerField>
+                    <ext:SpinnerField ID="SpinnerField1" FieldLabel="题型排序" runat="server">
+                    </ext:SpinnerField>
+                </Items>
+                <Buttons>
+                    <ext:Button ID="Button8" runat="server" Icon="Disk" Text="添加">
                     </ext:Button>
                 </Buttons>
             </ext:FormPanel>
