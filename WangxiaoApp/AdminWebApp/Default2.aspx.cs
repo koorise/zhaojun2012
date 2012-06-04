@@ -11,8 +11,6 @@ public partial class Default2 : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        WXAdminUser wx=new WXAdminUser();
-        wx.GID = Guid.NewGuid();
-        wx.AdminUserName = "AAA";
+         
     }
 }

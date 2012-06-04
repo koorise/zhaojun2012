@@ -134,8 +134,10 @@ namespace WangxiaoCN
         public Query<WXAdminPowerTree> WXAdminPowerTrees { get; set; }
         public Query<WXAdminPowerCategory> WXAdminPowerCategories { get; set; }
         public Query<WXAdminUser> WXAdminUsers { get; set; }
+        public Query<WXDataCollection> WXDataCollections { get; set; }
         public Query<WXExamDetail> WXExamDetails { get; set; }
         public Query<WXExamPaper> WXExamPapers { get; set; }
+        public Query<WXExamRule> WXExamRules { get; set; }
         public Query<WXPointsBank> WXPointsBanks { get; set; }
         public Query<WXSysCity> WXSysCities { get; set; }
         public Query<WXSysExamCategory> WXSysExamCategories { get; set; }
@@ -254,8 +256,10 @@ namespace WangxiaoCN
             WXAdminPowerTrees = new Query<WXAdminPowerTree>(provider);
             WXAdminPowerCategories = new Query<WXAdminPowerCategory>(provider);
             WXAdminUsers = new Query<WXAdminUser>(provider);
+            WXDataCollections = new Query<WXDataCollection>(provider);
             WXExamDetails = new Query<WXExamDetail>(provider);
             WXExamPapers = new Query<WXExamPaper>(provider);
+            WXExamRules = new Query<WXExamRule>(provider);
             WXPointsBanks = new Query<WXPointsBank>(provider);
             WXSysCities = new Query<WXSysCity>(provider);
             WXSysExamCategories = new Query<WXSysExamCategory>(provider);
@@ -277,8 +281,10 @@ namespace WangxiaoCN
             	DataProvider.Schema.Tables.Add(new WXAdminPowerTreeTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdminPowerCategoryTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXAdminUsersTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXDataCollectionsTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXExamDetailTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXExamPaperTable(DataProvider));
+            	DataProvider.Schema.Tables.Add(new WXExamRulesTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXPointsBankTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysCityTable(DataProvider));
             	DataProvider.Schema.Tables.Add(new WXSysExamCategoryTable(DataProvider));

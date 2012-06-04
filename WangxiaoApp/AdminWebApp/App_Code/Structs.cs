@@ -1048,6 +1048,135 @@ namespace WangxiaoCN {
         }
         
         /// <summary>
+        /// Table: WXDataCollections
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXDataCollectionsTable: DatabaseTable {
+            
+            public WXDataCollectionsTable(IDataProvider provider):base("WXDataCollections",provider){
+                ClassName = "WXDataCollection";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ksid", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("typeid", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("icount", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("intime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn ksid{
+                get{
+                    return this.GetColumn("ksid");
+                }
+            }
+				
+   			public static string ksidColumn{
+			      get{
+        			return "ksid";
+      			}
+		    }
+            
+            public IColumn typeid{
+                get{
+                    return this.GetColumn("typeid");
+                }
+            }
+				
+   			public static string typeidColumn{
+			      get{
+        			return "typeid";
+      			}
+		    }
+            
+            public IColumn icount{
+                get{
+                    return this.GetColumn("icount");
+                }
+            }
+				
+   			public static string icountColumn{
+			      get{
+        			return "icount";
+      			}
+		    }
+            
+            public IColumn intime{
+                get{
+                    return this.GetColumn("intime");
+                }
+            }
+				
+   			public static string intimeColumn{
+			      get{
+        			return "intime";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
         /// Table: WXExamDetail
         /// Primary Key: ID
         /// </summary>
@@ -1089,6 +1218,16 @@ namespace WangxiaoCN {
 	                MaxLength = 0
                 });
 
+                Columns.Add(new DatabaseColumn("RulesGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
                 Columns.Add(new DatabaseColumn("qContent", this)
                 {
 	                IsPrimaryKey = false,
@@ -1096,7 +1235,7 @@ namespace WangxiaoCN {
 	                IsNullable = false,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
-	                MaxLength = 1000
+	                MaxLength = 4000
                 });
 
                 Columns.Add(new DatabaseColumn("qType", this)
@@ -1137,6 +1276,16 @@ namespace WangxiaoCN {
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 2000
+                });
+
+                Columns.Add(new DatabaseColumn("Analysis", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 4000
                 });
 
                 Columns.Add(new DatabaseColumn("CreateID", this)
@@ -1198,6 +1347,46 @@ namespace WangxiaoCN {
 	                IsForeignKey = false,
 	                MaxLength = 0
                 });
+
+                Columns.Add(new DatabaseColumn("ExamID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ReviewCount", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 1000
+                });
+
+                Columns.Add(new DatabaseColumn("AnalyseNum", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 1000
+                });
+
+                Columns.Add(new DatabaseColumn("isimg", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
                     
                 
                 
@@ -1236,6 +1425,18 @@ namespace WangxiaoCN {
    			public static string ExamGIDColumn{
 			      get{
         			return "ExamGID";
+      			}
+		    }
+            
+            public IColumn RulesGID{
+                get{
+                    return this.GetColumn("RulesGID");
+                }
+            }
+				
+   			public static string RulesGIDColumn{
+			      get{
+        			return "RulesGID";
       			}
 		    }
             
@@ -1296,6 +1497,18 @@ namespace WangxiaoCN {
    			public static string qAnswerColumn{
 			      get{
         			return "qAnswer";
+      			}
+		    }
+            
+            public IColumn Analysis{
+                get{
+                    return this.GetColumn("Analysis");
+                }
+            }
+				
+   			public static string AnalysisColumn{
+			      get{
+        			return "Analysis";
       			}
 		    }
             
@@ -1371,6 +1584,54 @@ namespace WangxiaoCN {
       			}
 		    }
             
+            public IColumn ExamID{
+                get{
+                    return this.GetColumn("ExamID");
+                }
+            }
+				
+   			public static string ExamIDColumn{
+			      get{
+        			return "ExamID";
+      			}
+		    }
+            
+            public IColumn ReviewCount{
+                get{
+                    return this.GetColumn("ReviewCount");
+                }
+            }
+				
+   			public static string ReviewCountColumn{
+			      get{
+        			return "ReviewCount";
+      			}
+		    }
+            
+            public IColumn AnalyseNum{
+                get{
+                    return this.GetColumn("AnalyseNum");
+                }
+            }
+				
+   			public static string AnalyseNumColumn{
+			      get{
+        			return "AnalyseNum";
+      			}
+		    }
+            
+            public IColumn isimg{
+                get{
+                    return this.GetColumn("isimg");
+                }
+            }
+				
+   			public static string isimgColumn{
+			      get{
+        			return "isimg";
+      			}
+		    }
+            
                     
         }
         
@@ -1400,7 +1661,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Guid,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1410,7 +1671,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Guid,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1420,7 +1681,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1430,7 +1691,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1440,7 +1701,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.String,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 200
@@ -1450,7 +1711,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1460,7 +1721,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1470,7 +1731,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1480,7 +1741,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1490,7 +1751,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.String,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 50
@@ -1500,7 +1761,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1510,7 +1771,7 @@ namespace WangxiaoCN {
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.Int32,
-	                IsNullable = false,
+	                IsNullable = true,
 	                AutoIncrement = false,
 	                IsForeignKey = false,
 	                MaxLength = 0
@@ -1567,6 +1828,36 @@ namespace WangxiaoCN {
                 });
 
                 Columns.Add(new DatabaseColumn("DelTime", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.DateTime,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("tExamID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("tKSID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("inTime", this)
                 {
 	                IsPrimaryKey = false,
 	                DataType = DbType.DateTime,
@@ -1805,6 +2096,215 @@ namespace WangxiaoCN {
    			public static string DelTimeColumn{
 			      get{
         			return "DelTime";
+      			}
+		    }
+            
+            public IColumn tExamID{
+                get{
+                    return this.GetColumn("tExamID");
+                }
+            }
+				
+   			public static string tExamIDColumn{
+			      get{
+        			return "tExamID";
+      			}
+		    }
+            
+            public IColumn tKSID{
+                get{
+                    return this.GetColumn("tKSID");
+                }
+            }
+				
+   			public static string tKSIDColumn{
+			      get{
+        			return "tKSID";
+      			}
+		    }
+            
+            public IColumn inTime{
+                get{
+                    return this.GetColumn("inTime");
+                }
+            }
+				
+   			public static string inTimeColumn{
+			      get{
+        			return "inTime";
+      			}
+		    }
+            
+                    
+        }
+        
+        /// <summary>
+        /// Table: WXExamRules
+        /// Primary Key: ID
+        /// </summary>
+
+        public class WXExamRulesTable: DatabaseTable {
+            
+            public WXExamRulesTable(IDataProvider provider):base("WXExamRules",provider){
+                ClassName = "WXExamRule";
+                SchemaName = "dbo";
+                
+
+                Columns.Add(new DatabaseColumn("ID", this)
+                {
+	                IsPrimaryKey = true,
+	                DataType = DbType.Int32,
+	                IsNullable = false,
+	                AutoIncrement = true,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("GID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("ExamGID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Guid,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("S_Sorts", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("RulesTitle", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 4000
+                });
+
+                Columns.Add(new DatabaseColumn("RulesScore", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Decimal,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("RulesScoreSet", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 4000
+                });
+                    
+                
+                
+            }
+
+            public IColumn ID{
+                get{
+                    return this.GetColumn("ID");
+                }
+            }
+				
+   			public static string IDColumn{
+			      get{
+        			return "ID";
+      			}
+		    }
+            
+            public IColumn GID{
+                get{
+                    return this.GetColumn("GID");
+                }
+            }
+				
+   			public static string GIDColumn{
+			      get{
+        			return "GID";
+      			}
+		    }
+            
+            public IColumn ExamGID{
+                get{
+                    return this.GetColumn("ExamGID");
+                }
+            }
+				
+   			public static string ExamGIDColumn{
+			      get{
+        			return "ExamGID";
+      			}
+		    }
+            
+            public IColumn SSorts{
+                get{
+                    return this.GetColumn("S_Sorts");
+                }
+            }
+				
+   			public static string SSortsColumn{
+			      get{
+        			return "S_Sorts";
+      			}
+		    }
+            
+            public IColumn RulesTitle{
+                get{
+                    return this.GetColumn("RulesTitle");
+                }
+            }
+				
+   			public static string RulesTitleColumn{
+			      get{
+        			return "RulesTitle";
+      			}
+		    }
+            
+            public IColumn RulesScore{
+                get{
+                    return this.GetColumn("RulesScore");
+                }
+            }
+				
+   			public static string RulesScoreColumn{
+			      get{
+        			return "RulesScore";
+      			}
+		    }
+            
+            public IColumn RulesScoreSet{
+                get{
+                    return this.GetColumn("RulesScoreSet");
+                }
+            }
+				
+   			public static string RulesScoreSetColumn{
+			      get{
+        			return "RulesScoreSet";
       			}
 		    }
             
@@ -2118,6 +2618,36 @@ namespace WangxiaoCN {
 	                IsForeignKey = false,
 	                MaxLength = 0
                 });
+
+                Columns.Add(new DatabaseColumn("ksID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("isBottom", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("iCount", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
                     
                 
                 
@@ -2192,6 +2722,42 @@ namespace WangxiaoCN {
    			public static string isDeepColumn{
 			      get{
         			return "isDeep";
+      			}
+		    }
+            
+            public IColumn ksID{
+                get{
+                    return this.GetColumn("ksID");
+                }
+            }
+				
+   			public static string ksIDColumn{
+			      get{
+        			return "ksID";
+      			}
+		    }
+            
+            public IColumn isBottom{
+                get{
+                    return this.GetColumn("isBottom");
+                }
+            }
+				
+   			public static string isBottomColumn{
+			      get{
+        			return "isBottom";
+      			}
+		    }
+            
+            public IColumn iCount{
+                get{
+                    return this.GetColumn("iCount");
+                }
+            }
+				
+   			public static string iCountColumn{
+			      get{
+        			return "iCount";
       			}
 		    }
             

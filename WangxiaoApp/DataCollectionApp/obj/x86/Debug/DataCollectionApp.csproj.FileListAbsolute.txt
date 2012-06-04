@@ -15,3 +15,6 @@ D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\Newtonsoft.Json.xml
 D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.Form2.resources
 D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\zoyobar.shared.panzer.IEBrowser.dll
 D:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\zoyobar.shared.panzer.IEBrowser.xml
+E:\Zhaojun2012\WangxiaoApp\DataCollectionApp\bin\Debug\DataCollectionApp.exe.config
+E:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.exe
+E:\Zhaojun2012\WangxiaoApp\DataCollectionApp\obj\x86\Debug\DataCollectionApp.pdb
