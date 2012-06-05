@@ -167,6 +167,38 @@ public partial class ExamManage_ADD : System.Web.UI.Page
        
 
     }
+    protected void RowSelect3(object sender, DirectEventArgs e)
+    {
+        Guid QGID = new Guid(e.ExtraParams["QGID"].ToString());
+
+        var q = WXExamDetail.SingleOrDefault(x => x.QGID == QGID);
+
+        this.FormPanel3.SetValues(new
+                                    {
+                                        q.QGID,
+                                        q.qType,
+                                        q.qSelectNum,
+                                        q.qOrderNum,
+                                        q.qAnswer,
+                                        q.qContent,
+                                        q.Analysis
+                                    }); 
+
+
+
+    }
+    protected void BookDel(object s,DirectEventArgs e)
+    {
+        
+    }
+    protected void BookAdd_Open(object s,DirectEventArgs e)
+    {
+        Window3.Show();
+    }
+    protected void BookEdit_Open(object s,DirectEventArgs e)
+    {
+        Window3.Show();
+    }
     protected void Store10_Refresh(object s, StoreRefreshDataEventArgs e)
     {
         string guid = e.Parameters["RulesGID"].ToString();
