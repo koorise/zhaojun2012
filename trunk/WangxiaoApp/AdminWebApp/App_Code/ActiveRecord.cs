@@ -5565,7 +5565,7 @@ namespace WangxiaoCN
         }
         
         public override string ToString(){
-                            return this.RulesTitle.ToString();
+                            return this.RulesTypeName.ToString();
                     }
 
         public override bool Equals(object obj){
@@ -5584,11 +5584,11 @@ namespace WangxiaoCN
         
         public string DescriptorValue()
         {
-                            return this.RulesTitle.ToString();
+                            return this.RulesTypeName.ToString();
                     }
 
         public string DescriptorColumn() {
-            return "RulesTitle";
+            return "RulesTypeName";
         }
         public static string GetKeyColumn()
         {
@@ -5596,7 +5596,7 @@ namespace WangxiaoCN
         }        
         public static string GetDescriptorColumn()
         {
-            return "RulesTitle";
+            return "RulesTypeName";
         }
         
         #region ' Foreign Keys '
@@ -5650,6 +5650,63 @@ namespace WangxiaoCN
                 if(_ExamGID!=value){
                     _ExamGID=value;
                     var col=tbl.Columns.SingleOrDefault(x=>x.Name=="ExamGID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        string _RulesTypeName;
+        public string RulesTypeName
+        {
+            get { return _RulesTypeName; }
+            set
+            {
+                if(_RulesTypeName!=value){
+                    _RulesTypeName=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="RulesTypeName");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        int? _RulesTypeID;
+        public int? RulesTypeID
+        {
+            get { return _RulesTypeID; }
+            set
+            {
+                if(_RulesTypeID!=value){
+                    _RulesTypeID=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="RulesTypeID");
+                    if(col!=null){
+                        if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
+                            _dirtyColumns.Add(col);
+                        }
+                    }
+                    OnChanged();
+                }
+            }
+        }
+
+        string _RulesContent;
+        public string RulesContent
+        {
+            get { return _RulesContent; }
+            set
+            {
+                if(_RulesContent!=value){
+                    _RulesContent=value;
+                    var col=tbl.Columns.SingleOrDefault(x=>x.Name=="RulesContent");
                     if(col!=null){
                         if(!_dirtyColumns.Any(x=>x.Name==col.Name) && _isLoaded){
                             _dirtyColumns.Add(col);
