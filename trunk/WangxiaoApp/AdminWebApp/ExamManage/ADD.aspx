@@ -417,7 +417,31 @@
                         </ext:GridPanel>
                     </ext:LayoutRow> 
                     <ext:LayoutRow RowHeight="0.5">
-                        <ext:GridPanel ID="GridPanel3" runat="server" Height="300" Title="Title">
+                        <ext:GridPanel ID="GridPanel3" runat="server" Height="300" Title="试题列表">
+                            <TopBar>
+                                <ext:Toolbar runat="server" ID="Toolbar3">
+                                    <Items>
+                                        <ext:Button runat="server" ID="BtnAddItem" Text="添加试题" Icon="BookAdd">
+                                            <DirectEvents>
+                                                <Click OnEvent="BookAdd_Open"></Click>
+                                            </DirectEvents>
+                                            <Listeners>
+                                                <Click Handler="#{FormPanel3}.getForm().reset();"></Click>
+                                            </Listeners>
+                                        </ext:Button>
+                                        <ext:Button runat="server" ID="Button10" Text="试题修改" Icon="BookEdit">
+                                             <DirectEvents>
+                                                <Click OnEvent="BookEdit_Open"></Click>
+                                            </DirectEvents>
+                                        </ext:Button>
+                                        <ext:Button runat="server" ID="Button11" Text="删除试题" Icon="BookDelete">
+                                            <DirectEvents>
+                                                <Click OnEvent="BookDel"></Click>
+                                            </DirectEvents>
+                                        </ext:Button>
+                                    </Items>
+                                </ext:Toolbar>
+                            </TopBar>
                             <Store>
                                 <ext:Store runat="server" ID="Store10" OnRefreshData="Store10_Refresh">
                                     <Reader>
@@ -458,6 +482,21 @@
                                     <ext:Column DataIndex="AnalyseNum" Header="分析数目"></ext:Column>
                                 </Columns>
                             </ColumnModel>
+                            <SelectionModel>
+                            <ext:RowSelectionModel ID="RowSelectionModel3" runat="server" SingleSelect="true">
+                                <DirectEvents>
+                                    <RowSelect OnEvent="RowSelect3" Buffer="100"> 
+                                        <ExtraParams>
+                                            <%-- or can use params[2].id as value --%>
+                                            <ext:Parameter Name="QGID" Value="this.getSelected().id" Mode="Raw" />
+                                        </ExtraParams>
+                                    </RowSelect>
+                                </DirectEvents>
+                                    <Listeners>
+                                        <RowSelect Handler="#{Store10}.reload();" Buffer="250" />
+                                    </Listeners>
+                            </ext:RowSelectionModel>
+                        </SelectionModel>
                         </ext:GridPanel>
                     </ext:LayoutRow>
                 </Rows>
@@ -610,37 +649,38 @@
             </ext:FormPanel>
         </Items>
     </ext:Window>
-    <ext:Window ID="Window2" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Height="460"  Closable="True"   Collapsible="false"   Icon="Application"
+    <ext:Window ID="Window2" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Height="370"  Closable="True"   Collapsible="false"   Icon="Application"
         Title="规则添加" Width="700">
         <Items>
             <ext:FormPanel ID="FormPanel2" runat="server" Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5">
                 <Items>
-                    <ext:TextField ID="tfGID"  FieldLabel="规则编号" Disabled="True" runat="server" />
-                    <ext:TextField ID="tfRulesName" runat="server"  FieldLabel="规则名称">
+                    <ext:TextField ID="tfGID"  FieldLabel="规则编号" Disabled="True" runat="server" DataIndex="GID" />
+                    <ext:TextField ID="tfRulesName" runat="server"  FieldLabel="规则名称" DataIndex="RulesTypeName">
                     </ext:TextField>
-                    <ext:HtmlEditor ID="tfRulesContent"   Height="250" FieldLabel="题型介绍" runat="server">
+                    <ext:HtmlEditor ID="tfRulesContent"   Height="150" FieldLabel="题型介绍" DataIndex="RulesContent" runat="server">
                     </ext:HtmlEditor> 
                     <ext:SpinnerField ID="tfRulesScore" 
                                         MinValue="0"
                                         MaxValue="1000"
                                         AllowDecimals="true"
                                         DecimalPrecision="1"
-                                        IncrementValue="5"
+                                        IncrementValue="1"
                                         Accelerate="true"
                                         AlternateIncrementValue="10"
-                                        FieldLabel="每题分数" runat="server">
+                                        FieldLabel="每题分数" DataIndex="RulesScore" runat="server">
                     </ext:SpinnerField>
                     <ext:SpinnerField ID="tfRulesScoreSet" FieldLabel="分数设置"
                                         MinValue="0"
                                         MaxValue="1000"
                                         AllowDecimals="true"
                                         DecimalPrecision="1"
-                                        IncrementValue="5"
+                                        IncrementValue="1"
                                         Accelerate="true"
+                                        DataIndex="RulesScoreSet"
                                         AlternateIncrementValue="10"    
                                         runat="server">
                     </ext:SpinnerField>
-                    <ext:SpinnerField ID="SpinnerField1" FieldLabel="题型排序" runat="server">
+                    <ext:SpinnerField ID="SpinnerField1" FieldLabel="题型排序" DataIndex="SSorts" runat="server">
                     </ext:SpinnerField>
                 </Items>
                 <Buttons>
@@ -650,5 +690,77 @@
             </ext:FormPanel>
         </Items>
     </ext:Window>
+      <ext:Window ID="Window3" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Height="520"  Closable="True"   Collapsible="false"   Icon="Application"
+        Title="试题添加" Width="700">
+        <Items>
+            <ext:FormPanel ID="FormPanel3" runat="server" ButtonAlign="Right"  Padding="5" >
+                <Items>
+                    <ext:TextField ID="TextField1" runat="server"   FieldLabel="试题编号" Disabled="True" DataIndex="QGID">
+                    </ext:TextField>
+                    <ext:ComboBox ID="txtqType" Editable="false" FieldLabel="试题类型" DisplayField="TypeName" DataIndex="qType" ValueField="ID" runat="server">
+                        <Store>
+                            <ext:Store ID="Store11" DataSourceID="SqlDataSource3" runat="server">
+                                <Reader>
+                                    <ext:JsonReader>
+                                        <Fields>
+                                            <ext:RecordField Name="ID"></ext:RecordField>
+                                            <ext:RecordField Name="TypeName"></ext:RecordField>
+                                        </Fields>
+                                    </ext:JsonReader>
+                                </Reader>
+                            </ext:Store>
+                        </Store>
+                    </ext:ComboBox>
+                    <ext:SpinnerField ID="SpinnerField2" 
+                                        MinValue="0"
+                                        MaxValue="1000"
+                                        AllowDecimals="true"
+                                        DecimalPrecision="1"
+                                        IncrementValue="5"
+                                        Accelerate="true"
+                                        AlternateIncrementValue="10"
+                                        FieldLabel="选项个数" DataIndex="qSelectNum" runat="server">
+                    </ext:SpinnerField>
+                    <ext:SpinnerField ID="SpinnerField3" 
+                                        MinValue="0"
+                                        MaxValue="1000"
+                                        AllowDecimals="true"
+                                        DecimalPrecision="1"
+                                        IncrementValue="5"
+                                        Accelerate="true"
+                                        AlternateIncrementValue="10"
+                                        FieldLabel="试题排序" DataIndex="qOrderNum" runat="server">
+                    </ext:SpinnerField>
+                    <ext:MultiCombo ID="txtqAnswer1" runat="server"  FieldLabel="正确项" DataIndex="qAnswer" SelectionMode="All" >
+                        <Items>
+                            <ext:ListItem Text="1" Value="1" />
+                            <ext:ListItem Text="0" Value="0" />
+                            <ext:ListItem Text="A" Value="A" />
+                            <ext:ListItem Text="B" Value="B" />
+                            <ext:ListItem Text="C" Value="C" />
+                            <ext:ListItem Text="D" Value="D" />
+                            <ext:ListItem Text="E" Value="E" />
+                            <ext:ListItem Text="F" Value="F" />
+                            <ext:ListItem Text="G" Value="G" />
+                            <ext:ListItem Text="H" Value="H" />
+                            <ext:ListItem Text="I" Value="I" />
+                            <ext:ListItem Text="J" Value="J" />
+                        </Items> 
+                        <SelectedItems>
+                            <ext:SelectedListItem Value="A" />
+                        </SelectedItems>
+                    </ext:MultiCombo>
+                     <ext:HtmlEditor ID="HtmlEditor1"   Height="150" FieldLabel="试题内容" DataIndex="qContent" runat="server">
+                    </ext:HtmlEditor>
+                    <ext:HtmlEditor ID="HtmlEditor2"   Height="150" FieldLabel="试题分析" DataIndex="Analysis" runat="server">
+                    </ext:HtmlEditor> 
+                </Items>
+                <Buttons>
+                    <ext:Button ID="Button12" runat="server" Icon="Disk" Text="Submit">
+                    </ext:Button>
+                </Buttons>
+            </ext:FormPanel>
+        </Items>
+        </ext:Window>
 </asp:Content>
 
