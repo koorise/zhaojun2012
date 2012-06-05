@@ -2180,6 +2180,36 @@ namespace WangxiaoCN {
 	                MaxLength = 0
                 });
 
+                Columns.Add(new DatabaseColumn("RulesTypeName", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 500
+                });
+
+                Columns.Add(new DatabaseColumn("RulesTypeID", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.Int32,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 0
+                });
+
+                Columns.Add(new DatabaseColumn("RulesContent", this)
+                {
+	                IsPrimaryKey = false,
+	                DataType = DbType.String,
+	                IsNullable = true,
+	                AutoIncrement = false,
+	                IsForeignKey = false,
+	                MaxLength = 2000
+                });
+
                 Columns.Add(new DatabaseColumn("S_Sorts", this)
                 {
 	                IsPrimaryKey = false,
@@ -2257,6 +2287,42 @@ namespace WangxiaoCN {
    			public static string ExamGIDColumn{
 			      get{
         			return "ExamGID";
+      			}
+		    }
+            
+            public IColumn RulesTypeName{
+                get{
+                    return this.GetColumn("RulesTypeName");
+                }
+            }
+				
+   			public static string RulesTypeNameColumn{
+			      get{
+        			return "RulesTypeName";
+      			}
+		    }
+            
+            public IColumn RulesTypeID{
+                get{
+                    return this.GetColumn("RulesTypeID");
+                }
+            }
+				
+   			public static string RulesTypeIDColumn{
+			      get{
+        			return "RulesTypeID";
+      			}
+		    }
+            
+            public IColumn RulesContent{
+                get{
+                    return this.GetColumn("RulesContent");
+                }
+            }
+				
+   			public static string RulesContentColumn{
+			      get{
+        			return "RulesContent";
       			}
 		    }
             

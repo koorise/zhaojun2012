@@ -136,14 +136,35 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         
 
     }
+    protected void RulesAdd(object s,DirectEventArgs e)
+    { 
+        Window2.Show();
+    }
+    protected void RulesEdit(object s,DirectEventArgs e)
+    { 
+        Window2.Show();
+    }
+    protected void RulesDel(object s,DirectEventArgs e)
+    {
+        
+    }
     protected void RowSelect2(object sender, DirectEventArgs e)
     {
         Guid RulesGID = new Guid(e.ExtraParams["RulesGID"].ToString());
-        var q = from c in WXExamDetail.All()
-                where c.RulesGID == RulesGID
-                select c;
-        Store10.DataSource = q;
-        Store10.DataBind();
+      
+        var _q = WXExamRule.SingleOrDefault(x => x.GID == RulesGID);
+        
+        this.FormPanel2.SetValues(new
+                                      {
+                                          _q.GID,
+                                          _q.RulesTypeName,
+                                          _q.RulesContent,
+                                          _q.RulesScore,
+                                          _q.RulesScoreSet,
+                                          _q.SSorts
+                                      });
+
+       
 
     }
     protected void Store10_Refresh(object s, StoreRefreshDataEventArgs e)

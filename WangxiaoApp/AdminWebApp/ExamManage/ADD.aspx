@@ -345,9 +345,24 @@
                             <TopBar>
                                 <ext:Toolbar  ID="Toolbar2" runat="server">
                                     <Items>
-                                        <ext:Button runat="server" Text="添加规则" Icon="CogAdd" />
-                                        <ext:Button runat="server" Text="编辑规则" Icon="CogEdit" />
-                                        <ext:Button runat="server" Text="删除规则" Icon="CogDelete" />
+                                        <ext:Button runat="server" Text="添加规则" Icon="CogAdd">
+                                            <DirectEvents>
+                                                <Click OnEvent="RulesAdd"></Click>
+                                            </DirectEvents>
+                                            <Listeners>
+                                                <Click Handler="#{FormPanel2}.getForm().reset();"></Click>
+                                            </Listeners>
+                                        </ext:Button>
+                                        <ext:Button runat="server" Text="编辑规则" Icon="CogEdit" >
+                                            <DirectEvents>
+                                                <Click OnEvent="RulesEdit"></Click>
+                                            </DirectEvents>
+                                        </ext:Button>
+                                        <ext:Button runat="server" Text="删除规则" Icon="CogDelete">
+                                            <DirectEvents>
+                                                <Click OnEvent="RulesDel"></Click>
+                                            </DirectEvents>
+                                        </ext:Button>
                                     </Items>
                                 </ext:Toolbar>
                             </TopBar>
@@ -361,6 +376,8 @@
                                             <ext:RecordField Name="RulesTitle"></ext:RecordField>
                                             <ext:RecordField Name="RulesScore"></ext:RecordField>
                                             <ext:RecordField Name="RulesScoreSet"></ext:RecordField>
+                                            <ext:RecordField Name="RulesTypeName"></ext:RecordField>
+                                            <ext:RecordField Name="RulesContent"></ext:RecordField>
                                         </Fields>
                                     </ext:JsonReader>
                                 </Reader>
@@ -375,7 +392,10 @@
                         </Store>
                         <ColumnModel>
                             <Columns>
-                                <ext:Column DataIndex="RulesTitle" Header="试题分组规则"></ext:Column>
+                                <ext:Column DataIndex="RulesTypeName" Header="分组类型"></ext:Column>
+                                <ext:Column DataIndex="RulesContent" Width="300" Header="类型介绍"></ext:Column>
+                                <ext:Column DataIndex="RulesScore" Header="每题分数"></ext:Column>
+                                <ext:Column DataIndex="RulesScoreSet" Header="分数设置"></ext:Column>
                             </Columns>
                         </ColumnModel>
                         <SelectionModel>
@@ -428,7 +448,7 @@
                             </Store>
                             <ColumnModel>
                                 <Columns>
-                                    <ext:Column DataIndex="qContent" Header="试题内容"></ext:Column>
+                                    <ext:Column DataIndex="qContent" Width="300" Header="试题内容"></ext:Column>
                                     <ext:Column DataIndex="qType" Header="试题类型"></ext:Column>
                                     <ext:Column DataIndex="qSelectNum" Header="选项个数"></ext:Column>
                                     <ext:Column DataIndex="qOrderNum" Header="排序位置"></ext:Column>
@@ -446,7 +466,7 @@
             
         </Items>
     </ext:Viewport>
-    <ext:Window ID="Window1" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Closable="True"  Collapsible="false"  Height="450" Icon="Application"
+    <ext:Window ID="Window1" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Closable="True"  Collapsible="false"  Height="430" Icon="Application"
         Title="试卷添加" Icons="Attach" Width="350"  >
         <Items>
             <ext:FormPanel ID="FormPanel1" runat="server"  Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5">
@@ -590,29 +610,16 @@
             </ext:FormPanel>
         </Items>
     </ext:Window>
-    <ext:Window ID="Window2" runat="server"Modal="true"  ShowOnLoad="false"  Hidden="True" Closable="True"  Height="185" Collapsible="false"   Icon="Application"
-        Title="Title" Width="350">
+    <ext:Window ID="Window2" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Height="460"  Closable="True"   Collapsible="false"   Icon="Application"
+        Title="规则添加" Width="700">
         <Items>
-            <ext:FormPanel ID="FormPanel2" runat="server" ButtonAlign="Right" Height="185" Padding="5"
-                Title="Title" Width="300">
+            <ext:FormPanel ID="FormPanel2" runat="server" Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5">
                 <Items>
-                    <ext:TextField ID="tfRulesName" runat="server" AnchorHorizontal="100%" FieldLabel="规则名称">
+                    <ext:TextField ID="tfGID"  FieldLabel="规则编号" Disabled="True" runat="server" />
+                    <ext:TextField ID="tfRulesName" runat="server"  FieldLabel="规则名称">
                     </ext:TextField>
-                    <ext:ComboBox ID="ComboBox7" DisplayField="TypeName" ValueField="ID" runat="server" FieldLabel="题型">
-                        <Store>
-                            <ext:Store runat="server" ID="Store11">
-                                <Reader>
-                                    <ext:JsonReader IDProperty="ID">
-                                        <Fields>
-                                            <ext:RecordField Name="ID" ></ext:RecordField>
-                                            <ext:RecordField Name="TypeName"></ext:RecordField>
-                                        </Fields>
-                                    </ext:JsonReader>
-                                </Reader>
-                            </ext:Store>
-                        </Store>
-                    </ext:ComboBox>
-                    <ext:TextField runat="server" ID="tfRulesContent" AnchorHorizontal="98%" FieldLabel="题型介绍"></ext:TextField>
+                    <ext:HtmlEditor ID="tfRulesContent"   Height="250" FieldLabel="题型介绍" runat="server">
+                    </ext:HtmlEditor> 
                     <ext:SpinnerField ID="tfRulesScore" 
                                         MinValue="0"
                                         MaxValue="1000"
@@ -621,7 +628,7 @@
                                         IncrementValue="5"
                                         Accelerate="true"
                                         AlternateIncrementValue="10"
-                                        FieldLabel="题型总分" runat="server">
+                                        FieldLabel="每题分数" runat="server">
                     </ext:SpinnerField>
                     <ext:SpinnerField ID="tfRulesScoreSet" FieldLabel="分数设置"
                                         MinValue="0"
