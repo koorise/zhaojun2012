@@ -654,6 +654,7 @@
         <Items>
             <ext:FormPanel ID="FormPanel2" runat="server" Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5">
                 <Items>
+                    <ext:TextField ID="tfExamGID"  FieldLabel="试卷编号" Disabled="True" runat="server" DataIndex="ExamGID" />
                     <ext:TextField ID="tfGID"  FieldLabel="规则编号" Disabled="True" runat="server" DataIndex="GID" />
                     <ext:TextField ID="tfRulesName" runat="server"  FieldLabel="规则名称" DataIndex="RulesTypeName">
                     </ext:TextField>
@@ -684,7 +685,10 @@
                     </ext:SpinnerField>
                 </Items>
                 <Buttons>
-                    <ext:Button ID="Button8" runat="server" Icon="Disk" Text="添加">
+                    <ext:Button ID="Button8" runat="server" Icon="Disk" Text="保存">
+                        <DirectEvents>
+                            <Click OnEvent="BtnRulesSave"></Click>
+                        </DirectEvents>
                     </ext:Button>
                 </Buttons>
             </ext:FormPanel>
