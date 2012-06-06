@@ -156,6 +156,7 @@ public partial class ExamManage_ADD : System.Web.UI.Page
         
         this.FormPanel2.SetValues(new
                                       {
+                                          _q.ExamGID,
                                           _q.GID,
                                           _q.RulesTypeName,
                                           _q.RulesContent,
@@ -186,6 +187,23 @@ public partial class ExamManage_ADD : System.Web.UI.Page
 
 
 
+    }
+    protected void BtnRulesSave(object s,DirectEventArgs e)
+    {
+        Guid GID;
+        if (tfGID.Text.Trim() == "")
+        {
+            GID = Guid.NewGuid();
+            WXExamRule wr = new WXExamRule();
+            wr.GID = GID;
+            
+        }
+        else
+        {
+            GID=new Guid(tfGID.Text);
+        }
+         
+        
     }
     protected void BookDel(object s,DirectEventArgs e)
     {
