@@ -113,7 +113,7 @@
         SelectCommand="SELECT * FROM [WXSysExamType]"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource4" runat="server" 
         ConnectionString="<%$ ConnectionStrings:WxConn %>" 
-        SelectCommand="SELECT * FROM [vw_ExamPaper_ExamCategory] ORDER BY [ID] DESC"></asp:SqlDataSource>
+        SelectCommand="SELECT * FROM [vw_ExamPaper_ExamCategory] ORDER BY [ID] ASC"></asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSource5" runat="server"
         ConnectionString="<%$ ConnectionStrings:WxConn %>" 
         SelectCommand="SELECT * FROM [WXSysExamQstType] ORDER BY [ID] DESC"></asp:SqlDataSource>
@@ -701,9 +701,10 @@
                 <Items>
                     <ext:TextField ID="TextField1" runat="server"   FieldLabel="试题编号" Disabled="True" DataIndex="QGID">
                     </ext:TextField>
+                    
                     <ext:ComboBox ID="txtqType" Editable="false" FieldLabel="试题类型" DisplayField="TypeName" DataIndex="qType" ValueField="ID" runat="server">
                         <Store>
-                            <ext:Store ID="Store11" DataSourceID="SqlDataSource3" runat="server">
+                            <ext:Store ID="Store11" DataSourceID="SqlDataSource5" runat="server">
                                 <Reader>
                                     <ext:JsonReader>
                                         <Fields>
