@@ -350,7 +350,7 @@
                                                 <Click OnEvent="RulesAdd"></Click>
                                             </DirectEvents>
                                             <Listeners>
-                                                <Click Handler="#{FormPanel2}.getForm().reset();"></Click>
+                                                <Click Handler="#{tfGID}.reset();#{tfRulesName}.reset();#{tfRulesContent}.reset();#{tfRulesScore}.reset();#{tfRulesScoreSet}.reset();#{spSSorts}.reset();"></Click>
                                             </Listeners>
                                         </ext:Button>
                                         <ext:Button runat="server" Text="编辑规则" Icon="CogEdit" >
@@ -649,7 +649,7 @@
             </ext:FormPanel>
         </Items>
     </ext:Window>
-    <ext:Window ID="Window2" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Height="370"  Closable="True"   Collapsible="false"   Icon="Application"
+    <ext:Window ID="Window2" runat="server" Modal="true"  ShowOnLoad="false"  Hidden="True" Height="390"  Closable="True"   Collapsible="false"   Icon="Application"
         Title="规则添加" Width="700">
         <Items>
             <ext:FormPanel ID="FormPanel2" runat="server" Margins="0 5 5 5" ButtonAlign="Right"  Region="East" Padding="5">
@@ -681,7 +681,7 @@
                                         AlternateIncrementValue="10"    
                                         runat="server">
                     </ext:SpinnerField>
-                    <ext:SpinnerField ID="SpinnerField1" FieldLabel="题型排序" DataIndex="SSorts" runat="server">
+                    <ext:SpinnerField ID="spSSorts" FieldLabel="题型排序" DataIndex="SSorts" runat="server">
                     </ext:SpinnerField>
                 </Items>
                 <Buttons>
