@@ -133,7 +133,10 @@ public partial class ExamManage_ADD : System.Web.UI.Page
                                           q.eHot,
                                           q.ePoints
                                       });
-        
+        this.FormPanel2.SetValues(new
+                                      {
+                                          q.ExamGID
+                                      });
 
     }
     protected void RulesAdd(object s,DirectEventArgs e)
@@ -146,7 +149,18 @@ public partial class ExamManage_ADD : System.Web.UI.Page
     }
     protected void RulesDel(object s,DirectEventArgs e)
     {
-        
+        Guid GID;
+        if (tfGID.Text.Trim() == "")
+        {
+            X.MessageBox.Alert("错误","请选择一个条目").Show();
+        }
+        else
+        {
+            GID = new Guid(tfGID.Text);
+            WXExamRule wr = new WXExamRule(x => x.GID == GID);
+            wr.Delete();
+        }
+        GridPanel2.DataBind();
     }
     protected void RowSelect2(object sender, DirectEventArgs e)
     {
@@ -196,11 +210,32 @@ public partial class ExamManage_ADD : System.Web.UI.Page
             GID = Guid.NewGuid();
             WXExamRule wr = new WXExamRule();
             wr.GID = GID;
-            
+            wr.ExamGID=new Guid(tfExamGID.Text);
+            wr.RulesTypeName = tfRulesName.Text;
+            wr.RulesTypeID = 0;
+            wr.RulesContent = tfRulesContent.Text;
+            wr.SSorts = int.Parse(spSSorts.Number.ToString());
+            wr.RulesTitle = tfRulesName.Text;
+            wr.RulesScore = int.Parse(tfRulesScore.Number.ToString());
+            wr.RulesScoreSet = tfRulesScoreSet.Number.ToString();
+            wr.Save();
+
+
         }
         else
         {
             GID=new Guid(tfGID.Text);
+            WXExamRule wr = new WXExamRule(x=>x.GID==GID);
+            wr.GID = GID;
+            wr.ExamGID = new Guid(tfExamGID.Text);
+            wr.RulesTypeName = tfRulesName.Text;
+            wr.RulesTypeID = 0;
+            wr.RulesContent = tfRulesContent.Text;
+            wr.SSorts = int.Parse(spSSorts.Number.ToString());
+            wr.RulesTitle = tfRulesName.Text;
+            wr.RulesScore = int.Parse(tfRulesScore.Number.ToString());
+            wr.RulesScoreSet = tfRulesScoreSet.Number.ToString();
+            wr.Save();
         }
          
         
